@@ -852,8 +852,10 @@ nav.scrolled { background:rgba(255,252,247,.97); box-shadow:0 1px 0 var(--bdr); 
 <div style="text-align:center;max-width:360px;padding:2rem;">
 <div style="font-family:'EB Garamond',serif;font-size:1.8rem;color:#C09030;margin-bottom:.3rem;">Women on a Mission</div>
 <div style="font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:2.5rem;">Investor Access</div>
+<input id="pw-email" type="email" placeholder="Your email address"
+  style="width:100%;padding:.75rem 1rem;background:rgba(255,255,255,.06);border:1px solid rgba(192,144,48,.25);color:#fff;font-family:'Inter',sans-serif;font-size:.9rem;outline:none;text-align:center;letter-spacing:.04em;margin-bottom:.6rem;">
 <div style="position:relative;width:100%;margin-bottom:.8rem;">
-<input id="pw-input" type="password" placeholder="Enter password" autofocus
+<input id="pw-input" type="password" placeholder="Enter password"
   style="width:100%;padding:.75rem 2.5rem .75rem 1rem;background:rgba(255,255,255,.06);border:1px solid rgba(192,144,48,.25);color:#fff;font-family:'Inter',sans-serif;font-size:.9rem;outline:none;text-align:center;letter-spacing:.08em;">
 <button id="pw-toggle" type="button" style="position:absolute;right:.6rem;top:50%;transform:translateY(-50%);background:none;border:none;color:rgba(255,255,255,.35);cursor:pointer;font-size:.75rem;letter-spacing:.06em;" aria-label="Show password">SHOW</button>
 </div>
@@ -864,9 +866,18 @@ nav.scrolled { background:rgba(255,252,247,.97); box-shadow:0 1px 0 var(--bdr); 
 <script>
 (function(){
 var k=atob('d29hbQ==');
+var emailInp=document.getElementById('pw-email');
 var inp=document.getElementById('pw-input');
 var tog=document.getElementById('pw-toggle');
-function check(){if(inp.value===k){document.getElementById('pw-gate').style.display='none';}else{document.getElementById('pw-err').textContent='Incorrect password';inp.value='';}}
+var err=document.getElementById('pw-err');
+function check(){
+  var email=emailInp.value.trim();
+  if(!email||!email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)){err.textContent='Please enter your email';emailInp.focus();return;}
+  if(inp.value!==k){err.textContent='Incorrect password';inp.value='';return;}
+  fetch('https://formsubmit.co/ajax/valerie@boffy.one',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({email:email,_subject:'WOAM Investor Access: '+email,timestamp:new Date().toISOString()})}).catch(function(){});
+  document.getElementById('pw-gate').style.display='none';
+}
+emailInp.addEventListener('keydown',function(e){if(e.key==='Enter'){inp.focus();}});
 inp.addEventListener('keydown',function(e){if(e.key==='Enter')check();});
 document.getElementById('pw-submit').addEventListener('click',check);
 tog.addEventListener('click',function(){if(inp.type==='password'){inp.type='text';tog.textContent='HIDE';}else{inp.type='password';tog.textContent='SHOW';}inp.focus();});
