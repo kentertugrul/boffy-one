@@ -430,11 +430,10 @@ body { padding-top: 52px; }
 </div>
 <script>
 (function(){
-var h='f427774f5eca76db15638c9d869fe122f9afa5f4576636dddfac690685c8841c';
-function s(p){return crypto.subtle.digest('SHA-256',new TextEncoder().encode(p)).then(function(b){return Array.from(new Uint8Array(b)).map(function(x){return x.toString(16).padStart(2,'0')}).join('')});}
+var k=atob('d29hbWFzY2VudA==');
 var inp=document.getElementById('pw-input');
 var tog=document.getElementById('pw-toggle');
-function check(){s(inp.value).then(function(d){if(d===h){document.getElementById('pw-gate').style.display='none';}else{document.getElementById('pw-err').textContent='Incorrect password';inp.value='';}});}
+function check(){if(inp.value===k){document.getElementById('pw-gate').style.display='none';}else{document.getElementById('pw-err').textContent='Incorrect password';inp.value='';}}
 inp.addEventListener('keydown',function(e){if(e.key==='Enter')check();});
 document.getElementById('pw-submit').addEventListener('click',check);
 tog.addEventListener('click',function(){if(inp.type==='password'){inp.type='text';tog.textContent='HIDE';}else{inp.type='password';tog.textContent='SHOW';}inp.focus();});
