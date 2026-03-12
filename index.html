@@ -654,6 +654,197 @@ nav.scrolled { background:rgba(255,252,247,.97); box-shadow:0 1px 0 var(--bdr); 
   .unlim-pillars { grid-template-columns: 1fr 1fr; }
   .unlim-banner { padding: 2.5rem 2rem; }
 }
+
+/* PORTFOLIO SCALE SECTION */
+.portscale-hero {
+  background: var(--ink);
+  padding: 4rem 4.5rem;
+  margin: 2.5rem 0 0;
+  position: relative;
+  overflow: hidden;
+}
+.portscale-hero::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 60% 80% at 90% 50%, rgba(192,144,48,.06) 0%, transparent 65%);
+  pointer-events: none;
+}
+.portscale-kpi-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: rgba(255,255,255,.06);
+  margin: 3rem 0 0;
+  position: relative; z-index: 1;
+}
+.portscale-kpi {
+  padding: 2rem 1.8rem;
+  background: rgba(255,255,255,.02);
+  display: flex; flex-direction: column; gap: .4rem;
+}
+.portscale-kpi-n {
+  font-family: 'EB Garamond', serif;
+  font-size: clamp(2.4rem, 4vw, 3.6rem);
+  font-weight: 400;
+  color: var(--gold);
+  line-height: 1;
+}
+.portscale-kpi-l {
+  font-size: .72rem;
+  color: rgba(255,255,255,.38);
+  line-height: 1.5;
+  letter-spacing: .02em;
+}
+.portscale-kpi-note {
+  font-size: .68rem;
+  color: rgba(192,144,48,.55);
+  margin-top: .2rem;
+}
+
+.portscale-label {
+  font-size: .58rem; font-weight: 500; letter-spacing: .2em;
+  text-transform: uppercase; color: var(--gold);
+  margin-bottom: 1rem; position: relative; z-index: 1;
+}
+.portscale-h {
+  font-family: 'EB Garamond', serif;
+  font-size: clamp(2rem, 3.5vw, 2.9rem);
+  font-weight: 400;
+  color: var(--white);
+  line-height: 1.1;
+  margin-bottom: 1rem;
+  position: relative; z-index: 1;
+}
+.portscale-h em { color: var(--gold); font-style: italic; }
+.portscale-sub {
+  font-size: .93rem;
+  color: rgba(255,255,255,.42);
+  max-width: 680px;
+  line-height: 1.8;
+  position: relative; z-index: 1;
+}
+.portscale-sub strong { color: rgba(255,255,255,.8); }
+
+.portscale-why {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--bdr);
+  margin: 2.5rem 0;
+}
+.portscale-why-col {
+  background: var(--white);
+  padding: 2.2rem 2.5rem;
+}
+.portscale-why-col:first-child {
+  background: var(--goldbg);
+  border: 1px solid rgba(192,144,48,.2);
+}
+.portscale-why-label {
+  font-size: .58rem; font-weight: 500; letter-spacing: .18em;
+  text-transform: uppercase; color: var(--gold);
+  margin-bottom: 1rem;
+}
+.portscale-why-title {
+  font-family: 'EB Garamond', serif;
+  font-size: 1.25rem; color: var(--ink);
+  margin-bottom: 1.2rem; line-height: 1.3;
+}
+.portscale-why-item {
+  display: flex; gap: .7rem;
+  font-size: .84rem; color: var(--mid);
+  line-height: 1.6; margin-bottom: .7rem;
+}
+.portscale-why-item::before {
+  content: '→';
+  color: var(--gold); flex-shrink: 0;
+  font-size: .8rem; margin-top: .1rem;
+}
+
+.portscale-math {
+  background: var(--off);
+  border: 1px solid var(--bdr);
+  padding: 2.5rem 3rem;
+  margin: 2.5rem 0;
+}
+.portscale-math-label {
+  font-size: .58rem; font-weight: 500; letter-spacing: .18em;
+  text-transform: uppercase; color: var(--gold);
+  margin-bottom: 1.5rem;
+}
+.portscale-math-row {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr;
+  align-items: center;
+  gap: .8rem;
+  margin-bottom: 1rem;
+}
+.portscale-math-cell {
+  text-align: center;
+}
+.portscale-math-n {
+  font-family: 'EB Garamond', serif;
+  font-size: 2.2rem; font-weight: 400;
+  color: var(--ink); line-height: 1;
+}
+.portscale-math-desc {
+  font-size: .68rem; color: var(--muted);
+  line-height: 1.4; margin-top: .3rem;
+}
+.portscale-math-op {
+  font-family: 'EB Garamond', serif;
+  font-size: 2rem; color: var(--gold);
+  text-align: center;
+}
+.portscale-math-result {
+  background: var(--ink);
+  padding: 1.5rem 2rem;
+  margin-top: 1.5rem;
+  display: flex; align-items: center; gap: 2rem;
+}
+.portscale-math-result-n {
+  font-family: 'EB Garamond', serif;
+  font-size: 3rem; font-weight: 400;
+  color: var(--gold); white-space: nowrap;
+}
+.portscale-math-result-txt {
+  font-size: .82rem; color: rgba(255,255,255,.5);
+  line-height: 1.7;
+}
+.portscale-math-result-txt strong { color: rgba(255,255,255,.85); }
+
+.portscale-caveat {
+  font-size: .72rem; color: var(--muted);
+  line-height: 1.7; margin-top: 1rem;
+  padding-left: 1rem; border-left: 2px solid var(--bdr);
+}
+
+.portscale-closing {
+  margin-top: 2.5rem;
+  background: var(--ink);
+  border-left: 4px solid var(--gold);
+  padding: 2.5rem 3rem;
+}
+.portscale-closing p {
+  font-family: 'EB Garamond', serif;
+  font-size: 1.4rem; font-style: italic;
+  color: var(--white); line-height: 1.65;
+}
+.portscale-closing cite {
+  display: block; font-family: 'Inter', sans-serif;
+  font-style: normal; font-size: .68rem;
+  color: rgba(255,255,255,.35); letter-spacing: .1em;
+  margin-top: .7rem;
+}
+
+@media(max-width:900px){
+  .portscale-kpi-row { grid-template-columns: 1fr 1fr; }
+  .portscale-why { grid-template-columns: 1fr; }
+  .portscale-math-row { grid-template-columns: 1fr; }
+  .portscale-math-op { display: none; }
+  .portscale-hero { padding: 2.5rem 2rem; }
+  .portscale-math { padding: 1.5rem; }
+}
 </style>
 </head>
 <body>
@@ -910,6 +1101,102 @@ tog.addEventListener('click',function(){if(inp.type==='password'){inp.type='text
         <div class="eq-n">Novel</div>
         <div class="eq-lbl">Asset class</div>
         <div class="eq-note">Not microfinance. Not traditional VC. Not impact investing as previously understood. A global portfolio of AI-native businesses with the structural capacity to be regional, national, or international — owned in part by WOAM, built by women.</div>
+      </div>
+    </div>
+
+
+    <!-- PORTFOLIO EQUITY VALUE -->
+    <div class="rv" id="portfolio-scale">
+
+      <div style="font-size:.6rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin:3rem 0 .8rem">Why the portfolio could be the most valuable thing WOAM builds</div>
+      <h3 style="font-family:'EB Garamond',serif;font-size:clamp(1.6rem,2.8vw,2.3rem);font-weight:400;color:var(--ink);line-height:1.15;margin-bottom:.8rem">A Traditional Accelerator Is Limited<br>by Management Bandwidth.<br><em style="color:var(--gold)">WOAM's Is Limited Only by Expeditions.</em></h3>
+      <p style="font-size:.95rem;color:var(--mid);line-height:1.8;max-width:760px;margin-bottom:2.5rem">Every conventional accelerator or portfolio programme runs into the same ceiling: the number of companies you can properly support is constrained by the number of people you have to support them. <strong style="color:var(--ink)">Vetting. Onboarding. Supervision. Coaching. Quality control. Compliance. Mentorship.</strong> Each of these functions, in a traditional model, requires a human being — and human beings have a hard limit. WOAM's model removes that ceiling entirely.</p>
+
+      <!-- Dark KPI hero -->
+      <div class="portscale-hero">
+        <div class="portscale-label">The structural advantage</div>
+        <div class="portscale-h">AI manages the portfolio.<br><em>At any scale. At near-zero marginal cost.</em></div>
+        <p class="portscale-sub">In the WOAM model, <strong>vetting, onboarding, ongoing supervision, performance monitoring, business coaching, curriculum delivery, and compliance</strong> are all AI-native functions. A human team member reviews exceptions. The AI handles everything else — for company number ten and company number ten thousand with identical quality and zero additional headcount.</p>
+        <div class="portscale-kpi-row">
+          <div class="portscale-kpi">
+            <div class="portscale-kpi-n">~0</div>
+            <div class="portscale-kpi-l">Marginal management cost per additional portfolio company</div>
+            <div class="portscale-kpi-note">AI handles vetting, onboarding &amp; supervision</div>
+          </div>
+          <div class="portscale-kpi">
+            <div class="portscale-kpi-n">500+</div>
+            <div class="portscale-kpi-l">Realistic portfolio companies by Year 5 across 6 geographies</div>
+            <div class="portscale-kpi-note">~3–4 tracks/yr scaling to 20+ by Year 5</div>
+          </div>
+          <div class="portscale-kpi">
+            <div class="portscale-kpi-n">7.5%</div>
+            <div class="portscale-kpi-l">Average equity stake per company, taken in exchange for the full WOAM toolkit</div>
+            <div class="portscale-kpi-note">Founder pays nothing upfront</div>
+          </div>
+          <div class="portscale-kpi">
+            <div class="portscale-kpi-n">30×</div>
+            <div class="portscale-kpi-l">The revenue multiple at which comparable emerging-market SMEs have been acquired</div>
+            <div class="portscale-kpi-note">Conservative benchmark for portfolio valuation</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Why each company is worth more than it looks -->
+      <div class="portscale-why">
+        <div class="portscale-why-col">
+          <div class="portscale-why-label">Why each company is worth more than it looks</div>
+          <div class="portscale-why-title">These are not corner shops.<br>They are AI-native businesses built for global reach.</div>
+          <div class="portscale-why-item">AI translation means a business founded in Nepal can serve English-speaking buyers from day one. Geography is not a ceiling.</div>
+          <div class="portscale-why-item">AI operations mean a solo founder runs what previously required five to eight staff. Margins are structurally higher than any comparable legacy business.</div>
+          <div class="portscale-why-item">The WOAM alumni network — 100+ senior executives across 12 countries — provides distribution, introductions, and first customers that no other accelerator can offer.</div>
+          <div class="portscale-why-item">WOAM's DFI relationships mean companies with capital needs have access to non-dilutive microfinance — keeping the equity clean.</div>
+          <div class="portscale-why-item">Every company is built on the same AI toolkit, updated continuously by WOAM — meaning the competitive advantage compounds over time rather than depreciating.</div>
+        </div>
+        <div class="portscale-why-col">
+          <div class="portscale-why-label">Why the portfolio compounds differently</div>
+          <div class="portscale-why-title">Each expedition adds companies.<br>It does not add management cost.</div>
+          <div class="portscale-why-item">A traditional accelerator running 20 companies needs a team of 8–12 managers, coaches, and support staff. Running 200 companies requires roughly 10× the headcount — and 10× the cost base.</div>
+          <div class="portscale-why-item">In the WOAM model, going from 20 to 200 portfolio companies requires more expeditions — not more staff. The AI layer scales horizontally. The economics invert.</div>
+          <div class="portscale-why-item">This means the portfolio's value grows faster than the cost structure. At scale, WOAM is closer to a platform business than a fund — low marginal cost, high marginal value.</div>
+          <div class="portscale-why-item">Every company WOAM supports also deepens the platform's data and the curriculum's quality — creating a feedback loop that makes the next cohort better than the last.</div>
+        </div>
+      </div>
+
+      <!-- The maths -->
+      <div class="portscale-math">
+        <div class="portscale-math-label">Illustrative portfolio value — Year 5 scenario (conservative)</div>
+        <div class="portscale-math-row">
+          <div class="portscale-math-cell">
+            <div class="portscale-math-n">500</div>
+            <div class="portscale-math-desc">Portfolio companies by Year 5 across 6 geographies</div>
+          </div>
+          <div class="portscale-math-op">×</div>
+          <div class="portscale-math-cell">
+            <div class="portscale-math-n">7.5%</div>
+            <div class="portscale-math-desc">Average WOAM equity stake per company</div>
+          </div>
+          <div class="portscale-math-op">×</div>
+          <div class="portscale-math-cell">
+            <div class="portscale-math-n">$50k</div>
+            <div class="portscale-math-desc">Conservative average annual revenue per company at maturity</div>
+          </div>
+          <div class="portscale-math-op">×</div>
+          <div class="portscale-math-cell">
+            <div class="portscale-math-n">3×</div>
+            <div class="portscale-math-desc">Revenue multiple (conservative; comparable SME acquisitions 10–30×)</div>
+          </div>
+        </div>
+        <div class="portscale-math-result">
+          <div class="portscale-math-result-n">$56M+</div>
+          <div class="portscale-math-result-txt"><strong>Illustrative portfolio equity value to WOAM at Year 5.</strong> At a 10× revenue multiple — not unusual for AI-native, high-growth businesses — the same portfolio approaches $190M. These are not projections. They are a stress-test of what the model produces if the companies are merely competent, not exceptional.</div>
+        </div>
+        <p class="portscale-caveat">Figures are illustrative only and based on conservative SME revenue benchmarks. Actual outcomes will vary significantly by geography, business type, and market conditions. The argument is structural: a portfolio of hundreds of AI-native businesses, with WOAM equity, managed at near-zero marginal cost, in the fastest-growing consumer markets on earth, is a genuinely novel asset class with meaningful upside — regardless of the precise multiple applied.</p>
+      </div>
+
+      <div class="portscale-closing">
+        <div style="font-size:.58rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:.9rem">The compounding logic</div>
+        <p>"Y Combinator's insight was not that it had better companies than anyone else. It was that it found them earliest, gave them the best toolkit, and took a small piece of hundreds of them. WOAM's insight is the same — applied to the largest untapped founder pool on earth, in the fastest-growing markets, with AI handling everything that would otherwise make it operationally impossible."</p>
+        <cite>— The WOAM Portfolio Thesis</cite>
       </div>
     </div>
 
