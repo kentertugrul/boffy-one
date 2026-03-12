@@ -1,0 +1,1532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Women on a Mission — The Next Summit</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink:    #08090D;
+  --ink2:   #0E1220;
+  --ink3:   #141828;
+  --gold:   #C4933A;
+  --goldl:  #D9AE5C;
+  --goldbg: #FBF6EA;
+  --red:    #8B2020;
+  --cream:  #F8F5EF;
+  --off:    #F2EDE4;
+  --mid:    #5A5A5A;
+  --muted:  #999;
+  --white:  #FFF;
+  --border: #E0D9CE;
+}
+*,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+html { scroll-behavior:smooth; }
+body { background:var(--cream); color:var(--ink); font-family:'DM Sans',sans-serif; font-weight:300; line-height:1.65; overflow-x:hidden; }
+
+/* NAV */
+nav { position:fixed; top:0; left:0; right:0; z-index:100; padding:.85rem 3.5rem; display:flex; justify-content:space-between; align-items:center; transition:background .3s,box-shadow .3s; }
+nav.scrolled { background:rgba(8,9,13,.97); box-shadow:0 1px 0 rgba(196,147,58,.12); }
+.nav-logo { font-family:'Cormorant Garamond',serif; font-size:1rem; color:rgba(255,255,255,.4); letter-spacing:.06em; }
+.nav-links { display:flex; gap:2.2rem; list-style:none; }
+.nav-links a { font-size:.65rem; letter-spacing:.16em; text-transform:uppercase; color:rgba(255,255,255,.35); text-decoration:none; transition:color .2s; }
+.nav-links a:hover { color:var(--gold); }
+.nav-badge { font-size:.58rem; letter-spacing:.12em; text-transform:uppercase; color:var(--gold); border:1px solid rgba(196,147,58,.25); padding:.2rem .75rem; }
+
+/* COVER */
+.cover { min-height:100vh; background:var(--ink); display:flex; flex-direction:column; position:relative; overflow:hidden; }
+.cover-glow { position:absolute; top:0; right:0; width:60%; height:100%; background:radial-gradient(ellipse 80% 70% at 70% 40%, #12192A 0%, transparent 70%); pointer-events:none; }
+.cover-glow2 { position:absolute; bottom:0; left:0; width:40%; height:60%; background:radial-gradient(ellipse 60% 60% at 20% 80%, rgba(196,147,58,.04) 0%, transparent 70%); pointer-events:none; }
+.cover-grid { display:grid; grid-template-columns:1fr 1fr; flex:1; position:relative; z-index:1; }
+.cover-l { padding:8rem 4rem 4rem 5rem; display:flex; flex-direction:column; justify-content:center; border-right:1px solid rgba(255,255,255,.04); }
+.cover-r { padding:8rem 5rem 4rem 4rem; display:flex; flex-direction:column; justify-content:center; }
+.eye { font-size:.58rem; font-weight:500; letter-spacing:.22em; text-transform:uppercase; color:var(--gold); margin-bottom:2.5rem; }
+.cover-title { font-family:'Cormorant Garamond',serif; font-size:clamp(3rem,5.5vw,5.2rem); font-weight:300; line-height:1.02; color:var(--white); margin-bottom:1.2rem; }
+.cover-title em { color:var(--gold); font-style:italic; }
+.cover-rule { width:2.5rem; height:1px; background:var(--gold); margin:1.5rem 0; }
+.cover-sub { font-size:.97rem; color:rgba(255,255,255,.38); line-height:1.7; max-width:340px; }
+.cover-tagline { font-family:'Cormorant Garamond',serif; font-size:1.3rem; font-style:italic; color:var(--goldl); line-height:1.55; margin-bottom:2.5rem; max-width:400px; }
+.cover-stats { display:flex; flex-direction:column; gap:.9rem; }
+.cst { display:grid; grid-template-columns:6.5rem 1fr; gap:1rem; align-items:baseline; padding:.55rem 0; border-bottom:1px solid rgba(255,255,255,.04); }
+.cst:last-child { border-bottom:none; }
+.cstn { font-family:'Cormorant Garamond',serif; font-size:1.85rem; font-weight:300; color:var(--white); line-height:1; }
+.cstl { font-size:.78rem; color:rgba(255,255,255,.32); line-height:1.4; }
+.cover-bar { background:#050608; padding:.82rem 5rem; display:flex; justify-content:space-between; align-items:center; position:relative; z-index:1; border-top:1px solid rgba(255,255,255,.03); }
+.cover-bar span { font-size:.6rem; color:rgba(255,255,255,.22); letter-spacing:.16em; text-transform:uppercase; }
+.cover-bar a { font-size:.76rem; color:var(--gold); text-decoration:none; letter-spacing:.05em; }
+
+/* SECTION */
+.sec { padding:6rem 0; }
+.sec.dark { background:var(--ink); color:var(--white); }
+.sec.d2 { background:var(--ink2); color:var(--white); }
+.sec.d3 { background:var(--ink3); color:var(--white); }
+.sec.light { background:var(--cream); }
+.sec.off { background:var(--off); }
+.inner { max-width:1080px; margin:0 auto; padding:0 4.5rem; }
+.secey { font-size:.58rem; font-weight:500; letter-spacing:.2em; text-transform:uppercase; color:var(--gold); margin-bottom:.65rem; }
+.sectitle { font-family:'Cormorant Garamond',serif; font-size:clamp(2rem,3.8vw,3rem); font-weight:300; line-height:1.12; margin-bottom:.8rem; }
+.sectitle em { color:var(--gold); font-style:italic; }
+.secrule { width:2.5rem; height:1px; background:var(--gold); margin:1rem 0 2.2rem; }
+.lead { font-size:1rem; color:var(--mid); max-width:660px; line-height:1.78; margin-bottom:3rem; }
+.dark .lead, .d2 .lead, .d3 .lead { color:rgba(255,255,255,.42); }
+
+/* REVEAL */
+.rv { opacity:0; transform:translateY(20px); transition:opacity .65s ease, transform .65s ease; }
+.rv.in { opacity:1; transform:none; }
+
+/* STAT ROW */
+.statrow { display:grid; grid-template-columns:repeat(5,1fr); gap:1px; margin:2.5rem 0; background:rgba(255,255,255,.05); }
+.sb { background:var(--ink2); padding:1.5rem 1.2rem; text-align:center; }
+.sb.acc { background:var(--goldbg); }
+.sbn { font-family:'Cormorant Garamond',serif; font-size:2.8rem; font-weight:300; color:var(--gold); line-height:1; }
+.sb.acc .sbn { color:var(--ink); }
+.sbl { font-size:.71rem; color:rgba(255,255,255,.32); margin-top:.4rem; line-height:1.4; }
+.sb.acc .sbl { color:var(--mid); }
+
+/* PROBLEM */
+.prob-cols { display:grid; grid-template-columns:1fr 1fr; gap:4rem; margin-top:2rem; }
+.pcol p { font-size:.97rem; color:rgba(255,255,255,.52); line-height:1.82; margin-bottom:1.1rem; }
+.pcol p strong { color:var(--white); }
+.pquote { border-left:2px solid var(--gold); padding:1.3rem 1.8rem; background:rgba(255,255,255,.03); margin-top:1.2rem; }
+.pquote p { font-family:'Cormorant Garamond',serif; font-size:1.28rem; font-style:italic; color:var(--goldl); line-height:1.6; }
+.pin { margin-top:1.2rem; padding:1.1rem 1.4rem; border:1px solid rgba(255,255,255,.06); background:rgba(255,255,255,.02); }
+.pin-label { font-size:.62rem; letter-spacing:.14em; text-transform:uppercase; color:var(--gold); margin-bottom:.45rem; }
+.pin-body { font-size:.86rem; color:rgba(255,255,255,.37); line-height:1.6; }
+
+/* ENGINES */
+.engines { display:grid; grid-template-columns:1fr 1fr; gap:1px; margin-top:2.5rem; background:rgba(255,255,255,.05); }
+.eng { background:var(--ink); padding:2.5rem; position:relative; overflow:hidden; transition:background .22s; }
+.eng:hover { background:#0C1020; }
+.eng-n { font-family:'Cormorant Garamond',serif; font-size:4rem; font-weight:300; color:rgba(255,255,255,.03); position:absolute; top:.8rem; right:1.5rem; line-height:1; pointer-events:none; }
+.etag { display:inline-block; font-size:.57rem; letter-spacing:.15em; text-transform:uppercase; font-weight:500; padding:.2rem .62rem; margin-bottom:.85rem; }
+.etag.g { background:rgba(196,147,58,.1); color:var(--goldl); }
+.etag.r { background:rgba(139,32,32,.14); color:#E07070; }
+.ename { font-family:'Cormorant Garamond',serif; font-size:1.7rem; font-weight:300; color:var(--white); margin-bottom:.55rem; line-height:1.15; }
+.edesc { font-size:.87rem; color:rgba(255,255,255,.42); line-height:1.72; margin-bottom:1.1rem; }
+.erev { font-size:.7rem; color:var(--gold); border-top:1px solid rgba(255,255,255,.06); padding-top:.75rem; letter-spacing:.02em; }
+.eng.feat { background:#0A0F1C; border:1px solid rgba(196,147,58,.18); }
+.eng.feat:hover { background:#0C1226; }
+
+/* ── ACCELERATOR DEEP DIVE ── */
+.accel-banner {
+  background:linear-gradient(155deg, #060810 0%, #0B1528 50%, #060810 100%);
+  border:1px solid rgba(196,147,58,.14);
+  padding:4.5rem;
+  margin-bottom:3rem;
+  position:relative;
+  overflow:hidden;
+}
+.accel-banner::before {
+  content:'';
+  position:absolute; top:-80px; right:-80px;
+  width:450px; height:450px; border-radius:50%;
+  background:radial-gradient(circle, rgba(196,147,58,.07) 0%, transparent 65%);
+  pointer-events:none;
+}
+.accel-super { font-size:.58rem; font-weight:500; letter-spacing:.22em; text-transform:uppercase; color:var(--gold); margin-bottom:1.4rem; }
+.accel-h { font-family:'Cormorant Garamond',serif; font-size:clamp(1.9rem,3.3vw,2.7rem); font-weight:300; color:var(--white); line-height:1.15; margin-bottom:1.3rem; }
+.accel-h em { color:var(--gold); font-style:italic; }
+.accel-intro { font-size:.98rem; color:rgba(255,255,255,.47); line-height:1.8; max-width:700px; margin-bottom:1rem; }
+.accel-intro strong { color:rgba(255,255,255,.85); }
+
+/* before/after */
+.ba { margin:2.5rem 0; }
+.ba-label { font-size:.6rem; font-weight:500; letter-spacing:.18em; text-transform:uppercase; color:rgba(255,255,255,.25); margin-bottom:1rem; }
+.ba-grid { display:grid; grid-template-columns:1fr 48px 1fr; }
+.ba-col { padding:2rem 2.2rem; display:flex; flex-direction:column; gap:.75rem; }
+.ba-col.before { background:#0C0E14; border:1px solid rgba(255,255,255,.07); border-right:none; }
+.ba-col.after { background:#0A1020; border:1px solid rgba(196,147,58,.18); border-left:none; }
+.ba-mid { display:flex; align-items:center; justify-content:center; background:#09090F; border-top:1px solid rgba(255,255,255,.05); border-bottom:1px solid rgba(255,255,255,.05); }
+.ba-arrow { font-size:1.2rem; color:var(--gold); opacity:.7; }
+.ba-head { font-family:'Cormorant Garamond',serif; font-size:1.05rem; color:rgba(255,255,255,.55); margin-bottom:.4rem; }
+.ba-col.after .ba-head { color:var(--goldl); }
+.ba-item { display:flex; align-items:flex-start; gap:.65rem; font-size:.85rem; color:rgba(255,255,255,.37); line-height:1.5; }
+.ba-item::before { content:''; flex-shrink:0; width:4px; height:4px; border-radius:50%; background:rgba(255,255,255,.15); margin-top:.52rem; }
+.ba-col.after .ba-item { color:rgba(255,255,255,.6); }
+.ba-col.after .ba-item::before { background:var(--gold); opacity:.55; }
+
+/* thesis cards */
+.thesis-grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:2px; margin:2.5rem 0; background:rgba(255,255,255,.05); }
+.tb { background:#07080C; padding:2rem 1.8rem; }
+.tb-title { font-size:.68rem; font-weight:500; letter-spacing:.14em; text-transform:uppercase; color:var(--gold); margin-bottom:.65rem; }
+.tb-body { font-size:.86rem; color:rgba(255,255,255,.42); line-height:1.7; }
+.tb-body strong { color:rgba(255,255,255,.72); }
+
+/* toolkit */
+.toolkit-intro { font-size:.96rem; color:rgba(255,255,255,.44); line-height:1.78; max-width:700px; margin-bottom:2rem; }
+.toolkit-intro strong { color:rgba(255,255,255,.8); }
+.toolkit { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; margin:2rem 0; }
+.tk { border:1px solid rgba(255,255,255,.07); padding:1.6rem; background:rgba(255,255,255,.02); }
+.tk-t { font-size:.68rem; font-weight:500; letter-spacing:.12em; text-transform:uppercase; color:var(--goldl); margin-bottom:.55rem; }
+.tk-b { font-size:.84rem; color:rgba(255,255,255,.4); line-height:1.66; }
+
+/* equity numbers */
+.equity-bar { display:grid; grid-template-columns:1fr 1fr 1fr; gap:3rem; background:#06080D; border:1px solid rgba(196,147,58,.13); padding:2.5rem 3rem; margin:2.5rem 0; }
+.eq-n { font-family:'Cormorant Garamond',serif; font-size:2.8rem; font-weight:300; color:var(--gold); line-height:1; }
+.eq-lbl { font-size:.67rem; font-weight:500; letter-spacing:.1em; text-transform:uppercase; color:rgba(255,255,255,.27); margin:.3rem 0 .5rem; }
+.eq-note { font-size:.82rem; color:rgba(255,255,255,.38); line-height:1.55; }
+
+/* final thesis */
+.final-thesis { border-left:3px solid var(--gold); padding:1.8rem 2.5rem; background:#040507; margin-top:2.5rem; }
+.final-thesis p { font-family:'Cormorant Garamond',serif; font-size:1.38rem; font-style:italic; color:var(--goldl); line-height:1.65; }
+.final-thesis cite { display:block; font-family:'DM Sans',sans-serif; font-style:normal; font-size:.72rem; color:rgba(255,255,255,.28); letter-spacing:.08em; margin-top:.8rem; }
+
+/* TRACTION */
+.trac-cols { display:grid; grid-template-columns:1fr 1fr; gap:3.5rem; margin-top:2rem; }
+.explist { list-style:none; display:flex; flex-direction:column; }
+.explist li { display:grid; grid-template-columns:58px 1fr; gap:1rem; padding:.58rem 0; border-bottom:1px solid rgba(255,255,255,.05); font-size:.86rem; color:rgba(255,255,255,.42); }
+.explist li:last-child { border-bottom:none; }
+.expy { color:var(--gold); font-size:.74rem; font-weight:500; letter-spacing:.04em; padding-top:.1rem; }
+.founds { display:flex; flex-direction:column; gap:1rem; }
+.fc { background:#09090F; border:1px solid rgba(255,255,255,.06); padding:1.15rem 1.4rem; }
+.fc-name { font-family:'Cormorant Garamond',serif; font-size:1.2rem; font-weight:300; color:var(--white); }
+.fc-role { font-size:.63rem; color:var(--gold); letter-spacing:.12em; text-transform:uppercase; margin:.18rem 0 .45rem; }
+.fc-bio { font-size:.81rem; color:rgba(255,255,255,.36); line-height:1.5; }
+
+/* FINANCIALS */
+.fintable { width:100%; border-collapse:collapse; margin:2rem 0; }
+.fintable th { background:var(--ink2); color:rgba(255,255,255,.65); padding:.75rem 1.2rem; font-size:.74rem; font-weight:500; letter-spacing:.06em; text-align:left; border:1px solid rgba(255,255,255,.07); }
+.fintable th:not(:first-child) { text-align:center; }
+.fintable td { padding:.75rem 1.2rem; font-size:.88rem; border:1px solid rgba(255,255,255,.05); color:rgba(255,255,255,.47); background:#070810; }
+.fintable td:not(:first-child) { text-align:center; }
+.fintable tr.tot td { background:var(--goldbg); color:var(--ink); font-weight:500; font-family:'Cormorant Garamond',serif; font-size:1rem; }
+.fintable td.str { color:rgba(255,255,255,.72); }
+.fin-notes { display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; margin-top:1.5rem; }
+.fn { padding:1.3rem 1.5rem; border:1px solid rgba(255,255,255,.06); background:#06070A; }
+.fn-t { font-size:.66rem; font-weight:500; letter-spacing:.12em; text-transform:uppercase; color:var(--gold); margin-bottom:.45rem; }
+.fn-b { font-size:.83rem; color:rgba(255,255,255,.38); line-height:1.62; }
+
+/* ASK */
+.ask-rows { display:flex; flex-direction:column; gap:1px; margin-top:2rem; background:var(--border); }
+.ask-row { display:grid; grid-template-columns:1.6fr 1fr 1fr 1fr; gap:2rem; align-items:center; padding:2rem 2.2rem; background:var(--white); border-left:3px solid var(--gold); }
+.ask-row.b { border-left-color:var(--red); }
+.ask-row.c { border-left-color:#BBB; }
+.ask-stage { font-family:'Cormorant Garamond',serif; font-size:1.3rem; color:var(--ink); }
+.ask-stage small { font-family:'DM Sans',sans-serif; font-size:.8rem; color:#AAA; }
+.albl { font-size:.6rem; font-weight:500; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); margin-bottom:.28rem; }
+.aval { font-size:.88rem; color:var(--ink); }
+.aamt { font-family:'Cormorant Garamond',serif; font-size:1.55rem; color:var(--gold); }
+.ask-row.b .aamt { color:var(--red); }
+.ask-row.c .aamt { color:#888; }
+.ask-cta { margin-top:1.8rem; padding:1.35rem 2rem; background:var(--ink); display:flex; justify-content:space-between; align-items:center; }
+.ask-cta p { font-size:.86rem; color:rgba(255,255,255,.38); }
+.ask-cta a { font-size:.86rem; color:var(--gold); text-decoration:none; letter-spacing:.05em; border-bottom:1px solid rgba(196,147,58,.28); padding-bottom:.1rem; }
+
+/* CLOSING */
+.closing { min-height:70vh; background:var(--ink); display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:6rem 4rem; position:relative; overflow:hidden; }
+.closing::before { content:''; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:700px; height:700px; border-radius:50%; background:radial-gradient(circle, rgba(196,147,58,.05) 0%, transparent 65%); pointer-events:none; }
+.cl-t { font-family:'Cormorant Garamond',serif; font-size:clamp(2.4rem,4.8vw,4.2rem); font-weight:300; color:var(--white); line-height:1.08; margin-bottom:.8rem; max-width:680px; position:relative; z-index:1; }
+.cl-t em { color:var(--gold); font-style:italic; }
+.cl-rule { width:2.5rem; height:1px; background:var(--gold); margin:1.5rem auto; position:relative; z-index:1; }
+.cl-sub { font-size:.97rem; color:rgba(255,255,255,.38); margin-bottom:2.2rem; position:relative; z-index:1; }
+.cl-email { font-family:'Cormorant Garamond',serif; font-size:1.45rem; color:var(--gold); text-decoration:none; position:relative; z-index:1; border-bottom:1px solid rgba(196,147,58,.28); padding-bottom:.15rem; }
+.cl-conf { font-size:.58rem; color:rgba(255,255,255,.18); letter-spacing:.18em; text-transform:uppercase; margin-top:3rem; position:relative; z-index:1; }
+
+@media(max-width:900px){
+  .cover-grid,.prob-cols,.engines,.thesis-grid,.toolkit,.ba-grid,.equity-bar,.fin-notes,.trac-cols,.ask-row { grid-template-columns:1fr; }
+  .cover-l,.cover-r { padding:6rem 2rem 3rem; }
+  .inner { padding:0 1.8rem; }
+  .cover-bar { padding:.8rem 1.8rem; flex-wrap:wrap; gap:.4rem; }
+  .accel-banner { padding:2.5rem 2rem; }
+  .ba-grid { grid-template-columns:1fr; }
+  .ba-col.before,.ba-col.after { border:1px solid rgba(255,255,255,.07); }
+  .ba-mid { padding:.8rem; }
+  nav { padding:.85rem 1.5rem; }
+  .nav-links { display:none; }
+}
+
+/* ── TAB BAR ── */
+.tab-bar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 200;
+  background: rgba(5,6,8,.98);
+  border-bottom: 1px solid rgba(196,147,58,.1);
+  display: flex;
+  align-items: stretch;
+  padding: 0 3.5rem;
+  height: 52px;
+  gap: 0;
+}
+.tab-bar-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: .9rem;
+  color: rgba(255,255,255,.3);
+  letter-spacing: .06em;
+  display: flex;
+  align-items: center;
+  margin-right: 2.5rem;
+  white-space: nowrap;
+}
+.tab-btn {
+  font-size: .6rem;
+  font-weight: 500;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.3);
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  padding: 0 1.4rem;
+  cursor: pointer;
+  transition: color .2s, border-color .2s;
+  height: 100%;
+  white-space: nowrap;
+}
+.tab-btn:hover { color: rgba(255,255,255,.65); }
+.tab-btn.active {
+  color: var(--gold);
+  border-bottom-color: var(--gold);
+}
+.tab-badge {
+  font-size: .52rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--gold);
+  border: 1px solid rgba(196,147,58,.25);
+  padding: .18rem .65rem;
+  margin-left: auto;
+  align-self: center;
+  white-space: nowrap;
+}
+
+/* ── TAB PANELS ── */
+.tab-panel { display: none; }
+.tab-panel.active { display: block; }
+
+/* push body content below tab bar */
+body { padding-top: 52px; }
+.cover { padding-top: 0; }
+
+/* ── TRACKS TAB ── */
+.trk-hero {
+  min-height: 85vh;
+  background: var(--ink);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding: 7rem 0 5rem;
+}
+.trk-hero::before {
+  content: '';
+  position: absolute; top: 0; right: 0;
+  width: 55%; height: 100%;
+  background: radial-gradient(ellipse 70% 65% at 75% 45%, #0D1828 0%, transparent 70%);
+  pointer-events: none;
+}
+.trk-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+.trk-eyebrow { font-size: .58rem; font-weight: 500; letter-spacing: .22em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.6rem; }
+.trk-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.8rem, 5vw, 4.5rem); font-weight: 300; line-height: 1.04; color: var(--white); margin-bottom: 1rem; }
+.trk-title em { color: var(--gold); font-style: italic; }
+.trk-rule { width: 2.5rem; height: 1px; background: var(--gold); margin: 1.5rem 0 2rem; }
+.trk-lead { font-size: 1rem; color: rgba(255,255,255,.42); line-height: 1.8; max-width: 440px; }
+.trk-stats { display: flex; flex-direction: column; gap: .8rem; }
+.trk-stat { display: grid; grid-template-columns: 5.5rem 1fr; gap: 1rem; align-items: baseline; padding: .6rem 0; border-bottom: 1px solid rgba(255,255,255,.04); }
+.trk-stat:last-child { border-bottom: none; }
+.trk-sn { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 300; color: var(--white); line-height: 1; }
+.trk-sl { font-size: .78rem; color: rgba(255,255,255,.3); line-height: 1.4; }
+
+.trk-structure { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: rgba(255,255,255,.04); margin: 3rem 0; }
+.trk-tier { background: var(--ink2); padding: 2.5rem; }
+.trk-tier-n { font-family: 'Cormorant Garamond', serif; font-size: 3.5rem; font-weight: 300; color: rgba(196,147,58,.12); line-height: 1; margin-bottom: .8rem; }
+.trk-tier-tag { font-size: .57rem; letter-spacing: .15em; text-transform: uppercase; font-weight: 500; color: var(--goldl); background: rgba(196,147,58,.08); padding: .18rem .6rem; display: inline-block; margin-bottom: .8rem; }
+.trk-tier-title { font-family: 'Cormorant Garamond', serif; font-size: 1.45rem; font-weight: 300; color: var(--white); margin-bottom: .8rem; line-height: 1.2; }
+.trk-tier-body { font-size: .87rem; color: rgba(255,255,255,.4); line-height: 1.75; }
+.trk-tier-list { list-style: none; display: flex; flex-direction: column; gap: .55rem; margin-top: 1rem; }
+.trk-tier-list li { font-size: .85rem; color: rgba(255,255,255,.38); padding-left: 1rem; position: relative; line-height: 1.55; }
+.trk-tier-list li::before { content: ''; position: absolute; left: 0; top: .58rem; width: 4px; height: 4px; border-radius: 50%; background: var(--gold); opacity: .45; }
+
+.trk-insight { background: linear-gradient(135deg, #06080E 0%, #0B1320 100%); border: 1px solid rgba(196,147,58,.14); padding: 3rem 3.5rem; margin: 3rem 0; }
+.trk-insight-label { font-size: .6rem; letter-spacing: .18em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; }
+.trk-insight-text { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.2rem, 2vw, 1.6rem); font-style: italic; color: var(--goldl); line-height: 1.65; }
+
+.trk-days { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1px; background: rgba(255,255,255,.04); margin: 3rem 0; }
+.trk-day { background: var(--ink); padding: 1.5rem 1.2rem; }
+.trk-day-n { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 300; color: rgba(255,255,255,.08); line-height: 1; margin-bottom: .5rem; }
+.trk-day-tag { font-size: .56rem; letter-spacing: .13em; text-transform: uppercase; color: var(--gold); margin-bottom: .6rem; }
+.trk-day-body { font-size: .82rem; color: rgba(255,255,255,.36); line-height: 1.6; }
+
+.trk-pricing { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1px; background: rgba(255,255,255,.04); margin: 3rem 0; }
+.trk-price-card { background: var(--ink2); padding: 2rem; }
+.trk-price-card.feat { background: rgba(196,147,58,.06); border: 1px solid rgba(196,147,58,.18); }
+.trk-price-n { font-family: 'Cormorant Garamond', serif; font-size: 2.6rem; font-weight: 300; color: var(--gold); line-height: 1; }
+.trk-price-l { font-size: .68rem; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.3); margin: .35rem 0 .7rem; }
+.trk-price-desc { font-size: .84rem; color: rgba(255,255,255,.38); line-height: 1.65; }
+
+/* ── PLATFORM TAB ── */
+.plt-hero { min-height: 75vh; background: var(--ink); display: flex; flex-direction: column; justify-content: center; padding: 7rem 0 5rem; position: relative; overflow: hidden; }
+.plt-hero::before { content: ''; position: absolute; top: -100px; right: -100px; width: 500px; height: 500px; border-radius: 50%; background: radial-gradient(circle, rgba(196,147,58,.05) 0%, transparent 65%); pointer-events: none; }
+.plt-three { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1px; background: rgba(255,255,255,.04); margin: 3rem 0; }
+.plt-face { background: var(--ink2); padding: 2.5rem; position: relative; overflow: hidden; }
+.plt-face-n { font-family: 'Cormorant Garamond', serif; font-size: 4rem; font-weight: 300; color: rgba(255,255,255,.03); position: absolute; top: .5rem; right: 1rem; line-height: 1; }
+.plt-face-tag { font-size: .56rem; letter-spacing: .15em; text-transform: uppercase; font-weight: 500; color: var(--goldl); background: rgba(196,147,58,.08); padding: .18rem .6rem; display: inline-block; margin-bottom: .8rem; }
+.plt-face-name { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 300; color: var(--white); margin-bottom: .65rem; line-height: 1.2; }
+.plt-face-desc { font-size: .87rem; color: rgba(255,255,255,.4); line-height: 1.75; margin-bottom: 1rem; }
+.plt-face-rev { font-size: .72rem; color: var(--gold); border-top: 1px solid rgba(255,255,255,.06); padding-top: .75rem; }
+
+.plt-tech { display: grid; grid-template-columns: 1fr 1fr; gap: 3.5rem; align-items: start; margin: 3rem 0; }
+.plt-tech-stack { display: flex; flex-direction: column; gap: .8rem; }
+.plt-layer { display: grid; grid-template-columns: 110px 1fr; gap: 1.2rem; align-items: start; padding: 1rem 1.2rem; background: rgba(255,255,255,.025); border-left: 2px solid rgba(196,147,58,.2); }
+.plt-layer-l { font-size: .62rem; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; color: var(--goldl); padding-top: .1rem; }
+.plt-layer-r { font-size: .85rem; color: rgba(255,255,255,.4); line-height: 1.6; }
+.plt-layer-r strong { color: rgba(255,255,255,.72); }
+
+.plt-curriculum { margin: 3rem 0; }
+.plt-summit-row { display: grid; grid-template-columns: 80px 1fr; gap: 1.5rem; align-items: start; padding: 1.4rem 0; border-bottom: 1px solid rgba(255,255,255,.05); }
+.plt-summit-row:last-child { border-bottom: none; }
+.plt-summit-n { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; font-weight: 300; color: rgba(196,147,58,.2); line-height: 1; }
+.plt-summit-name { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 300; color: var(--white); margin-bottom: .4rem; }
+.plt-summit-desc { font-size: .87rem; color: rgba(255,255,255,.4); line-height: 1.7; }
+
+/* ── NETWORK TAB ── */
+.net-hero { min-height: 75vh; background: var(--ink); display: flex; flex-direction: column; justify-content: center; padding: 7rem 0 5rem; position: relative; overflow: hidden; }
+.net-flywheel { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: rgba(255,255,255,.04); margin: 3rem 0; }
+.net-step { background: var(--ink2); padding: 2.5rem; position: relative; }
+.net-step-n { font-family: 'Cormorant Garamond', serif; font-size: 4rem; font-weight: 300; color: rgba(196,147,58,.1); position: absolute; top: 1rem; right: 1.5rem; line-height: 1; }
+.net-step-tag { font-size: .57rem; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); margin-bottom: .7rem; }
+.net-step-title { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 300; color: var(--white); margin-bottom: .65rem; line-height: 1.2; }
+.net-step-body { font-size: .87rem; color: rgba(255,255,255,.4); line-height: 1.75; }
+
+.net-geo { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin: 3rem 0; }
+.net-geo-card { padding: 1.8rem; border: 1px solid rgba(255,255,255,.07); background: rgba(255,255,255,.02); }
+.net-geo-name { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 300; color: var(--white); margin-bottom: .5rem; }
+.net-geo-body { font-size: .84rem; color: rgba(255,255,255,.38); line-height: 1.65; }
+.net-geo-pill { font-size: .58rem; letter-spacing: .1em; text-transform: uppercase; color: var(--gold); border: 1px solid rgba(196,147,58,.2); padding: .15rem .5rem; display: inline-block; margin-bottom: .65rem; }
+
+.net-numbers { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 1px; background: rgba(255,255,255,.04); margin: 3rem 0; }
+.net-num { background: #07080C; padding: 2rem 1.5rem; text-align: center; }
+.net-num-n { font-family: 'Cormorant Garamond', serif; font-size: 2.8rem; font-weight: 300; color: var(--gold); line-height: 1; }
+.net-num-l { font-size: .7rem; color: rgba(255,255,255,.28); margin-top: .45rem; line-height: 1.4; }
+
+@media(max-width:900px) {
+  .tab-bar { padding: 0 1.2rem; gap: 0; }
+  .tab-bar-logo { display: none; }
+  .tab-btn { padding: 0 .8rem; font-size: .55rem; }
+  .trk-grid, .trk-structure, .plt-three, .plt-tech, .net-flywheel, .net-geo, .trk-pricing { grid-template-columns: 1fr; }
+  .trk-days { grid-template-columns: 1fr 1fr; }
+  .net-numbers { grid-template-columns: 1fr 1fr; }
+  .add-idea { grid-template-columns: 1fr; gap: 1.5rem; }
+  .add-grid { padding: 0 2rem 4rem; }
+  .add-cover-inner { padding: 0 2rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- TAB BAR -->
+<div class="tab-bar" id="tabBar">
+  <div class="tab-bar-logo">Women on a Mission</div>
+  <button class="tab-btn active" onclick="switchTab('investor')">Investor Brief</button>
+  <button class="tab-btn" onclick="switchTab('tracks')">The Tracks</button>
+  <button class="tab-btn" onclick="switchTab('platform')">The Platform</button>
+  <button class="tab-btn" onclick="switchTab('network')">The Network</button>
+  <div class="tab-badge">Strictly Confidential</div>
+</div>
+
+<!-- ═══════════════════════ INVESTOR BRIEF TAB ═══════════════════════ -->
+<div class="tab-panel active" id="panel-investor">
+
+<nav id="nav" style="top:52px;">
+  <div class="nav-logo">Women on a Mission</div>
+  <ul class="nav-links">
+    <li><a href="#problem">Problem</a></li>
+    <li><a href="#engines">Model</a></li>
+    <li><a href="#accelerator">The Accelerator</a></li>
+    <li><a href="#traction">Traction</a></li>
+    <li><a href="#ask">The Ask</a></li>
+  </ul>
+</nav>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-glow"></div>
+  <div class="cover-glow2"></div>
+  <div class="cover-grid">
+    <div class="cover-l">
+      <div class="eye">Investor Brief · March 2026</div>
+      <h1 class="cover-title">Women on<br>a Mission<br><em>The Next Summit.</em></h1>
+      <div class="cover-rule"></div>
+      <p class="cover-sub">A for-profit company built on fourteen years of expedition proof. Pre-seed round open to aligned investors.</p>
+    </div>
+    <div class="cover-r">
+      <div class="cover-tagline">"AI is the greatest equaliser in human history. We are going to make sure women get there first."</div>
+      <div class="cover-stats">
+        <div class="cst"><div class="cstn">14 yrs</div><div class="cstl">Proven expedition model operating since 2012</div></div>
+        <div class="cst"><div class="cstn">$1.5M</div><div class="cstl">Raised across 16 expeditions on 4 continents</div></div>
+        <div class="cst"><div class="cstn">~100</div><div class="cstl">Alumni — senior execs and founders, 12+ countries</div></div>
+        <div class="cst"><div class="cstn">2 + 1</div><div class="cstl">Everest summiteers + an AI pioneer with 30 years in machine learning in the founding team</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="cover-bar">
+    <span>Confidential · Not for distribution</span>
+    <a href="/cdn-cgi/l/email-protection#d2bbbca4b7a1a6bda0a192a5bdbfb7bcbfbba1a1bbbdbcfcb1bdbf"><span class="__cf_email__" data-cfemail="2c45425a495f58435e5f6c5b4341494241455f5f454342024f4341">[email&#160;protected]</span></a>
+  </div>
+</div>
+
+<!-- PROBLEM -->
+<section class="sec dark" id="problem">
+  <div class="inner">
+    <div class="secey rv">The Problem</div>
+    <h2 class="sectitle rv">The AI Gender Gap Is<br>the Defining Economic Issue<br>of <em>the Next Decade.</em></h2>
+    <div class="secrule rv"></div>
+    <div class="statrow rv">
+      <div class="sb"><div class="sbn">3.5B</div><div class="sbl">Women with limited AI access today</div></div>
+      <div class="sb"><div class="sbn">68%</div><div class="sbl">Of jobs at high automation risk held by women</div></div>
+      <div class="sb acc"><div class="sbn">$172T</div><div class="sbl">Potential global wealth from closing the gender gap</div></div>
+      <div class="sb"><div class="sbn">Years</div><div class="sbl">Not decades — the window to act is narrow</div></div>
+      <div class="sb"><div class="sbn">#1</div><div class="sbl">First mover fills this gap permanently</div></div>
+    </div>
+    <div class="prob-cols rv">
+      <div class="pcol">
+        <p>For the first time in human history, a woman in rural Rwanda with a basic smartphone can access the equivalent of a business school education — in her language, at zero cost. <strong>AI is the most powerful economic equaliser ever built.</strong></p>
+        <p>But the AI revolution is not arriving equally. The women who most need these tools are the furthest from them. The gap is real, measurable — and closing fast. The question is who closes it, and how.</p>
+        <p>WOAM is building the infrastructure for women's AI access at scale. Not as a charity — as a category-defining commercial enterprise with fourteen years of proof underneath it.</p>
+      </div>
+      <div>
+        <div class="pquote">
+          <p>"The women who learn AI now will be the educators, the business owners, the community leaders of the next generation. The window to shape that is not decades. It is years."</p>
+        </div>
+        <div class="pin" style="margin-top:1.2rem">
+          <div class="pin-label">Whoever fills this gap first fills it permanently</div>
+          <div class="pin-body">The trust networks, the certified educator communities, the local-language content, the brand — these are not things a competitor can replicate quickly. WOAM has been earning this right since 2012.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOUR ENGINES -->
+<section class="sec d2" id="engines">
+  <div class="inner">
+    <div class="secey rv">The Business</div>
+    <h2 class="sectitle rv">Four Interlocking <em>Engines.</em></h2>
+    <div class="secrule rv"></div>
+    <p class="lead rv">Each engine funds and feeds the next. Together they form a business that is commercially self-sustaining from Year 1 — and compounding in ways that take years for competitors to understand, let alone replicate.</p>
+    <div class="engines rv">
+      <div class="eng">
+        <div class="eng-n">01</div>
+        <div class="etag g">Corporate Revenue · Self-funding from Y1</div>
+        <div class="ename">The Tracks</div>
+        <div class="edesc">Premium 7–10 day expedition-based AI leadership programmes for corporate women executives. Up to 10 participants per track across co-sponsoring companies. 3–4 tracks in Year 1 across multiple geographies simultaneously.</div>
+        <div class="erev">Year 1 target: $240k – $400k &nbsp;·&nbsp; Operationally profitable from the first track</div>
+      </div>
+      <div class="eng">
+        <div class="eng-n">02</div>
+        <div class="etag g">SaaS + Sponsorship</div>
+        <div class="ename">The Platform</div>
+        <div class="edesc">WhatsApp-native AI learning platform. Corporate alumni pay $600/year. Local women access it free, subsidised by DFI sponsors. Three distinct user experiences: alumni, local communities, and certified educators.</div>
+        <div class="erev">Year 1 target: $60k+ &nbsp;·&nbsp; Becomes the dominant asset by Year 5</div>
+      </div>
+      <div class="eng feat">
+        <div class="eng-n">03</div>
+        <div class="etag r">Long-Term Equity Asset — Read Below</div>
+        <div class="ename">The Accelerator</div>
+        <div class="edesc">A global portfolio of AI-native, women-led micro-businesses. Not a programme. A new kind of venture asset that has never existed before — built in communities no VC has ever reached.</div>
+        <div class="erev">Equity returns from Year 3–5 &nbsp;·&nbsp; Portfolio compounds with every expedition cohort</div>
+      </div>
+      <div class="eng">
+        <div class="eng-n">04</div>
+        <div class="etag g">Franchise Revenue</div>
+        <div class="ename">The Network</div>
+        <div class="edesc">Local women certified as WOAM AI Educators run micro-franchise operations under the WOAM brand. Self-replicating. Funded locally. Scales without WOAM's direct involvement from Year 3.</div>
+        <div class="erev">Year 3+ revenue &nbsp;·&nbsp; Network effects compound over time</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ACCELERATOR DEEP DIVE -->
+<section class="sec dark" id="accelerator">
+  <div class="inner">
+    <div class="secey rv">The Real Equity Story</div>
+    <h2 class="sectitle rv">The Accelerator:<br><em>A New Kind of Venture Asset.</em></h2>
+    <div class="secrule rv"></div>
+
+    <div class="accel-banner rv">
+      <div class="accel-super">A structural shift in what a small business can be</div>
+      <h3 class="accel-h">For the first time in history,<br>a one-person business can do<br>what used to require <em>fifty.</em></h3>
+      <p class="accel-intro">The traditional constraint on small businesses in emerging markets was never ambition. It was headcount. <strong>A business needed people to do work that couldn't be automated</strong> — customer service, translation, bookkeeping, marketing, legal navigation, logistics coordination. That meant salaries. Salaries meant capital. Capital meant investors, banks, or years of personal savings before you could begin.</p>
+      <p class="accel-intro" style="margin-top:.8rem"><strong>AI dissolves that constraint entirely.</strong> A woman in Kigali with a smartphone and the WOAM toolkit can now run the full back office of a business that would have required five to eight staff a decade ago. She can translate for markets she doesn't speak. Generate her own marketing materials. Navigate legal and regulatory systems. Process payments. Manage customer relationships. Reach buyers in Lagos, Nairobi, or London. The capital required to start: close to zero.</p>
+      <p class="accel-intro" style="margin-top:.8rem">And crucially — <strong>these businesses are not limited to local markets.</strong> AI translation, global e-commerce rails, and mobile payments mean that a business founded in Rwanda can be regional in months and national or international within a year. Geography is no longer destiny.</p>
+
+      <!-- BEFORE / AFTER -->
+      <div class="ba" style="margin-top:2.5rem">
+        <div class="ba-label">What changed — the old world vs. the new</div>
+        <div class="ba-grid">
+          <div class="ba-col before">
+            <div class="ba-head">Before AI: the old constraints</div>
+            <div class="ba-item">Needed 5–10 staff for basic operations — customer service, accounts, marketing, translation, administration</div>
+            <div class="ba-item">Required significant upfront capital before first revenue was possible</div>
+            <div class="ba-item">Limited to local language, local market — geography was destiny</div>
+            <div class="ba-item">Depended on proximity to a city, a bank, a university, a professional network</div>
+            <div class="ba-item">Legal, regulatory, and financial navigation required expensive specialists</div>
+            <div class="ba-item">Marketing required agencies, designers, copywriters — inaccessible at small scale</div>
+            <div class="ba-item">Growth beyond local geography required partnerships, offices, local hires</div>
+          </div>
+          <div class="ba-mid"><div class="ba-arrow">→</div></div>
+          <div class="ba-col after">
+            <div class="ba-head">After AI: the new reality</div>
+            <div class="ba-item">One or two people with a smartphone can handle all of the above — AI is the entire back office</div>
+            <div class="ba-item">Capital requirements approach zero — the primary cost is the founder's time and knowledge</div>
+            <div class="ba-item">AI translation and global commerce rails mean a business in Kigali can sell in London on day one</div>
+            <div class="ba-item">Knowledge, tools, and markets are accessible remotely — location is irrelevant</div>
+            <div class="ba-item">AI drafts contracts, explains regulations in plain language, navigates compliance</div>
+            <div class="ba-item">AI generates copy, designs assets, manages social presence — no agency needed</div>
+            <div class="ba-item">Regional, national, international growth is possible from a single-person operation</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- THREE THESIS CARDS -->
+      <div class="thesis-grid" style="margin-top:2.5rem">
+        <div class="tb">
+          <div class="tb-title">The Asset Class</div>
+          <div class="tb-body"><strong>AI-native, one-to-two person businesses in high-growth emerging markets.</strong> Built on AI tools from day one. Zero legacy infrastructure. Structurally lean in a way that was architecturally impossible five years ago. These are not small versions of large companies — they are a genuinely new commercial entity.</div>
+        </div>
+        <div class="tb">
+          <div class="tb-title">The Distribution Moat</div>
+          <div class="tb-body"><strong>WOAM's expedition network reaches communities no VC has ever accessed.</strong> These are not companies that Sand Hill Road will discover. They will be found by WOAM — or not at all. Fourteen years of earned trust in the world's most remote communities is not a moat any competitor builds in two years.</div>
+        </div>
+        <div class="tb">
+          <div class="tb-title">The Compounding Dynamic</div>
+          <div class="tb-body"><strong>By Year 5, WOAM could hold equity stakes in hundreds of companies</strong> across Rwanda, Nepal, Kyrgyzstan, Namibia, Ethiopia and beyond. Each expedition cohort seeds the next wave. Each wave produces mentors for the one after. The portfolio grows with every track — without proportional cost to WOAM.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TOOLKIT -->
+    <div class="rv">
+      <div style="font-size:.6rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:.9rem">The complete toolkit — what every Accelerator company receives</div>
+      <p class="toolkit-intro">Every woman who enters the WOAM Accelerator receives everything she needs to start and run an AI-native business. In exchange for services that would cost <strong>thousands of dollars from a professional services firm</strong>, WOAM takes a 5–10% equity stake. The individual company is small at inception. The portfolio across hundreds of companies, in markets growing faster than anywhere else on earth, is not.</p>
+      <div class="toolkit">
+        <div class="tk">
+          <div class="tk-t">AI Business Toolkit</div>
+          <div class="tk-b">A curated, continuously updated suite of AI tools adapted for local context and language. Customer service AI, marketing generation, financial management, inventory, supplier communications. The full back office of a modern business — on her phone, in her language, maintained and updated by WOAM as AI evolves.</div>
+        </div>
+        <div class="tk">
+          <div class="tk-t">Incorporation & Legal</div>
+          <div class="tk-b">Guided AI-assisted business registration in local jurisdiction. Contract templates, supplier agreements, terms and conditions. AI-navigated regulatory compliance. The legal infrastructure that previously required a solicitor — provided as part of the WOAM toolkit, in exchange for equity.</div>
+        </div>
+        <div class="tk">
+          <div class="tk-t">Market Access</div>
+          <div class="tk-b">Connection to WOAM's global alumni network of ~100 senior corporate executives across 12 countries. Introduction to local, regional, and international distribution channels. AI tools for breaking beyond local geography — the ability to operate nationally or globally from day one of trading.</div>
+        </div>
+        <div class="tk">
+          <div class="tk-t">Coaching & Mentorship</div>
+          <div class="tk-b">One-to-one mentorship from WOAM corporate alumni. Regular peer cohort sessions. Access to the WOAM platform AI coaching agent — always available, in local language, trained on the full WOAM curriculum. Support that does not disappear after a weekend programme.</div>
+        </div>
+        <div class="tk">
+          <div class="tk-t">Microfinance Access</div>
+          <div class="tk-b">Facilitated access to WOAM's microfinance partners where capital is required. Most businesses in the Accelerator will not need significant external funding — the AI-native model means capital requirements are minimal. Where they do, WOAM's DFI relationships provide the channel.</div>
+        </div>
+        <div class="tk">
+          <div class="tk-t">Living Infrastructure</div>
+          <div class="tk-b">Ongoing access to the WOAM platform as it evolves. As the AI landscape changes, so does the toolkit every Accelerator company has access to. This is not a one-time grant of services — it is a permanent relationship with an infrastructure that improves over time.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- EQUITY MODEL -->
+    <div class="equity-bar rv">
+      <div>
+        <div class="eq-n">5–10%</div>
+        <div class="eq-lbl">Equity per company</div>
+        <div class="eq-note">In exchange for the full WOAM toolkit — incorporation, AI tools, coaching, market access, platform. Value of equivalent professional services: $5,000–$15,000 per company. The founder pays nothing upfront.</div>
+      </div>
+      <div>
+        <div class="eq-n">100s</div>
+        <div class="eq-lbl">Companies by Year 5</div>
+        <div class="eq-note">Every track produces an Accelerator cohort. 3–4 tracks in Year 1 scaling to 20+ by Year 5. Rwanda, Nepal, Kyrgyzstan, Namibia, Ethiopia — each geography adding a new company pipeline at every expedition.</div>
+      </div>
+      <div>
+        <div class="eq-n">Novel</div>
+        <div class="eq-lbl">Asset class</div>
+        <div class="eq-note">Not microfinance. Not traditional VC. Not impact investing as previously understood. A global portfolio of AI-native businesses with the structural capacity to be regional, national, or international — owned in part by WOAM, built by women.</div>
+      </div>
+    </div>
+
+    <div class="final-thesis rv">
+      <p>"Y Combinator built the world's most valuable startup portfolio by reaching the best founders earliest, with the best toolkit. WOAM reaches founders that no one else has found yet — in communities where AI is not a buzzword but a genuine first-ever access to economic capability. The individual companies will be small. There will be hundreds of them. And WOAM will have been there first."</p>
+      <cite>— The WOAM Accelerator Thesis</cite>
+    </div>
+  </div>
+</section>
+
+<!-- TRACTION -->
+<section class="sec d3" id="traction">
+  <div class="inner">
+    <div class="secey rv">Proof of Concept</div>
+    <h2 class="sectitle rv">Fourteen Years of <em>Evidence.</em></h2>
+    <div class="secrule rv"></div>
+    <p class="lead rv">The charity model proves the community, the brand, and the expedition experience at scale. The commercial model monetises what is already working.</p>
+    <div class="trac-cols rv">
+      <ul class="explist">
+        <li><span class="expy">2012</span><span>Everest Base Camp, Nepal — founding expedition, SGD $155k raised</span></li>
+        <li><span class="expy">2014</span><span>Jordan Desert — first international expansion</span></li>
+        <li><span class="expy">2015</span><span>Yamal Peninsula, Siberia — first all-female team with Nenets herders</span></li>
+        <li><span class="expy">2016</span><span>Mongolia — across the steppe by horse and on foot</span></li>
+        <li><span class="expy">2017</span><span>Danakil Depression, Ethiopia — world's hottest inhabited place</span></li>
+        <li><span class="expy">2018</span><span>Bhutan — first all-female SUP river descent</span></li>
+        <li><span class="expy">2019</span><span>Siberut Island, Indonesia — Last Shamans of Indonesia</span></li>
+        <li><span class="expy">2020</span><span>Cambodia — river and jungle expedition</span></li>
+        <li><span class="expy">2021</span><span>Lut Desert, Iran — first all-female team to cross on foot</span></li>
+        <li><span class="expy">2022</span><span>Tian Shan, Kyrgyzstan — 156km through snow-peaked mountains</span></li>
+        <li><span class="expy">2023</span><span>Namib Desert — first all-female team to cross on foot</span></li>
+        <li><span class="expy">2024</span><span>Arctic, Svalbard — polar expedition</span></li>
+      </ul>
+      <div class="founds">
+        <div class="fc"><div class="fc-name">Valerie Boffy</div><div class="fc-role">CEO & Co-Founder</div><div class="fc-bio">6th French woman to summit Everest · 14 years building WOAM · Former worldwide Executive Director, Estée Lauder, Bally & Cartier · Founder, Leparfum.ai</div></div>
+        <div class="fc"><div class="fc-name">Annabelle Bond OBE</div><div class="fc-role">Co-Founder</div><div class="fc-bio">Fastest woman to climb all Seven Summits (360 days) · 4th British woman on Everest · Former: Goldman Sachs, Merrill Lynch, Barclays, Microsoft · Advisor, Arbor Ventures (all-women VC)</div></div>
+        <div class="fc"><div class="fc-name">Kent Ertugrul</div><div class="fc-role">Co-Founder &amp; Chief AI Officer</div><div class="fc-bio">Serial entrepreneur · Multiple exits incl. London AIM listing · China Telecom's sole big data partner · Working with AI and machine learning since 1994 — before the term existed · Built AI-first commercial systems across financial markets, telecoms, and consumer technology · Architect of the WOAM AI platform and curriculum</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINANCIALS -->
+<section class="sec dark">
+  <div class="inner">
+    <div class="secey rv">Financials</div>
+    <h2 class="sectitle rv">Revenue Model &amp; <em>Path to Profitability.</em></h2>
+    <div class="secrule rv"></div>
+    <table class="fintable rv">
+      <thead><tr><th>Revenue Stream</th><th>Year 1</th><th>Year 2</th><th>Year 3</th></tr></thead>
+      <tbody>
+        <tr><td class="str">The Tracks</td><td>$240k – $400k</td><td>$600k – $900k</td><td>$1.2M – $2M</td></tr>
+        <tr><td class="str">The Platform</td><td>$60k+</td><td>$200k+</td><td>$500k+</td></tr>
+        <tr><td class="str">The Accelerator</td><td>—</td><td>Portfolio building</td><td>First equity returns</td></tr>
+        <tr><td class="str">The Network</td><td>—</td><td>Pilot launches</td><td>$100k+</td></tr>
+        <tr class="tot"><td>Total</td><td>$300k – $460k</td><td>$800k – $1.1M</td><td>$1.8M – $2.6M</td></tr>
+      </tbody>
+    </table>
+    <div class="fin-notes rv">
+      <div class="fn"><div class="fn-t">Cost Structure</div><div class="fn-b">Expedition operations · Local educator training · Platform hosting · Team salaries. Track revenues cover operational costs and founder salaries from Year 1. No dependency on external capital to reach first revenue.</div></div>
+      <div class="fn"><div class="fn-t">Path to Profitability</div><div class="fn-b">Bootstrap from Track revenues · Pre-seed $100k closes Days 1–30 · Angel round follows first confirmed track · Series A from Year 2 traction. Minimum viable raise to first track is under $500k.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- THE ASK -->
+<section class="sec off" id="ask">
+  <div class="inner">
+    <div class="secey rv">The Ask</div>
+    <h2 class="sectitle rv">The Investment <em>Opportunity.</em></h2>
+    <div class="secrule rv"></div>
+    <p class="lead rv">Three stages. Each larger than the last. Each unlocked by the traction of the one before.</p>
+    <div class="ask-rows rv">
+      <div class="ask-row">
+        <div><div class="albl">Stage</div><div class="ask-stage">Pre-Seed <small>(Now Open)</small></div></div>
+        <div><div class="albl">Amount</div><div class="aamt">$100,000</div><div style="font-size:.73rem;color:#aaa;margin-top:.15rem">Closes Days 1–30</div></div>
+        <div><div class="albl">Who</div><div class="aval">WOAM alumni, inner circle, aligned angels</div></div>
+        <div><div class="albl">Use of Funds</div><div class="aval">Incorporation, legal, first track setup, platform MVP scope</div></div>
+      </div>
+      <div class="ask-row b">
+        <div><div class="albl">Stage</div><div class="ask-stage">Angel Round</div></div>
+        <div><div class="albl">Amount</div><div class="aamt" style="color:var(--red)">$500k – $1M</div><div style="font-size:.73rem;color:#aaa;margin-top:.15rem">Months 3–6</div></div>
+        <div><div class="albl">Who</div><div class="aval">Impact angels, women-in-tech funds, family offices</div></div>
+        <div><div class="albl">Use of Funds</div><div class="aval">Platform MVP build, Year 1 operational runway, second track</div></div>
+      </div>
+      <div class="ask-row c">
+        <div><div class="albl">Stage</div><div class="ask-stage">Series A / DFI</div></div>
+        <div><div class="albl">Amount</div><div class="aamt" style="color:#999">$3M – $5M</div><div style="font-size:.73rem;color:#aaa;margin-top:.15rem">Year 2</div></div>
+        <div><div class="albl">Who</div><div class="aval">Impact VCs + IFC / UK FCDO / USAID</div></div>
+        <div><div class="albl">Use of Funds</div><div class="aval">Proprietary platform, Accelerator launch, geographic expansion</div></div>
+      </div>
+    </div>
+    <div class="ask-cta rv">
+      <p>To request the full data room or arrange an introductory call</p>
+      <a href="/cdn-cgi/l/email-protection#7b12150d1e080f1409083b0c14161e151612080812141555181416"><span class="__cf_email__" data-cfemail="157c7b637066617a676655627a78707b787c66667c7a7b3b767a78">[email&#160;protected]</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSING -->
+<div class="closing">
+  <h2 class="cl-t">AI is the greatest equaliser<br>in human history.<br><em>We are going to make sure<br>women get there first.</em></h2>
+  <div class="cl-rule"></div>
+  <p class="cl-sub">Two Everest summiteers. One AI pioneer. One company. One very large idea.</p>
+  <a class="cl-email" href="mailto:hello@womenonamission.com">hello@womenonamission.com</a>
+  <div class="cl-conf">Strictly Confidential &middot; Women on a Mission &middot; March 2026 &middot; Not for Distribution</div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- ADDENDUM: THE ACCELERATOR PORTFOLIO — TEN COMPANIES   -->
+<!-- ═══════════════════════════════════════════════════════ -->
+
+<style>
+/* ADDENDUM STYLES */
+.add-cover { background:var(--ink2); padding:7rem 0 5rem; border-top:1px solid rgba(196,147,58,.15); }
+.add-cover-inner { max-width:1080px; margin:0 auto; padding:0 4.5rem; }
+.add-eyebrow { font-size:.58rem; font-weight:500; letter-spacing:.22em; text-transform:uppercase; color:var(--gold); margin-bottom:1.8rem; }
+.add-title { font-family:'Cormorant Garamond',serif; font-size:clamp(2.6rem,5vw,4.2rem); font-weight:300; line-height:1.05; color:var(--white); margin-bottom:1rem; }
+.add-title em { color:var(--gold); font-style:italic; }
+.add-rule { width:2.5rem; height:1px; background:var(--gold); margin:1.5rem 0 2rem; }
+.add-intro { font-size:.98rem; color:rgba(255,255,255,.42); line-height:1.82; max-width:680px; }
+.add-intro strong { color:rgba(255,255,255,.8); }
+.add-thesis { margin-top:2.5rem; padding:1.8rem 2.2rem; border:1px solid rgba(196,147,58,.15); background:rgba(196,147,58,.04); }
+.add-thesis p { font-family:'Cormorant Garamond',serif; font-size:1.22rem; font-style:italic; color:var(--goldl); line-height:1.65; }
+
+/* IDEA CARDS */
+.add-grid { max-width:1080px; margin:0 auto; padding:0 4.5rem 6rem; }
+.add-idea { border-bottom:1px solid rgba(255,255,255,.05); padding:3.5rem 0; display:grid; grid-template-columns:5rem 1fr 280px; gap:2.5rem; align-items:start; }
+.add-idea:last-child { border-bottom:none; }
+.add-n { font-family:'Cormorant Garamond',serif; font-size:3.8rem; font-weight:300; color:rgba(196,147,58,.18); line-height:1; padding-top:.3rem; }
+.add-body {}
+.add-tag { display:inline-block; font-size:.56rem; letter-spacing:.15em; text-transform:uppercase; font-weight:500; padding:.18rem .6rem; background:rgba(196,147,58,.08); color:var(--goldl); margin-bottom:.8rem; }
+.add-name { font-family:'Cormorant Garamond',serif; font-size:clamp(1.5rem,2.3vw,2rem); font-weight:300; color:var(--white); line-height:1.15; margin-bottom:.6rem; }
+.add-name em { font-style:italic; color:var(--goldl); }
+.add-tagline { font-size:.9rem; color:rgba(255,255,255,.42); line-height:1.75; max-width:520px; margin-bottom:1.1rem; }
+.add-why { font-size:.84rem; color:rgba(255,255,255,.32); line-height:1.72; border-left:2px solid rgba(196,147,58,.2); padding-left:1rem; margin-top:.8rem; }
+.add-why strong { color:rgba(255,255,255,.65); }
+.add-metrics { display:flex; flex-direction:column; gap:.7rem; }
+.add-m { padding:.9rem 1.1rem; background:rgba(255,255,255,.025); border:1px solid rgba(255,255,255,.05); }
+.add-ml { font-size:.58rem; letter-spacing:.13em; text-transform:uppercase; color:rgba(255,255,255,.28); margin-bottom:.25rem; }
+.add-mv { font-size:.88rem; color:var(--goldl); font-weight:400; }
+.add-mn { font-size:.77rem; color:rgba(255,255,255,.32); margin-top:.2rem; line-height:1.5; }
+.add-geo { display:flex; gap:.4rem; flex-wrap:wrap; margin-top:.9rem; }
+.add-geo-pill { font-size:.58rem; letter-spacing:.1em; text-transform:uppercase; padding:.18rem .55rem; border:1px solid rgba(255,255,255,.1); color:rgba(255,255,255,.3); }
+
+/* ADDENDUM CLOSING STRIP */
+.add-close { background:var(--ink); padding:2.5rem 0; border-top:1px solid rgba(196,147,58,.1); }
+.add-close-inner { max-width:1080px; margin:0 auto; padding:0 4.5rem; display:flex; justify-content:space-between; align-items:center; }
+.add-close-l { font-size:.82rem; color:rgba(255,255,255,.3); }
+.add-close-l strong { color:rgba(255,255,255,.6); display:block; margin-bottom:.25rem; }
+.add-close-r { font-size:.72rem; color:rgba(255,255,255,.2); letter-spacing:.1em; text-transform:uppercase; }
+
+@media(max-width:860px) {
+  .add-idea { grid-template-columns:1fr; gap:1.5rem; }
+  .add-n { font-size:2.5rem; }
+  .add-grid { padding:0 2rem 4rem; }
+  .add-cover-inner { padding:0 2rem; }
+}
+</style>
+
+<!-- ADDENDUM COVER -->
+<div class="add-cover">
+  <div class="add-cover-inner">
+    <div class="add-eyebrow rv">Addendum · The WOAM Accelerator</div>
+    <h2 class="add-title rv">Ten Businesses That<br>Couldn't Exist <em>Before Now.</em></h2>
+    <div class="add-rule"></div>
+    <p class="add-intro rv">The WOAM Accelerator is built on a single structural insight: <strong>AI has dissolved the human capital constraint that made it impossible to run a sophisticated business alone.</strong> What previously required a team of five to eight people — translation, bookkeeping, legal navigation, customer communication, market research — can now be done by one woman with a smartphone and the right toolkit.</p>
+    <p class="add-intro rv" style="margin-top:.9rem">These are ten of the companies the Accelerator is designed to build. Each one is <strong>AI-native from inception</strong>, requires near-zero startup capital, and can serve global markets from a village. Each one is a business that, five years ago, simply could not have existed.</p>
+    <div class="add-thesis rv">
+      <p>"The individual companies are small. There will be hundreds of them. And WOAM will have been there first — in communities where no other investor has ever looked."</p>
+    </div>
+  </div>
+</div>
+
+<!-- TEN IDEAS -->
+<section class="sec d2">
+<div class="add-grid">
+
+  <!-- 01 REMOTE BOOKKEEPER -->
+  <div class="add-idea rv">
+    <div class="add-n">01</div>
+    <div class="add-body">
+      <div class="add-tag">Finance · Global market</div>
+      <div class="add-name">The Remote <em>Bookkeeper</em></div>
+      <p class="add-tagline">A woman with basic numeracy and the WOAM financial literacy curriculum becomes an AI-assisted remote bookkeeper for small businesses globally — a role in permanent, acute shortage, paying rates that are exceptional in every WOAM geography.</p>
+      <p class="add-why"><strong>Why now:</strong> AI automates the reconciliation and categorisation work that previously consumed 70% of a bookkeeper's time. Her capacity per hour has doubled. Her margin per client has tripled. First revenue is possible within 60 days of certification.</p>
+      <div class="add-geo">
+        <span class="add-geo-pill">Rwanda</span><span class="add-geo-pill">Nepal</span><span class="add-geo-pill">Kyrgyzstan</span><span class="add-geo-pill">Ethiopia</span><span class="add-geo-pill">Namibia</span>
+      </div>
+    </div>
+    <div class="add-metrics">
+      <div class="add-m"><div class="add-ml">Revenue model</div><div class="add-mv">$150–400/client/month</div><div class="add-mn">10 clients = $2,000/month recurring. Churn is extremely low — switching bookkeepers is painful for small businesses.</div></div>
+      <div class="add-m"><div class="add-ml">Capital required</div><div class="add-mv">Laptop + $30/month software</div></div>
+      <div class="add-m"><div class="add-ml">WOAM equity stake</div><div class="add-mv">5–10%</div></div>
+    </div>
+  </div>
+
+  <!-- 02 REMOTE TALENT CONNECTOR -->
+  <div class="add-idea rv">
+    <div class="add-n">02</div>
+    <div class="add-body">
+      <div class="add-tag">Future of work · Global market</div>
+      <div class="add-name">The Remote Talent <em>Connector</em></div>
+      <p class="add-tagline">A woman who understands both her local community's skills and the global remote work market becomes a talent agent for the women around her — matching skilled candidates with remote employers who cannot find reliable, vetted talent through existing platforms.</p>
+      <p class="add-why"><strong>Why now:</strong> AI skills assessment tools can now identify and document capability from practical tests rather than formal credentials — removing the CV gatekeeping barrier that previously made this impossible. Remote payment infrastructure has matured enough to make cross-border payroll trivial.</p>
+      <div class="add-geo">
+        <span class="add-geo-pill">Rwanda</span><span class="add-geo-pill">Nepal</span><span class="add-geo-pill">Ethiopia</span><span class="add-geo-pill">Indonesia</span>
+      </div>
+    </div>
+    <div class="add-metrics">
+      <div class="add-m"><div class="add-ml">Revenue model</div><div class="add-mv">$200–500 placement + $50–150/month</div><div class="add-mn">20 placed workers = $1,000–3,000/month recurring, before new placement commissions.</div></div>
+      <div class="add-m"><div class="add-ml">Capital required</div><div class="add-mv">Zero</div></div>
+      <div class="add-m"><div class="add-ml">WOAM equity stake</div><div class="add-mv">5–10%</div></div>
+    </div>
+  </div>
+
+  <!-- 03 CARBON CREDIT BROKER -->
+  <div class="add-idea rv">
+    <div class="add-n">03</div>
+    <div class="add-body">
+      <div class="add-tag">Climate · B2B · DFI-fundable</div>
+      <div class="add-name">The Carbon Credit <em>Broker</em></div>
+      <p class="add-tagline">Smallholder farmers and forest communities are sitting on verified carbon assets worth hundreds of dollars per hectare annually. A woman who understands both the land and the system becomes the broker who connects them to the global voluntary carbon market — a market that desperately needs exactly what she has.</p>
+      <p class="add-why"><strong>Why now:</strong> Carbon market documentation previously required a team of environmental consultants costing $50,000–150,000 per project. AI now drafts these documents from input data collected on a phone. Small-scale aggregated projects via Verra and the Gold Standard only became viable post-2022.</p>
+      <div class="add-geo">
+        <span class="add-geo-pill">Rwanda</span><span class="add-geo-pill">Ethiopia</span><span class="add-geo-pill">Nepal</span>
+      </div>
+    </div>
+    <div class="add-metrics">
+      <div class="add-m"><div class="add-ml">Revenue model</div><div class="add-mv">10–15% brokerage</div><div class="add-mn">500-hectare project at $20/tonne = $40,000/year. Her share: $4,000–6,000. Recurring.</div></div>
+      <div class="add-m"><div class="add-ml">Market tailwind</div><div class="add-mv">15x growth by 2030</div></div>
+      <div class="add-m"><div class="add-ml">Natural buyers</div><div class="add-mv">Microsoft · Google · WOAM corporates</div></div>
+    </div>
+  </div>
+
+  <!-- 04 MICRO-INSURANCE DESIGNER -->
+  <div class="add-idea rv">
+    <div class="add-n">04</div>
+    <div class="add-body">
+      <div class="add-tag">InsurTech · DFI priority · Structurally new</div>
+      <div class="add-name">The Micro-Insurance <em>Designer</em></div>
+      <p class="add-tagline">A woman trained in insurance basics designs and brokers hyper-local parametric insurance products for communities that traditional insurers have never served — building a business on the single largest uninsured risk pool in the world.</p>
+      <p class="add-why"><strong>Why now:</strong> Actuarial modelling for parametric products — previously requiring specialist teams and years of loss data — can now be built from publicly available climate datasets using AI tools. The regulatory navigation and product documentation that made this inaccessible before 2023 is now AI-assisted. This business could not have existed before.</p>
+      <div class="add-geo">
+        <span class="add-geo-pill">Rwanda</span><span class="add-geo-pill">Ethiopia</span><span class="add-geo-pill">Nepal</span><span class="add-geo-pill">Namibia</span>
+      </div>
+    </div>
+    <div class="add-metrics">
+      <div class="add-m"><div class="add-ml">Revenue model</div><div class="add-mv">15–25% brokerage</div><div class="add-mn">500 policies at $20/year = $1,500–2,500/year. Scales linearly with distribution.</div></div>
+      <div class="add-m"><div class="add-ml">DFI interest</div><div class="add-mv">Extremely high</div><div class="add-mn">IFC, USAID, UK FCDO and the Insurance Development Forum all have active programmes funding exactly this model.</div></div>
+      <div class="add-m"><div class="add-ml">WOAM equity stake</div><div class="add-mv">5–10%</div></div>
+    </div>
+  </div>
+
+  <!-- 05 SOLAR ACCESS BROKER -->
+  <div class="add-idea rv">
+    <div class="add-n">05</div>
+    <div class="add-body">
+      <div class="add-tag">Energy access · Zero capital · Day-one revenue</div>
+      <div class="add-name">The Solar Access <em>Broker</em></div>
+      <p class="add-tagline">Over 600 million people in sub-Saharan Africa have no access to reliable electricity. Pay-as-you-go solar systems that would transform their lives exist, are affordable, and are sold by companies that cannot reach last-mile rural communities without a trusted local agent who understands both the product and the customer.</p>
+      <p class="add-why"><strong>Why now:</strong> PAYG solar has reached unit economics that make rural Africa viable for the first time. Mobile money infrastructure means payment collection is automated. AI customer modelling means she can target customers most likely to complete their payment plan — dramatically reducing default rates that have historically plagued the sector.</p>
+      <div class="add-geo">
+        <span class="add-geo-pill">Rwanda</span><span class="add-geo-pill">Ethiopia</span><span class="add-geo-pill">Namibia</span>
+      </div>
+    </div>
+    <div class="add-metrics">
+      <div class="add-m"><div class="add-ml">Revenue model</div><div class="add-mv">Commission + retention bonus</div><div class="add-mn">50 active customers = $100–250/month recurring + new sale commissions. First sale possible within days.</div></div>
+      <div class="add-m"><div class="add-ml">Capital required</div><div class="add-mv">Zero</div><div class="add-mn">Systems provided by the solar company. Inventory risk is entirely with the manufacturer.</div></div>
+      <div class="add-m"><div class="add-ml">Market size</div><div class="add-mv">600M+ unelectrified</div></div>
+    </div>
+  </div>
+
+  <!-- 06 AGRI-INTELLIGENCE ADVISOR -->
+  <div class="add-idea rv">
+    <div class="add-n">06</div>
+    <div class="add-body">
+      <div class="add-tag">AgriTech · Subscription · IFC-fundable</div>
+      <div class="add-name">The Agri-Intelligence <em>Advisor</em></div>
+      <p class="add-tagline">A one-person precision agriculture advisory practice serving small farmers — turning real-time AI data into decisions that the farmers themselves cannot access. Crop health monitoring, soil analysis, weather risk, and market pricing: delivered weekly, via WhatsApp.</p>
+      <p class="add-why"><strong>Why now:</strong> Satellite soil data, real-time weather modelling, and crop disease detection were enterprise-only tools before 2022. They are now available via APIs at near-zero cost. A trained local advisor with a phone is a precision agriculture firm.</p>
+      <div class="add-geo">
+        <span class="add-geo-pill">Rwanda</span><span class="add-geo-pill">Ethiopia</span><span class="add-geo-pill">Namibia</span><span class="add-geo-pill">Nepal</span>
+      </div>
+    </div>
+    <div class="add-metrics">
+      <div class="add-m"><div class="add-ml">Revenue model</div><div class="add-mv">$3–8/farmer/month</div><div class="add-mn">100 farmers = $300–800/month. One prevented crop failure pays a full year of subscription.</div></div>
+      <div class="add-m"><div class="add-ml">Co-funding available</div><div class="add-mv">IFC · USAID · FCDO</div></div>
+      <div class="add-m"><div class="add-ml">WOAM equity stake</div><div class="add-mv">5–10%</div></div>
+    </div>
+  </div>
+
+  <!-- 07 EXPORT READINESS CONSULTANT -->
+  <div class="add-idea rv">
+    <div class="add-n">07</div>
+    <div class="add-body">
+      <div class="add-tag">Trade · B2B · DFI priority</div>
+      <div class="add-name">The Export Readiness <em>Consultant</em></div>
+      <p class="add-tagline">A woman becomes an AI-assisted export consultant for small local producers — navigating the certification, documentation, buyer relationships, and regulatory compliance that small businesses cannot manage alone. She is the bridge between local production quality and global market access.</p>
+      <p class="add-why"><strong>Why now:</strong> Export documentation, regulatory compliance research, and buyer outreach all required specialist knowledge and professional networks that were completely inaccessible from Kigali or Kathmandu. AI handles the documentation. The relationships come from WOAM's corporate alumni network.</p>
+      <div class="add-geo">
+        <span class="add-geo-pill">Ethiopia</span><span class="add-geo-pill">Rwanda</span><span class="add-geo-pill">Indonesia</span><span class="add-geo-pill">Kyrgyzstan</span>
+      </div>
+    </div>
+    <div class="add-metrics">
+      <div class="add-m"><div class="add-ml">Revenue model</div><div class="add-mv">3–8% of export value</div><div class="add-mn">On a $50,000 coffee export, a 5% fee = $2,500. Managing 5 producers = $12,500 per export cycle.</div></div>
+      <div class="add-m"><div class="add-ml">Market context</div><div class="add-mv">Massively underserved</div><div class="add-mn">Thousands of small producers in each WOAM geography with export-quality product and zero export infrastructure.</div></div>
+      <div class="add-m"><div class="add-ml">WOAM network edge</div><div class="add-mv">LVMH · Kering · Richemont alumni</div></div>
+    </div>
+  </div>
+
+  <!-- 08 WOMEN'S LEGAL NAVIGATOR -->
+  <div class="add-idea rv">
+    <div class="add-n">08</div>
+    <div class="add-body">
+      <div class="add-tag">Access to justice · B2B + B2C · Rights impact</div>
+      <div class="add-name">The Women's <em>Legal Navigator</em></div>
+      <p class="add-tagline">A trained paralegal with AI assistance provides affordable legal document preparation, rights navigation, and government form completion to women in her region — making professional legal support accessible for the first time.</p>
+      <p class="add-why"><strong>Why now:</strong> AI legal research and document drafting — reliable enough to anchor a paralegal practice — became viable in 2023–24. Combined with local language capability and the ability to navigate multiple jurisdictions simultaneously, AI has created a practice model that requires no law degree and no office.</p>
+      <div class="add-geo">
+        <span class="add-geo-pill">Rwanda</span><span class="add-geo-pill">Nepal</span><span class="add-geo-pill">Namibia</span><span class="add-geo-pill">Indonesia</span>
+      </div>
+    </div>
+    <div class="add-metrics">
+      <div class="add-m"><div class="add-ml">Revenue model</div><div class="add-mv">$5–30 per matter + NGO contracts</div><div class="add-mn">Legal aid NGOs, women's rights organisations, and microfinance providers all need paralegal services for their clients. B2B is higher margin than B2C.</div></div>
+      <div class="add-m"><div class="add-ml">Impact metric</div><div class="add-mv">Fully trackable</div><div class="add-mn">Every case resolved, every woman who understands her rights — a measurable DFI outcome.</div></div>
+      <div class="add-m"><div class="add-ml">WOAM equity stake</div><div class="add-mv">5–10%</div></div>
+    </div>
+  </div>
+
+  <!-- 09 MATERNAL HEALTH TRACKER -->
+  <div class="add-idea rv">
+    <div class="add-n">09</div>
+    <div class="add-body">
+      <div class="add-tag">Global health · Government contracts · WHO priority</div>
+      <div class="add-name">The Maternal Health <em>Tracker</em></div>
+      <p class="add-tagline">A trained community health worker becomes an AI-assisted maternal health data collector, advisor, and advocate — serving pregnant women and new mothers who have no access to antenatal care, while building a business that NGOs, governments, and health ministries will pay for because it generates data they desperately need.</p>
+      <p class="add-why"><strong>Why now:</strong> AI risk-scoring tools for pregnancy complications — using symptom data a trained community worker can collect with a phone — have been validated in low-resource settings. Health ministries in every WOAM geography are actively seeking community health worker data to fill gaps in their surveillance systems.</p>
+      <div class="add-geo">
+        <span class="add-geo-pill">Nepal</span><span class="add-geo-pill">Rwanda</span><span class="add-geo-pill">Namibia</span><span class="add-geo-pill">Ethiopia</span>
+      </div>
+    </div>
+    <div class="add-metrics">
+      <div class="add-m"><div class="add-ml">Revenue model</div><div class="add-mv">Programme contracts</div><div class="add-mn">NGO maternal health contracts: $500–2,000/month. Health ministry data contracts: $300–1,000/month. B2B is primary.</div></div>
+      <div class="add-m"><div class="add-ml">Data value</div><div class="add-mv">Significant and growing</div><div class="add-mn">Community-level maternal health data from low-resource settings is actively sought by WHO, academic medical centres, and global health foundations.</div></div>
+      <div class="add-m"><div class="add-ml">Lives at stake</div><div class="add-mv">Real</div></div>
+    </div>
+  </div>
+
+  <!-- 10 MENTAL HEALTH NAVIGATOR -->
+  <div class="add-idea rv">
+    <div class="add-n">10</div>
+    <div class="add-body">
+      <div class="add-tag">Mental health · Highest social return · WHO-endorsed model</div>
+      <div class="add-name">The Mental Health <em>Navigator</em></div>
+      <p class="add-tagline">A trained community mental health navigator — not a therapist, but the trusted local person who understands distress, knows the resources, and bridges the gap between a person in crisis and the professional help they need — serves a community that has no access to clinical mental health services.</p>
+      <p class="add-why"><strong>Why now:</strong> AI-delivered psychoeducation and structured support protocols — supervised by clinical AI systems — have been validated as safe and effective for common mental health conditions. Combined with remote clinical supervision via WhatsApp, this model is clinically safe and commercially sustainable in a way it was not three years ago.</p>
+      <div class="add-geo">
+        <span class="add-geo-pill">Nepal</span><span class="add-geo-pill">Rwanda</span><span class="add-geo-pill">Indonesia</span><span class="add-geo-pill">Ethiopia</span>
+      </div>
+    </div>
+    <div class="add-metrics">
+      <div class="add-m"><div class="add-ml">Revenue model</div><div class="add-mv">B2C + B2B</div><div class="add-mn">Individual sessions: $2–8 sliding scale. NGO contracts: $500–2,000/month. Employer wellness: $200–500/month per employer.</div></div>
+      <div class="add-m"><div class="add-ml">DFI appetite</div><div class="add-mv">Very high</div><div class="add-mn">WHO, USAID, UK FCDO, and every major development foundation have mental health as a stated priority.</div></div>
+      <div class="add-m"><div class="add-ml">Social return</div><div class="add-mv">Highest in portfolio</div></div>
+    </div>
+  </div>
+
+</div>
+</section>
+
+<!-- ADDENDUM CLOSING STRIP -->
+<div class="add-close">
+  <div class="add-close-inner">
+    <div class="add-close-l">
+      <strong>The WOAM Accelerator · Addendum to Investor Brief</strong>
+      These ten ideas represent a selection from a portfolio of twenty AI-native business models developed for the WOAM Accelerator. The full portfolio document is available on request.
+    </div>
+    <div class="add-close-r">Strictly Confidential · March 2026</div>
+  </div>
+</div>
+
+<script>
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('in'); });
+}, { threshold: 0.08 });
+document.querySelectorAll('.rv').forEach(el => observer.observe(el));
+</script>
+
+</div><!-- /panel-investor -->
+
+
+<!-- ═══════════════════════ TRACKS TAB ═══════════════════════ -->
+<div class="tab-panel" id="panel-tracks">
+
+<!-- TRACKS HERO -->
+<div class="trk-hero">
+  <div class="inner" style="position:relative;z-index:1;">
+    <div class="trk-grid">
+      <div>
+        <div class="trk-eyebrow">Engine 01 · The Tracks</div>
+        <h1 class="trk-title">Adventure.<br>AI. <em>Impact.</em><br>All at once.</h1>
+        <div class="trk-rule"></div>
+        <p class="trk-lead">A 7–10 day expedition-based AI leadership programme for corporate women executives. Not a retreat. Not a team-building trip. A carefully designed crucible in which two groups of women — one resource-rich, one resource-poor — transform each other.</p>
+      </div>
+      <div class="trk-stats">
+        <div class="trk-stat"><div class="trk-sn">7–10</div><div class="trk-sl">Days per track. Remote locations across multiple continents.</div></div>
+        <div class="trk-stat"><div class="trk-sn">10</div><div class="trk-sl">Participants per track maximum, from up to four co-sponsoring companies.</div></div>
+        <div class="trk-stat"><div class="trk-sn">3–4</div><div class="trk-sl">Tracks in Year 1, across multiple geographies simultaneously.</div></div>
+        <div class="trk-stat"><div class="trk-sn">$8–10k</div><div class="trk-sl">Per participant. Against the value delivered, exceptional pricing.</div></div>
+        <div class="trk-stat"><div class="trk-sn">$240k–</div><div class="trk-sl">Year 1 revenue target from tracks alone. Self-funding from the first expedition.</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- THE DOUBLE HELIX -->
+<section class="sec d2">
+  <div class="inner">
+    <div class="secey rv">The Central Insight</div>
+    <h2 class="sectitle rv">The Double <em>Helix.</em></h2>
+    <div class="secrule rv"></div>
+    <p class="lead rv">The genius at the centre of the model is a single, counter-intuitive insight that makes WOAM impossible to replicate with a standard training budget.</p>
+    <div class="trk-insight rv">
+      <div class="trk-insight-label">The core principle</div>
+      <div class="trk-insight-text">"Corporate women learn AI most powerfully by teaching it. Local women are transformed not by charity, but by knowledge. The track is the only environment in the world where both happen at once."</div>
+    </div>
+    <div class="prob-cols rv" style="margin-top:2.5rem;">
+      <div class="pcol">
+        <p><strong>For the corporate participants:</strong> AI literacy acquired through the most powerful learning mode that exists — teaching. Personal transformation. A leadership story they will carry for the rest of their careers. And a cohort of peers forged under conditions no conference room ever creates.</p>
+        <p><strong>For the companies that send them:</strong> Genuine ESG impact with measurable outcomes. Differentiated HR investment in their most talented women. A brand story that is authentic because it is real — not a PR exercise, but a programme with documented community impact.</p>
+      </div>
+      <div class="pcol">
+        <p><strong>For the local women:</strong> What no charity can sustainably deliver at scale. Not money that runs out, but capability that compounds. Not dependency, but agency. The tools to build a business, navigate their rights, educate their children — starting from the phone already in their hand.</p>
+        <div class="pquote" style="margin-top:1.2rem;">
+          <p>"We are not giving women a hand up. We are handing them the tools to build the ladder."</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TWO-TIER STRUCTURE -->
+<section class="sec dark">
+  <div class="inner">
+    <div class="secey rv">Programme Architecture</div>
+    <h2 class="sectitle rv">Two Tiers.<br><em>One Transformation.</em></h2>
+    <div class="secrule rv"></div>
+    <p class="lead rv">The two tiers are inseparable. Tier 1 creates the psychological state in which Tier 2 learning lands most deeply. Remove either tier and the model is broken.</p>
+    <div class="trk-structure rv">
+      <div class="trk-tier">
+        <div class="trk-tier-n">01</div>
+        <div class="trk-tier-tag">Days 1–5 · Expedition Phase</div>
+        <div class="trk-tier-title">The Physical and Mental Crucible</div>
+        <p class="trk-tier-body">Remote expedition. Cut from communications. Physical and mental challenge. The NOLS leadership framework: leadership is learnable, lead from everywhere, competence plus character, take care of self and others, be here now.</p>
+        <ul class="trk-tier-list">
+          <li>Decision-making under genuine uncertainty — not simulated pressure</li>
+          <li>Shared vulnerability across hierarchy — the levelling effect of physical challenge</li>
+          <li>Adaptive leadership and stress tolerance under real conditions</li>
+          <li>Influence without authority — leading when the map is gone</li>
+          <li>Self-awareness surfaced by challenge, not by self-assessment survey</li>
+        </ul>
+      </div>
+      <div class="trk-tier">
+        <div class="trk-tier-n">02</div>
+        <div class="trk-tier-tag">Days 6–10 · AI & Community Phase</div>
+        <div class="trk-tier-title">The Teaching and Transfer</div>
+        <p class="trk-tier-body">Pre-trek AI foundation module transitions to a community meeting point. WOAM AI Ascent Toolkit deployed with identified local women educators. Co-exploration workshops. Five Summits curriculum. WOAM AI Educator certification initiated.</p>
+        <ul class="trk-tier-list">
+          <li>Participants teach what they have just learned — gaps surface immediately</li>
+          <li>Local women receive Five Summits AI curriculum in their own language</li>
+          <li>2–3 day co-exploration workshop: corporate and local women working together</li>
+          <li>First WOAM AI Educator certifications issued before departure</li>
+          <li>Alumni platform access begins — the track continues after the track ends</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- A DAY ON THE TRACK -->
+<section class="sec d2">
+  <div class="inner">
+    <div class="secey rv">A Day on the Track</div>
+    <h2 class="sectitle rv">Morning. Afternoon.<br><em>Evening. Repeat.</em></h2>
+    <div class="secrule rv"></div>
+    <div class="trk-days rv">
+      <div class="trk-day">
+        <div class="trk-day-n">AM</div>
+        <div class="trk-day-tag">Physical Challenge</div>
+        <div class="trk-day-body">The terrain is the teacher. Navigation, endurance, collective problem-solving under conditions that cannot be faked. Defences lower. Presence sharpens.</div>
+      </div>
+      <div class="trk-day">
+        <div class="trk-day-n">PM</div>
+        <div class="trk-day-tag">AI Curriculum</div>
+        <div class="trk-day-body">The afternoon turns inward. Real AI tools. Real application. The lessons of the morning — navigating uncertainty, reading the terrain, leading without a map — translate directly into the workshop.</div>
+      </div>
+      <div class="trk-day">
+        <div class="trk-day-n">EVE</div>
+        <div class="trk-day-tag">Community Exchange</div>
+        <div class="trk-day-body">From Day 3 onwards: teaching sessions with local women. Participants explain what they have just learned. The act of teaching consolidates their own understanding.</div>
+      </div>
+      <div class="trk-day">
+        <div class="trk-day-n">D6+</div>
+        <div class="trk-day-tag">Co-Exploration</div>
+        <div class="trk-day-body">Corporate and local women work side by side on real business applications. The hierarchy of expertise dissolves. Local knowledge becomes a competitive asset.</div>
+      </div>
+      <div class="trk-day">
+        <div class="trk-day-n">D10</div>
+        <div class="trk-day-tag">Certification & Departure</div>
+        <div class="trk-day-body">First WOAM AI Educators certified. Alumni platform activated. The network that outlasts the track is already in place before the last tent is packed.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT THE COMPANY GETS -->
+<section class="sec dark">
+  <div class="inner">
+    <div class="secey rv">Corporate Returns</div>
+    <h2 class="sectitle rv">What the Company<br><em>Gets Back.</em></h2>
+    <div class="secrule rv"></div>
+    <p class="lead rv">At $8,000–10,000 per participant, a corporate sending five executives on a 7-day track spends $40,000–50,000. Against the value — AI upskilling, leadership development, team transformation, ESG narrative, and measurable community impact — this is exceptional value. We price at a premium because the experience is premium.</p>
+    <div class="thesis-grid rv">
+      <div class="tb">
+        <div class="tb-title">AI Literacy</div>
+        <div class="tb-body">Participants do not attend a workshop. They teach a workshop. <strong>Learning by doing, learning by teaching</strong> — the two highest-retention modes of learning, combined in a single programme. The AI skills they leave with are real, applied, and retained.</div>
+      </div>
+      <div class="tb">
+        <div class="tb-title">Leadership Development</div>
+        <div class="tb-body">Transferable competencies the expedition delivers: <strong>decision-making under ambiguity, resilience, adaptive leadership, influence without authority, self-awareness, and complex systems thinking</strong> — the exact skills a senior executive cannot acquire in a boardroom.</div>
+      </div>
+      <div class="tb">
+        <div class="tb-title">ESG Impact</div>
+        <div class="tb-body">Measurable, auditable, authentic. Every certified local educator is a documented outcome. Every AI skill transferred is a trackable data point. <strong>Not a CSR exercise — a programme with real community economic impact</strong> that withstands scrutiny.</div>
+      </div>
+    </div>
+    <div class="trk-pricing rv">
+      <div class="trk-price-card">
+        <div class="trk-price-n">$8–10k</div>
+        <div class="trk-price-l">Per participant</div>
+        <div class="trk-price-desc">Includes expedition logistics, full AI curriculum, local community programming, and 12-month post-track alumni platform access.</div>
+      </div>
+      <div class="trk-price-card feat">
+        <div class="trk-price-n">Up to 4</div>
+        <div class="trk-price-l">Co-sponsors per track</div>
+        <div class="trk-price-desc">Shared costs. Shared ESG narrative. Shared alumni network. Each company sends 2–3 executives. The cohort dynamic benefits from cross-company diversity.</div>
+      </div>
+      <div class="trk-price-card">
+        <div class="trk-price-n">$600/yr</div>
+        <div class="trk-price-l">Alumni platform subscription</div>
+        <div class="trk-price-desc">Post-track: ongoing AI curriculum, peer community, advanced workshops, and access to the growing WOAM corporate alumni network across 12+ countries.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</div><!-- /panel-tracks -->
+
+
+<!-- ═══════════════════════ PLATFORM TAB ═══════════════════════ -->
+<div class="tab-panel" id="panel-platform">
+
+<!-- PLATFORM HERO -->
+<div class="plt-hero">
+  <div class="inner" style="position:relative;z-index:1;">
+    <div class="trk-eyebrow">Engine 02 · The Platform</div>
+    <h1 class="trk-title" style="max-width:600px;">The Living<br>Curriculum.<br><em>Always On.</em></h1>
+    <div class="trk-rule"></div>
+    <p class="trk-lead" style="max-width:520px;">An AI-native learning platform that serves corporate alumni, local women's communities, and certified educators — simultaneously. Starts on existing infrastructure. Becomes proprietary. Eventually becomes the most widely distributed women's AI curriculum on earth.</p>
+  </div>
+</div>
+
+<!-- THREE FACES -->
+<section class="sec d2">
+  <div class="inner">
+    <div class="secey rv">Platform Architecture</div>
+    <h2 class="sectitle rv">One Platform.<br><em>Three Faces.</em></h2>
+    <div class="secrule rv"></div>
+    <p class="lead rv">The same underlying platform serves radically different audiences — each with a distinct interface, content depth, and economic model. The intelligence that serves a McKinsey partner also serves a woman in a village in Nepal. The gap between those two experiences is the business.</p>
+    <div class="plt-three rv">
+      <div class="plt-face">
+        <div class="plt-face-n">01</div>
+        <div class="plt-face-tag">Corporate Alumni</div>
+        <div class="plt-face-name">The Alumni Platform</div>
+        <p class="plt-face-desc">A private community and continuing AI education platform for corporate track alumni. Advanced curriculum, peer cohort, expert guest sessions, and a global network of senior women executives who have been through the same experience.</p>
+        <div class="plt-face-rev">$600/year subscription · Revenue from Year 1</div>
+      </div>
+      <div class="plt-face" style="background:rgba(196,147,58,.04);border:1px solid rgba(196,147,58,.12);">
+        <div class="plt-face-n">02</div>
+        <div class="plt-face-tag">Local Communities</div>
+        <div class="plt-face-name">The Local Women's Agent</div>
+        <p class="plt-face-desc">WhatsApp-native, voice-enabled, multilingual. Designed for women with limited prior access and basic smartphones. Delivers the Five Summits curriculum in local languages. Free to the end user — subsidised by DFI partners and corporate sponsors.</p>
+        <div class="plt-face-rev">DFI + sponsor funded · Free to end user · Scales without cost</div>
+      </div>
+      <div class="plt-face">
+        <div class="plt-face-n">03</div>
+        <div class="plt-face-tag">Educator Network</div>
+        <div class="plt-face-name">The Educator System</div>
+        <p class="plt-face-desc">The certification and support backbone for WOAM AI Educators running micro-franchise operations. Training materials, assessment tools, community management, and the connection to the global WOAM network that makes the franchise model credible.</p>
+        <div class="plt-face-rev">Franchise infrastructure · Enables Engine 04 · Network revenue from Year 3</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TECHNICAL ARCHITECTURE -->
+<section class="sec dark">
+  <div class="inner">
+    <div class="secey rv">Technical Architecture</div>
+    <h2 class="sectitle rv">Built for the<br><em>Last Mile.</em></h2>
+    <div class="secrule rv"></div>
+    <p class="lead rv">Every architectural decision is made for the woman with the most constrained access. If it works on a basic Android with intermittent 3G in a village in Rwanda, it works everywhere. That constraint is not a limitation — it is the product.</p>
+    <div class="plt-tech rv">
+      <div class="plt-tech-stack">
+        <div class="plt-layer">
+          <div class="plt-layer-l">Primary access</div>
+          <div class="plt-layer-r"><strong>WhatsApp + SMS</strong> — the platform the world's most digitally excluded women already use. Zero new app download. Zero new account creation. Zero data cost barrier.</div>
+        </div>
+        <div class="plt-layer">
+          <div class="plt-layer-l">Voice layer</div>
+          <div class="plt-layer-r"><strong>Multilingual voice interaction</strong> — literacy is not a prerequisite. The curriculum is accessible to women who cannot read. Audio delivery via WhatsApp voice notes means the lesson arrives in the format she already uses.</div>
+        </div>
+        <div class="plt-layer">
+          <div class="plt-layer-l">Language</div>
+          <div class="plt-layer-r"><strong>Local language first</strong> — English is not the default. Kinyarwanda, Nepali, Kyrgyz, Amharic, and the languages of each track geography are the primary delivery languages.</div>
+        </div>
+        <div class="plt-layer">
+          <div class="plt-layer-l">Infrastructure</div>
+          <div class="plt-layer-r"><strong>Existing rails in Year 1</strong> (WhatsApp Business API, open-source LMS). Proprietary platform from Year 2 onwards, built on the user data and curriculum IP accumulated in Year 1.</div>
+        </div>
+        <div class="plt-layer">
+          <div class="plt-layer-l">AI backbone</div>
+          <div class="plt-layer-r"><strong>Continuously updated</strong> — as AI tools evolve, so does the curriculum every user has access to. The platform is never out of date because updating it is the core editorial function of the WOAM team.</div>
+        </div>
+      </div>
+      <div>
+        <div class="trk-insight" style="margin:0;">
+          <div class="trk-insight-label">The access principle</div>
+          <div class="trk-insight-text" style="font-size:1.15rem;">"She needs a phone. And she needs someone to show her what it can do. That is the gap we are closing — and it is closing fast. Whoever fills it first, fills it permanently."</div>
+        </div>
+        <div class="pin" style="margin-top:1.5rem;">
+          <div class="pin-label">Why WhatsApp-first matters commercially</div>
+          <div class="pin-body">The corporate alumni platform and the local women's agent share the same underlying architecture. This means the cost of serving one subsidises the other. The revenue from corporate subscriptions funds the free tier for local communities. The business model is structurally self-funding.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FIVE SUMMITS CURRICULUM -->
+<section class="sec d2">
+  <div class="inner">
+    <div class="secey rv">The Curriculum</div>
+    <h2 class="sectitle rv">Five Summits.<br><em>Every Woman Climbs All of Them.</em></h2>
+    <div class="secrule rv"></div>
+    <p class="lead rv">Whether she is a corporate executive or a woman who has never left her village, the Five Summits curriculum is the same. The depth and application differ. The destination does not.</p>
+    <div class="plt-curriculum rv">
+      <div class="plt-summit-row">
+        <div class="plt-summit-n">01</div>
+        <div>
+          <div class="plt-summit-name">AI as a Tool</div>
+          <div class="plt-summit-desc">What AI actually is, what it can and cannot do, and how to use it practically — starting today, with the phone already in your hand. No prerequisites. No jargon. No gatekeeping.</div>
+        </div>
+      </div>
+      <div class="plt-summit-row">
+        <div class="plt-summit-n">02</div>
+        <div>
+          <div class="plt-summit-name">Economic Empowerment</div>
+          <div class="plt-summit-desc">Using AI to build, run, and grow a business. From identifying a market opportunity, to managing finances, to reaching customers beyond your village or country. The Accelerator portfolio is built here.</div>
+        </div>
+      </div>
+      <div class="plt-summit-row">
+        <div class="plt-summit-n">03</div>
+        <div>
+          <div class="plt-summit-name">Education & Knowledge</div>
+          <div class="plt-summit-desc">Using AI to learn anything. Language. Skills. Science. Coding. Design. The end of the gatekeepers of knowledge — the university, the textbook, the teacher who is 200 kilometres away.</div>
+        </div>
+      </div>
+      <div class="plt-summit-row">
+        <div class="plt-summit-n">04</div>
+        <div>
+          <div class="plt-summit-name">Reproductive & Health Rights</div>
+          <div class="plt-summit-desc">Using AI to access health information, understand rights, navigate systems, and connect with support — safely and privately. For many women in WOAM geographies, this is the highest-stakes summit of all.</div>
+        </div>
+      </div>
+      <div class="plt-summit-row">
+        <div class="plt-summit-n">05</div>
+        <div>
+          <div class="plt-summit-name">Civic & Political Agency</div>
+          <div class="plt-summit-desc">Using AI to understand government, access legal information, navigate bureaucracy, and amplify your voice. The women who learn this do not stay quiet.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PLATFORM ECONOMICS -->
+<section class="sec dark">
+  <div class="inner">
+    <div class="secey rv">Platform Economics</div>
+    <h2 class="sectitle rv">The Asset That<br><em>Compounds Over Time.</em></h2>
+    <div class="secrule rv"></div>
+    <p class="lead rv">The platform starts small and becomes dominant. By Year 5 it is the largest women's AI education platform in the world in its target geographies — and the most defensible asset in the WOAM portfolio.</p>
+    <div class="net-numbers rv" style="grid-template-columns:1fr 1fr 1fr;">
+      <div class="net-num"><div class="net-num-n">$60k+</div><div class="net-num-l">Year 1 platform revenue target (alumni subscriptions)</div></div>
+      <div class="net-num"><div class="net-num-n">$200k+</div><div class="net-num-l">Year 2 target as alumni base grows and DFI sponsorship activates</div></div>
+      <div class="net-num"><div class="net-num-n">$500k+</div><div class="net-num-l">Year 3+ as proprietary platform and network effects take hold</div></div>
+    </div>
+    <div class="fin-notes rv">
+      <div class="fn"><div class="fn-t">The compounding mechanism</div><div class="fn-b">Every track produces alumni. Every alumna is a subscriber. Every subscriber produces curriculum feedback that improves the product. Every improvement makes the next cohort more valuable. The platform gets better as it gets bigger — and it gets bigger with every expedition.</div></div>
+      <div class="fn"><div class="fn-t">The DFI funding layer</div><div class="fn-b">The local women's tier is not a cost centre. IFC, USAID, UK FCDO, and development foundations pay to fund access at scale. The same platform that generates corporate SaaS revenue also qualifies for development finance — a funding structure no competitor can easily replicate.</div></div>
+    </div>
+  </div>
+</section>
+
+</div><!-- /panel-platform -->
+
+
+<!-- ═══════════════════════ NETWORK TAB ═══════════════════════ -->
+<div class="tab-panel" id="panel-network">
+
+<!-- NETWORK HERO -->
+<div class="net-hero">
+  <div class="inner" style="position:relative;z-index:1;">
+    <div class="trk-eyebrow">Engine 04 · The Network</div>
+    <h1 class="trk-title" style="max-width:600px;">AI Education<br>That Scales<br><em>Without Us.</em></h1>
+    <div class="trk-rule"></div>
+    <p class="trk-lead" style="max-width:520px;">Local women certified as WOAM AI Educators run their own micro-franchise operations under the WOAM brand. They train the next cohort, who train the next. The network becomes self-replicating — funded locally, supported by the platform, and connected to the global alumni community.</p>
+  </div>
+</div>
+
+<!-- THE FLYWHEEL -->
+<section class="sec d2">
+  <div class="inner">
+    <div class="secey rv">The Growth Mechanism</div>
+    <h2 class="sectitle rv">The Self-Replicating<br><em>Flywheel.</em></h2>
+    <div class="secrule rv"></div>
+    <p class="lead rv">Every expedition seeds the next generation of educators. Every educator trains the next cohort. Every cohort produces the next round of Accelerator candidates. The network grows without WOAM needing to be in the room.</p>
+    <div class="net-flywheel rv">
+      <div class="net-step">
+        <div class="net-step-n">01</div>
+        <div class="net-step-tag">Track Phase</div>
+        <div class="net-step-title">The Expedition Seeds the Community</div>
+        <p class="net-step-body">During each track, corporate participants teach the AI curriculum to local women as they learn it themselves. WOAM identifies the most capable and motivated women in each community as potential educators — before the track is over.</p>
+      </div>
+      <div class="net-step">
+        <div class="net-step-n">02</div>
+        <div class="net-step-tag">Certification Phase</div>
+        <div class="net-step-title">Women Become Certified Educators</div>
+        <p class="net-step-body">Selected local women complete the WOAM AI Educator certification programme — a structured curriculum delivered via the platform over 60–90 days post-track. On certification, they receive the WOAM brand licence, the full teaching toolkit, and access to the global educator community.</p>
+      </div>
+      <div class="net-step">
+        <div class="net-step-n">03</div>
+        <div class="net-step-tag">Micro-Franchise Launch</div>
+        <div class="net-step-title">Each Educator Runs Her Own Operation</div>
+        <p class="net-step-body">Certified educators run WOAM AI training sessions in their communities, charge a local micro-fee (subsidised by DFI partners where needed), and earn income as WOAM brand licensees. They set their own schedule. They own their relationship with their students.</p>
+      </div>
+      <div class="net-step">
+        <div class="net-step-n">04</div>
+        <div class="net-step-tag">Replication</div>
+        <div class="net-step-title">Each Cohort Produces the Next</div>
+        <p class="net-step-body">The best graduates of each educator's programme become the next cohort of educator candidates. The network replicates itself — one generation training the next, connected by the platform, supported by the WOAM brand, and without requiring WOAM to deploy additional operational resource.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NETWORK NUMBERS -->
+<section class="sec dark">
+  <div class="inner">
+    <div class="secey rv">Scale Projections</div>
+    <h2 class="sectitle rv">What the Network<br><em>Looks Like at Scale.</em></h2>
+    <div class="secrule rv"></div>
+    <div class="net-numbers rv">
+      <div class="net-num"><div class="net-num-n">3–4</div><div class="net-num-l">Tracks in Year 1. Each seeds 5–10 educator candidates per geography.</div></div>
+      <div class="net-num"><div class="net-num-n">100+</div><div class="net-num-l">Certified WOAM AI Educators by end of Year 2.</div></div>
+      <div class="net-num"><div class="net-num-n">50k+</div><div class="net-num-l">Women on the platform by Year 5 across 6+ geographies.</div></div>
+      <div class="net-num"><div class="net-num-n">Y3+</div><div class="net-num-l">Franchise fee revenue begins as the network reaches critical mass.</div></div>
+    </div>
+    <div class="trk-insight rv" style="margin-top:2.5rem;">
+      <div class="trk-insight-label">The compounding logic</div>
+      <div class="trk-insight-text" style="font-size:1.15rem;">"WOAM is the ignition. The network is the fire. Every track lights a fire that burns without us — and every fire creates the conditions for the next."</div>
+    </div>
+  </div>
+</section>
+
+<!-- GEOGRAPHIES -->
+<section class="sec d2">
+  <div class="inner">
+    <div class="secey rv">Geographies</div>
+    <h2 class="sectitle rv">Where the Network<br><em>Takes Root.</em></h2>
+    <div class="secrule rv"></div>
+    <p class="lead rv">WOAM launches across multiple geographies simultaneously in Year 1 — a deliberate strategic choice that accelerates the scale narrative for funders and partners, and prevents geographic concentration risk.</p>
+    <div class="net-geo rv">
+      <div class="net-geo-card">
+        <div class="net-geo-pill">East Africa</div>
+        <div class="net-geo-name">Rwanda</div>
+        <div class="net-geo-body">Strong government AI policy infrastructure. English-speaking professional community. Existing WOAM expedition relationships. High DFI presence. First micro-franchise operations expected here.</div>
+      </div>
+      <div class="net-geo-card">
+        <div class="net-geo-pill">South Asia</div>
+        <div class="net-geo-name">Nepal</div>
+        <div class="net-geo-body">14 years of WOAM expedition history. Deep community trust already built. Himalayan backdrop for premium corporate track narrative. Nepali-language curriculum in development.</div>
+      </div>
+      <div class="net-geo-card">
+        <div class="net-geo-pill">Central Asia</div>
+        <div class="net-geo-name">Kyrgyzstan</div>
+        <div class="net-geo-body">Existing WOAM expedition relationships. Distinctive cultural assets (textiles, traditional knowledge) with high Accelerator portfolio potential. Underserved by mainstream development finance.</div>
+      </div>
+      <div class="net-geo-card">
+        <div class="net-geo-pill">Southern Africa</div>
+        <div class="net-geo-name">Namibia</div>
+        <div class="net-geo-body">English-speaking, politically stable, growing tech ecosystem. Strong solar energy transition opportunity for Accelerator portfolio. Regional hub potential for broader Southern Africa expansion.</div>
+      </div>
+      <div class="net-geo-card">
+        <div class="net-geo-pill">East Africa</div>
+        <div class="net-geo-name">Ethiopia</div>
+        <div class="net-geo-body">Third-largest population in Africa. Diaspora of 3M+ in the US and Europe — direct Accelerator portfolio market. Strong agricultural base for agri-intelligence and export readiness businesses.</div>
+      </div>
+      <div class="net-geo-card" style="border-color:rgba(196,147,58,.18);background:rgba(196,147,58,.03);">
+        <div class="net-geo-pill" style="color:rgba(255,255,255,.4);border-color:rgba(255,255,255,.12);">Year 2–3 · Pipeline</div>
+        <div class="net-geo-name" style="color:rgba(255,255,255,.5);">Indonesia · Bhutan · + more</div>
+        <div class="net-geo-body">Southeast Asia and South Asia expansion planned for Stage 2. Indonesia: 4th largest population globally. Bhutan: premium expedition brand alignment and unique Accelerator IP (traditional medicine, cultural heritage).</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT THE EDUCATOR RECEIVES -->
+<section class="sec dark">
+  <div class="inner">
+    <div class="secey rv">The Educator Proposition</div>
+    <h2 class="sectitle rv">What a Certified<br><em>Educator Receives.</em></h2>
+    <div class="secrule rv"></div>
+    <p class="lead rv">A WOAM AI Educator is not a volunteer. She is a micro-franchise operator with a global brand, a proven curriculum, a support network, and a viable income. The proposition is designed to be the most valuable opportunity available to a woman in her community.</p>
+    <div class="toolkit rv">
+      <div class="tk"><div class="tk-t">The WOAM Brand Licence</div><div class="tk-b">Permission to operate under the WOAM brand — globally recognised, DFI-credentialed, and trusted by the corporate alumni community. The brand is the primary commercial asset she receives.</div></div>
+      <div class="tk"><div class="tk-t">The Teaching Toolkit</div><div class="tk-b">The full Five Summits curriculum in her local language, continuously updated as AI evolves. Workshop facilitation guides, assessment tools, and certification issuance authority for her own students.</div></div>
+      <div class="tk"><div class="tk-t">Platform Access for Life</div><div class="tk-b">Permanent access to the WOAM platform — including the educator community, advanced curriculum, and the global alumni network. Her ongoing education is built into the franchise relationship.</div></div>
+      <div class="tk"><div class="tk-t">DFI Subsidy Access</div><div class="tk-b">In markets where the local fee alone is insufficient, WOAM's development finance relationships subsidise her income directly. She earns a viable income regardless of local ability to pay.</div></div>
+      <div class="tk"><div class="tk-t">The Global Network</div><div class="tk-b">Connection to 100+ WOAM AI Educators across 6+ geographies. Peer support, shared curriculum innovations, and the professional identity of belonging to the world's most distributed women's AI education network.</div></div>
+      <div class="tk"><div class="tk-t">Accelerator Access</div><div class="tk-b">The best educators become Accelerator candidates — transitioning from educator to entrepreneur with the full WOAM Accelerator toolkit behind her. The network is the talent pipeline for the portfolio.</div></div>
+    </div>
+  </div>
+</section>
+
+</div><!-- /panel-network -->
+
+
+<script>
+function switchTab(tab) {
+  // Update buttons
+  document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+  event.currentTarget.classList.add('active');
+  // Update panels
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  document.getElementById('panel-' + tab).classList.add('active');
+  // Scroll to top
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  // Re-trigger reveal animations in the new panel
+  setTimeout(() => {
+    document.querySelectorAll('#panel-' + tab + ' .rv').forEach(el => {
+      el.classList.remove('in');
+      observer2.observe(el);
+    });
+  }, 50);
+}
+
+// Nav scroll effect for investor panel
+const nav = document.getElementById('nav');
+if (nav) {
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  });
+}
+
+// Reveal observer
+const observer2 = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+}, { threshold: 0.07 });
+document.querySelectorAll('.rv').forEach(el => observer2.observe(el));
+</script>
+</body>
+</html>
