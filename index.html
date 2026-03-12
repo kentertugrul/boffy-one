@@ -415,6 +415,23 @@ body { padding-top: 52px; }
 </style>
 </head>
 <body>
+<div id="pw-gate" style="position:fixed;inset:0;z-index:9999;background:#08090D;display:flex;align-items:center;justify-content:center;">
+<div style="text-align:center;max-width:360px;padding:2rem;">
+<div style="font-family:'Cormorant Garamond',serif;font-size:1.8rem;color:#C4933A;margin-bottom:.3rem;">Women on a Mission</div>
+<div style="font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:2.5rem;">Investor Access</div>
+<input id="pw-input" type="password" placeholder="Enter password" autofocus
+  style="width:100%;padding:.75rem 1rem;background:rgba(255,255,255,.06);border:1px solid rgba(196,147,58,.25);color:#fff;font-family:'DM Sans',sans-serif;font-size:.9rem;outline:none;margin-bottom:.8rem;text-align:center;letter-spacing:.08em;">
+<div id="pw-err" style="color:#8B2020;font-size:.75rem;min-height:1.2rem;"></div>
+</div>
+</div>
+<script>
+(function(){
+var h='6173f835e942e3a8d23e29e1555fadf4b2a97da9bccfb8e7c544b1837be5cc03';
+function s(p){return crypto.subtle.digest('SHA-256',new TextEncoder().encode(p)).then(function(b){return Array.from(new Uint8Array(b)).map(function(x){return x.toString(16).padStart(2,'0')}).join('')});}
+var inp=document.getElementById('pw-input');
+inp.addEventListener('keydown',function(e){if(e.key==='Enter'){s(inp.value).then(function(d){if(d===h){document.getElementById('pw-gate').style.display='none';}else{document.getElementById('pw-err').textContent='Incorrect password';inp.value='';}});}});
+})();
+</script>
 
 <!-- TAB BAR -->
 <div class="tab-bar" id="tabBar">
