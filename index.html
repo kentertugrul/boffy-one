@@ -4,413 +4,654 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Women on a Mission — The Next Summit</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 :root {
-  --ink:    #08090D;
-  --ink2:   #0E1220;
-  --ink3:   #141828;
-  --gold:   #C4933A;
-  --goldl:  #D9AE5C;
-  --goldbg: #FBF6EA;
-  --red:    #8B2020;
-  --cream:  #F8F5EF;
-  --off:    #F2EDE4;
+  --ink:    #0D0F12;
+  --deep:   #131820;
+  --teal:   #1A3A3A;
+  --gold:   #C09030;
+  --goldl:  #D4A84A;
+  --goldbg: #FAF5E4;
+  --red:    #8B2525;
+  --stone:  #F5F1EA;
+  --off:    #EDE8DE;
   --mid:    #5A5A5A;
-  --muted:  #999;
-  --white:  #FFF;
-  --border: #E0D9CE;
+  --muted:  #8A8A8A;
+  --white:  #FFFFFF;
+  --bdr:    #DDD6C4;
+  /* legacy aliases used in existing HTML */
+  --ink2:   #131820;
+  --ink3:   #1A1E2A;
+  --cream:  #F5F1EA;
 }
 *,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
 html { scroll-behavior:smooth; }
-body { background:var(--cream); color:var(--ink); font-family:'DM Sans',sans-serif; font-weight:300; line-height:1.65; overflow-x:hidden; }
+body { background:var(--stone); color:var(--ink); font-family:'Inter',sans-serif; font-weight:300; line-height:1.65; overflow-x:hidden; padding-top:52px; }
 
 /* NAV */
-nav { position:fixed; top:0; left:0; right:0; z-index:100; padding:.85rem 3.5rem; display:flex; justify-content:space-between; align-items:center; transition:background .3s,box-shadow .3s; }
-nav.scrolled { background:rgba(8,9,13,.97); box-shadow:0 1px 0 rgba(196,147,58,.12); }
-.nav-logo { font-family:'Cormorant Garamond',serif; font-size:1rem; color:rgba(255,255,255,.4); letter-spacing:.06em; }
+nav { position:fixed; top:52px; left:0; right:0; z-index:90; padding:.8rem 3.5rem; display:flex; justify-content:space-between; align-items:center; transition:background .3s; }
+nav.scrolled { background:rgba(13,15,18,.97); box-shadow:0 1px 0 rgba(192,144,48,.1); }
+.nav-logo { font-family:'EB Garamond',serif; font-size:1rem; color:rgba(255,255,255,.38); letter-spacing:.06em; }
 .nav-links { display:flex; gap:2.2rem; list-style:none; }
-.nav-links a { font-size:.65rem; letter-spacing:.16em; text-transform:uppercase; color:rgba(255,255,255,.35); text-decoration:none; transition:color .2s; }
+.nav-links a { font-size:.65rem; letter-spacing:.16em; text-transform:uppercase; color:var(--mid); text-decoration:none; transition:color .2s; }
 .nav-links a:hover { color:var(--gold); }
-.nav-badge { font-size:.58rem; letter-spacing:.12em; text-transform:uppercase; color:var(--gold); border:1px solid rgba(196,147,58,.25); padding:.2rem .75rem; }
+.nav-badge { font-size:.58rem; letter-spacing:.12em; text-transform:uppercase; color:var(--gold); border:1px solid rgba(192,144,48,.25); padding:.2rem .75rem; }
 
-/* COVER */
+/* COVER — keep dark for dramatic hero */
 .cover { min-height:100vh; background:var(--ink); display:flex; flex-direction:column; position:relative; overflow:hidden; }
 .cover-glow { position:absolute; top:0; right:0; width:60%; height:100%; background:radial-gradient(ellipse 80% 70% at 70% 40%, #12192A 0%, transparent 70%); pointer-events:none; }
-.cover-glow2 { position:absolute; bottom:0; left:0; width:40%; height:60%; background:radial-gradient(ellipse 60% 60% at 20% 80%, rgba(196,147,58,.04) 0%, transparent 70%); pointer-events:none; }
+.cover-glow2 { position:absolute; bottom:0; left:0; width:40%; height:60%; background:radial-gradient(ellipse 60% 60% at 20% 80%, rgba(192,144,48,.04) 0%, transparent 70%); pointer-events:none; }
 .cover-grid { display:grid; grid-template-columns:1fr 1fr; flex:1; position:relative; z-index:1; }
 .cover-l { padding:8rem 4rem 4rem 5rem; display:flex; flex-direction:column; justify-content:center; border-right:1px solid rgba(255,255,255,.04); }
 .cover-r { padding:8rem 5rem 4rem 4rem; display:flex; flex-direction:column; justify-content:center; }
 .eye { font-size:.58rem; font-weight:500; letter-spacing:.22em; text-transform:uppercase; color:var(--gold); margin-bottom:2.5rem; }
-.cover-title { font-family:'Cormorant Garamond',serif; font-size:clamp(3rem,5.5vw,5.2rem); font-weight:300; line-height:1.02; color:var(--white); margin-bottom:1.2rem; }
+.cover-title { font-family:'EB Garamond',serif; font-size:clamp(3rem,5.5vw,5.2rem); font-weight:400; line-height:1.02; color:var(--white); margin-bottom:1.2rem; }
 .cover-title em { color:var(--gold); font-style:italic; }
 .cover-rule { width:2.5rem; height:1px; background:var(--gold); margin:1.5rem 0; }
 .cover-sub { font-size:.97rem; color:rgba(255,255,255,.38); line-height:1.7; max-width:340px; }
-.cover-tagline { font-family:'Cormorant Garamond',serif; font-size:1.3rem; font-style:italic; color:var(--goldl); line-height:1.55; margin-bottom:2.5rem; max-width:400px; }
+.cover-tagline { font-family:'EB Garamond',serif; font-size:1.3rem; font-style:italic; color:var(--goldl); line-height:1.55; margin-bottom:2.5rem; max-width:400px; }
 .cover-stats { display:flex; flex-direction:column; gap:.9rem; }
-.cst { display:grid; grid-template-columns:6.5rem 1fr; gap:1rem; align-items:baseline; padding:.55rem 0; border-bottom:1px solid rgba(255,255,255,.04); }
+.cst { display:grid; grid-template-columns:6.5rem 1fr; gap:1rem; align-items:baseline; padding:.55rem 0; border-bottom:1px solid var(--bdr); }
 .cst:last-child { border-bottom:none; }
-.cstn { font-family:'Cormorant Garamond',serif; font-size:1.85rem; font-weight:300; color:var(--white); line-height:1; }
-.cstl { font-size:.78rem; color:rgba(255,255,255,.32); line-height:1.4; }
+.cstn { font-family:'EB Garamond',serif; font-size:1.85rem; font-weight:400; color:var(--white); line-height:1; }
+.cstl { font-size:.78rem; color:var(--mid); line-height:1.4; }
 .cover-bar { background:#050608; padding:.82rem 5rem; display:flex; justify-content:space-between; align-items:center; position:relative; z-index:1; border-top:1px solid rgba(255,255,255,.03); }
 .cover-bar span { font-size:.6rem; color:rgba(255,255,255,.22); letter-spacing:.16em; text-transform:uppercase; }
 .cover-bar a { font-size:.76rem; color:var(--gold); text-decoration:none; letter-spacing:.05em; }
 
-/* SECTION */
-.sec { padding:6rem 0; }
+/* SECTIONS — light palette */
+.sec { padding:5.5rem 0; }
 .sec.dark { background:var(--ink); color:var(--white); }
-.sec.d2 { background:var(--ink2); color:var(--white); }
-.sec.d3 { background:var(--ink3); color:var(--white); }
-.sec.light { background:var(--cream); }
-.sec.off { background:var(--off); }
+.sec.d2 { background:var(--stone); color:var(--ink); }
+.sec.d3 { background:var(--off); color:var(--ink); }
+.sec.light { background:var(--white); }
+.sec.off { background:var(--off); color:var(--ink); }
 .inner { max-width:1080px; margin:0 auto; padding:0 4.5rem; }
-.secey { font-size:.58rem; font-weight:500; letter-spacing:.2em; text-transform:uppercase; color:var(--gold); margin-bottom:.65rem; }
-.sectitle { font-family:'Cormorant Garamond',serif; font-size:clamp(2rem,3.8vw,3rem); font-weight:300; line-height:1.12; margin-bottom:.8rem; }
+.secey { font-size:.57rem; font-weight:500; letter-spacing:.2em; text-transform:uppercase; color:var(--gold); margin-bottom:.65rem; }
+.sectitle { font-family:'EB Garamond',serif; font-size:clamp(2rem,3.8vw,3rem); font-weight:400; line-height:1.12; margin-bottom:.8rem; }
 .sectitle em { color:var(--gold); font-style:italic; }
 .secrule { width:2.5rem; height:1px; background:var(--gold); margin:1rem 0 2.2rem; }
-.lead { font-size:1rem; color:var(--mid); max-width:660px; line-height:1.78; margin-bottom:3rem; }
-.dark .lead, .d2 .lead, .d3 .lead { color:rgba(255,255,255,.42); }
+.lead { font-size:.96rem; color:var(--mid); max-width:660px; line-height:1.78; margin-bottom:3rem; }
+.dark .lead { color:rgba(255,255,255,.42); }
+.d2 .lead, .d3 .lead { color:var(--mid); }
+.d2 .secey, .d3 .secey { color:var(--gold); }
+.d2 .sectitle, .d3 .sectitle { color:var(--ink); }
 
 /* REVEAL */
-.rv { opacity:0; transform:translateY(20px); transition:opacity .65s ease, transform .65s ease; }
+.rv { opacity:0; transform:translateY(18px); transition:opacity .6s ease, transform .6s ease; }
 .rv.in { opacity:1; transform:none; }
 
 /* STAT ROW */
-.statrow { display:grid; grid-template-columns:repeat(5,1fr); gap:1px; margin:2.5rem 0; background:rgba(255,255,255,.05); }
-.sb { background:var(--ink2); padding:1.5rem 1.2rem; text-align:center; }
+.statrow { display:grid; grid-template-columns:repeat(5,1fr); gap:1px; margin:2.5rem 0; background:var(--bdr); }
+.sb { background:var(--white); padding:1.5rem 1.2rem; text-align:center; border:1px solid var(--bdr); }
 .sb.acc { background:var(--goldbg); }
-.sbn { font-family:'Cormorant Garamond',serif; font-size:2.8rem; font-weight:300; color:var(--gold); line-height:1; }
+.sbn { font-family:'EB Garamond',serif; font-size:2.8rem; font-weight:400; color:var(--gold); line-height:1; }
 .sb.acc .sbn { color:var(--ink); }
-.sbl { font-size:.71rem; color:rgba(255,255,255,.32); margin-top:.4rem; line-height:1.4; }
+.sbl { font-size:.71rem; color:var(--muted); margin-top:.4rem; line-height:1.4; }
 .sb.acc .sbl { color:var(--mid); }
 
 /* PROBLEM */
 .prob-cols { display:grid; grid-template-columns:1fr 1fr; gap:4rem; margin-top:2rem; }
-.pcol p { font-size:.97rem; color:rgba(255,255,255,.52); line-height:1.82; margin-bottom:1.1rem; }
-.pcol p strong { color:var(--white); }
-.pquote { border-left:2px solid var(--gold); padding:1.3rem 1.8rem; background:rgba(255,255,255,.03); margin-top:1.2rem; }
-.pquote p { font-family:'Cormorant Garamond',serif; font-size:1.28rem; font-style:italic; color:var(--goldl); line-height:1.6; }
-.pin { margin-top:1.2rem; padding:1.1rem 1.4rem; border:1px solid rgba(255,255,255,.06); background:rgba(255,255,255,.02); }
+.pcol p { font-size:.97rem; color:var(--mid); line-height:1.82; margin-bottom:1.1rem; }
+.pcol p strong { color:var(--ink); }
+.dark .pcol p { color:rgba(255,255,255,.52); }
+.dark .pcol p strong { color:var(--white); }
+.d3 .pcol p { color:var(--mid); }
+.d3 .pcol p strong { color:var(--ink); }
+.pquote { border-left:2px solid var(--gold); padding:1.3rem 1.8rem; background:var(--goldbg); margin-top:1.2rem; }
+.dark .pquote { background:rgba(255,255,255,.03); }
+.d3 .pquote { background:var(--goldbg); }
+.pquote p { font-family:'EB Garamond',serif; font-size:1.28rem; font-style:italic; color:var(--ink); line-height:1.6; }
+.dark .pquote p { color:var(--goldl); }
+.d3 .pquote p { color:var(--ink); }
+.pin { margin-top:1.2rem; padding:1.1rem 1.4rem; border:1px solid var(--bdr); background:var(--white); }
+.dark .pin { border-color:rgba(255,255,255,.06); background:rgba(255,255,255,.02); }
+.d3 .pin { border-color:var(--bdr); background:var(--white); }
 .pin-label { font-size:.62rem; letter-spacing:.14em; text-transform:uppercase; color:var(--gold); margin-bottom:.45rem; }
-.pin-body { font-size:.86rem; color:rgba(255,255,255,.37); line-height:1.6; }
+.pin-body { font-size:.86rem; color:var(--mid); line-height:1.6; }
+.dark .pin-body { color:rgba(255,255,255,.37); }
+.d3 .pin-body { color:var(--mid); }
 
 /* ENGINES */
-.engines { display:grid; grid-template-columns:1fr 1fr; gap:1px; margin-top:2.5rem; background:rgba(255,255,255,.05); }
-.eng { background:var(--ink); padding:2.5rem; position:relative; overflow:hidden; transition:background .22s; }
-.eng:hover { background:#0C1020; }
-.eng-n { font-family:'Cormorant Garamond',serif; font-size:4rem; font-weight:300; color:rgba(255,255,255,.03); position:absolute; top:.8rem; right:1.5rem; line-height:1; pointer-events:none; }
+.engines { display:grid; grid-template-columns:1fr 1fr; gap:1px; margin-top:2.5rem; background:var(--bdr); }
+.eng { background:var(--white); padding:2.5rem; position:relative; overflow:hidden; transition:background .22s; border:1px solid var(--bdr); }
+.eng:hover { background:var(--goldbg); }
+.eng-n { font-family:'EB Garamond',serif; font-size:4rem; font-weight:400; color:rgba(0,0,0,.04); position:absolute; top:.8rem; right:1.5rem; line-height:1; pointer-events:none; }
 .etag { display:inline-block; font-size:.57rem; letter-spacing:.15em; text-transform:uppercase; font-weight:500; padding:.2rem .62rem; margin-bottom:.85rem; }
-.etag.g { background:rgba(196,147,58,.1); color:var(--goldl); }
-.etag.r { background:rgba(139,32,32,.14); color:#E07070; }
-.ename { font-family:'Cormorant Garamond',serif; font-size:1.7rem; font-weight:300; color:var(--white); margin-bottom:.55rem; line-height:1.15; }
-.edesc { font-size:.87rem; color:rgba(255,255,255,.42); line-height:1.72; margin-bottom:1.1rem; }
-.erev { font-size:.7rem; color:var(--gold); border-top:1px solid rgba(255,255,255,.06); padding-top:.75rem; letter-spacing:.02em; }
-.eng.feat { background:#0A0F1C; border:1px solid rgba(196,147,58,.18); }
-.eng.feat:hover { background:#0C1226; }
+.etag.g { background:rgba(192,144,48,.1); color:var(--gold); }
+.etag.r { background:rgba(139,37,37,.08); color:var(--red); }
+.ename { font-family:'EB Garamond',serif; font-size:1.7rem; font-weight:400; color:var(--ink); margin-bottom:.55rem; line-height:1.15; }
+.edesc { font-size:.87rem; color:var(--mid); line-height:1.72; margin-bottom:1.1rem; }
+.erev { font-size:.7rem; color:var(--gold); border-top:1px solid var(--bdr); padding-top:.75rem; letter-spacing:.02em; }
+.eng.feat { background:var(--goldbg); border:1px solid rgba(192,144,48,.3); }
+.eng.feat:hover { background:#F5EED4; }
 
-/* ── ACCELERATOR DEEP DIVE ── */
-.accel-banner {
-  background:linear-gradient(155deg, #060810 0%, #0B1528 50%, #060810 100%);
-  border:1px solid rgba(196,147,58,.14);
-  padding:4.5rem;
-  margin-bottom:3rem;
-  position:relative;
-  overflow:hidden;
-}
-.accel-banner::before {
-  content:'';
-  position:absolute; top:-80px; right:-80px;
-  width:450px; height:450px; border-radius:50%;
-  background:radial-gradient(circle, rgba(196,147,58,.07) 0%, transparent 65%);
-  pointer-events:none;
-}
+/* ACCELERATOR */
+.accel-banner { background:var(--ink); border:1px solid rgba(192,144,48,.14); padding:4.5rem; margin-bottom:3rem; position:relative; overflow:hidden; }
+.accel-banner::before { content:''; position:absolute; top:-80px; right:-80px; width:450px; height:450px; border-radius:50%; background:radial-gradient(circle, rgba(192,144,48,.07) 0%, transparent 65%); pointer-events:none; }
 .accel-super { font-size:.58rem; font-weight:500; letter-spacing:.22em; text-transform:uppercase; color:var(--gold); margin-bottom:1.4rem; }
-.accel-h { font-family:'Cormorant Garamond',serif; font-size:clamp(1.9rem,3.3vw,2.7rem); font-weight:300; color:var(--white); line-height:1.15; margin-bottom:1.3rem; }
+.accel-h { font-family:'EB Garamond',serif; font-size:clamp(1.9rem,3.3vw,2.7rem); font-weight:400; color:var(--white); line-height:1.15; margin-bottom:1.3rem; }
 .accel-h em { color:var(--gold); font-style:italic; }
 .accel-intro { font-size:.98rem; color:rgba(255,255,255,.47); line-height:1.8; max-width:700px; margin-bottom:1rem; }
 .accel-intro strong { color:rgba(255,255,255,.85); }
 
 /* before/after */
 .ba { margin:2.5rem 0; }
-.ba-label { font-size:.6rem; font-weight:500; letter-spacing:.18em; text-transform:uppercase; color:rgba(255,255,255,.25); margin-bottom:1rem; }
+.ba-label { font-size:.6rem; font-weight:500; letter-spacing:.18em; text-transform:uppercase; color:var(--muted); margin-bottom:1rem; }
 .ba-grid { display:grid; grid-template-columns:1fr 48px 1fr; }
 .ba-col { padding:2rem 2.2rem; display:flex; flex-direction:column; gap:.75rem; }
-.ba-col.before { background:#0C0E14; border:1px solid rgba(255,255,255,.07); border-right:none; }
-.ba-col.after { background:#0A1020; border:1px solid rgba(196,147,58,.18); border-left:none; }
-.ba-mid { display:flex; align-items:center; justify-content:center; background:#09090F; border-top:1px solid rgba(255,255,255,.05); border-bottom:1px solid rgba(255,255,255,.05); }
+.ba-col.before { background:var(--off); border:1px solid var(--bdr); border-right:none; }
+.ba-col.after { background:var(--goldbg); border:1px solid rgba(192,144,48,.25); border-left:none; }
+.ba-mid { display:flex; align-items:center; justify-content:center; background:var(--bdr); border-top:1px solid var(--bdr); border-bottom:1px solid var(--bdr); }
 .ba-arrow { font-size:1.2rem; color:var(--gold); opacity:.7; }
-.ba-head { font-family:'Cormorant Garamond',serif; font-size:1.05rem; color:rgba(255,255,255,.55); margin-bottom:.4rem; }
-.ba-col.after .ba-head { color:var(--goldl); }
-.ba-item { display:flex; align-items:flex-start; gap:.65rem; font-size:.85rem; color:rgba(255,255,255,.37); line-height:1.5; }
-.ba-item::before { content:''; flex-shrink:0; width:4px; height:4px; border-radius:50%; background:rgba(255,255,255,.15); margin-top:.52rem; }
-.ba-col.after .ba-item { color:rgba(255,255,255,.6); }
-.ba-col.after .ba-item::before { background:var(--gold); opacity:.55; }
+.ba-head { font-family:'EB Garamond',serif; font-size:1.05rem; color:var(--mid); margin-bottom:.4rem; }
+.ba-col.after .ba-head { color:var(--ink); }
+.ba-item { display:flex; align-items:flex-start; gap:.65rem; font-size:.85rem; color:var(--mid); line-height:1.5; }
+.ba-item::before { content:''; flex-shrink:0; width:4px; height:4px; border-radius:50%; background:var(--muted); margin-top:.52rem; }
+.ba-col.after .ba-item { color:var(--ink); }
+.ba-col.after .ba-item::before { background:var(--gold); }
 
 /* thesis cards */
-.thesis-grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:2px; margin:2.5rem 0; background:rgba(255,255,255,.05); }
-.tb { background:#07080C; padding:2rem 1.8rem; }
+.thesis-grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:2px; margin:2.5rem 0; background:var(--bdr); }
+.tb { background:var(--white); padding:2rem 1.8rem; border:1px solid var(--bdr); }
 .tb-title { font-size:.68rem; font-weight:500; letter-spacing:.14em; text-transform:uppercase; color:var(--gold); margin-bottom:.65rem; }
-.tb-body { font-size:.86rem; color:rgba(255,255,255,.42); line-height:1.7; }
-.tb-body strong { color:rgba(255,255,255,.72); }
+.tb-body { font-size:.86rem; color:var(--mid); line-height:1.7; }
+.tb-body strong { color:var(--ink); }
+.dark .tb { background:rgba(255,255,255,.02); border-color:rgba(255,255,255,.05); }
+.dark .tb-body { color:rgba(255,255,255,.42); }
+.dark .tb-body strong { color:rgba(255,255,255,.72); }
+.off .tb, .d2 .tb { background:var(--white); border-color:var(--bdr); }
+.off .tb-body, .d2 .tb-body { color:var(--mid); }
+.off .tb-body strong, .d2 .tb-body strong { color:var(--ink); }
 
 /* toolkit */
-.toolkit-intro { font-size:.96rem; color:rgba(255,255,255,.44); line-height:1.78; max-width:700px; margin-bottom:2rem; }
-.toolkit-intro strong { color:rgba(255,255,255,.8); }
+.toolkit-intro { font-size:.96rem; color:var(--mid); line-height:1.78; max-width:700px; margin-bottom:2rem; }
+.toolkit-intro strong { color:var(--ink); }
+.dark .toolkit-intro { color:rgba(255,255,255,.44); }
+.dark .toolkit-intro strong { color:rgba(255,255,255,.8); }
 .toolkit { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; margin:2rem 0; }
-.tk { border:1px solid rgba(255,255,255,.07); padding:1.6rem; background:rgba(255,255,255,.02); }
-.tk-t { font-size:.68rem; font-weight:500; letter-spacing:.12em; text-transform:uppercase; color:var(--goldl); margin-bottom:.55rem; }
-.tk-b { font-size:.84rem; color:rgba(255,255,255,.4); line-height:1.66; }
+.tk { border:1px solid var(--bdr); padding:1.6rem; background:var(--white); }
+.dark .tk { border-color:rgba(255,255,255,.07); background:rgba(255,255,255,.02); }
+.off .tk { border-color:var(--bdr); background:var(--white); }
+.tk-t { font-size:.68rem; font-weight:500; letter-spacing:.12em; text-transform:uppercase; color:var(--gold); margin-bottom:.55rem; }
+.tk-b { font-size:.84rem; color:var(--mid); line-height:1.66; }
+.dark .tk-b { color:rgba(255,255,255,.4); }
+.off .tk-b { color:var(--mid); }
 
 /* equity numbers */
-.equity-bar { display:grid; grid-template-columns:1fr 1fr 1fr; gap:3rem; background:#06080D; border:1px solid rgba(196,147,58,.13); padding:2.5rem 3rem; margin:2.5rem 0; }
-.eq-n { font-family:'Cormorant Garamond',serif; font-size:2.8rem; font-weight:300; color:var(--gold); line-height:1; }
-.eq-lbl { font-size:.67rem; font-weight:500; letter-spacing:.1em; text-transform:uppercase; color:rgba(255,255,255,.27); margin:.3rem 0 .5rem; }
-.eq-note { font-size:.82rem; color:rgba(255,255,255,.38); line-height:1.55; }
+.equity-bar { display:grid; grid-template-columns:1fr 1fr 1fr; gap:3rem; background:var(--goldbg); border:1px solid rgba(192,144,48,.2); padding:2.5rem 3rem; margin:2.5rem 0; }
+.eq-n { font-family:'EB Garamond',serif; font-size:2.8rem; font-weight:400; color:var(--gold); line-height:1; }
+.eq-lbl { font-size:.67rem; font-weight:500; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); margin:.3rem 0 .5rem; }
+.eq-note { font-size:.82rem; color:var(--mid); line-height:1.55; }
 
 /* final thesis */
-.final-thesis { border-left:3px solid var(--gold); padding:1.8rem 2.5rem; background:#040507; margin-top:2.5rem; }
-.final-thesis p { font-family:'Cormorant Garamond',serif; font-size:1.38rem; font-style:italic; color:var(--goldl); line-height:1.65; }
-.final-thesis cite { display:block; font-family:'DM Sans',sans-serif; font-style:normal; font-size:.72rem; color:rgba(255,255,255,.28); letter-spacing:.08em; margin-top:.8rem; }
+.final-thesis { border-left:3px solid var(--gold); padding:1.8rem 2.5rem; background:var(--goldbg); margin-top:2.5rem; }
+.dark .final-thesis { background:#040507; }
+.off .final-thesis { background:var(--goldbg); }
+.off .final-thesis p { color:var(--ink); }
+.final-thesis p { font-family:'EB Garamond',serif; font-size:1.38rem; font-style:italic; color:var(--ink); line-height:1.65; }
+.dark .final-thesis p { color:var(--goldl); }
+.final-thesis cite { display:block; font-family:'Inter',sans-serif; font-style:normal; font-size:.72rem; color:var(--muted); letter-spacing:.08em; margin-top:.8rem; }
 
 /* TRACTION */
 .trac-cols { display:grid; grid-template-columns:1fr 1fr; gap:3.5rem; margin-top:2rem; }
 .explist { list-style:none; display:flex; flex-direction:column; }
-.explist li { display:grid; grid-template-columns:58px 1fr; gap:1rem; padding:.58rem 0; border-bottom:1px solid rgba(255,255,255,.05); font-size:.86rem; color:rgba(255,255,255,.42); }
+.explist li { display:grid; grid-template-columns:58px 1fr; gap:1rem; padding:.58rem 0; border-bottom:1px solid var(--bdr); font-size:.86rem; color:var(--mid); }
+.dark .explist li { border-color:rgba(255,255,255,.05); color:rgba(255,255,255,.42); }
+.d3 .explist li { border-color:var(--bdr); color:var(--mid); }
 .explist li:last-child { border-bottom:none; }
 .expy { color:var(--gold); font-size:.74rem; font-weight:500; letter-spacing:.04em; padding-top:.1rem; }
 .founds { display:flex; flex-direction:column; gap:1rem; }
-.fc { background:#09090F; border:1px solid rgba(255,255,255,.06); padding:1.15rem 1.4rem; }
-.fc-name { font-family:'Cormorant Garamond',serif; font-size:1.2rem; font-weight:300; color:var(--white); }
+.fc { background:var(--white); border:1px solid var(--bdr); padding:1.15rem 1.4rem; }
+.dark .fc { background:rgba(255,255,255,.02); border-color:rgba(255,255,255,.06); }
+.fc-name { font-family:'EB Garamond',serif; font-size:1.2rem; font-weight:400; color:var(--ink); }
+.dark .fc-name { color:var(--white); }
 .fc-role { font-size:.63rem; color:var(--gold); letter-spacing:.12em; text-transform:uppercase; margin:.18rem 0 .45rem; }
-.fc-bio { font-size:.81rem; color:rgba(255,255,255,.36); line-height:1.5; }
+.fc-bio { font-size:.81rem; color:var(--mid); line-height:1.5; }
+.dark .fc-bio { color:var(--mid); }
 
 /* FINANCIALS */
 .fintable { width:100%; border-collapse:collapse; margin:2rem 0; }
-.fintable th { background:var(--ink2); color:rgba(255,255,255,.65); padding:.75rem 1.2rem; font-size:.74rem; font-weight:500; letter-spacing:.06em; text-align:left; border:1px solid rgba(255,255,255,.07); }
+.fintable th { background:var(--off); color:var(--mid); padding:.75rem 1.2rem; font-size:.74rem; font-weight:500; letter-spacing:.06em; text-align:left; border:1px solid var(--bdr); }
 .fintable th:not(:first-child) { text-align:center; }
-.fintable td { padding:.75rem 1.2rem; font-size:.88rem; border:1px solid rgba(255,255,255,.05); color:rgba(255,255,255,.47); background:#070810; }
+.fintable td { padding:.75rem 1.2rem; font-size:.88rem; border:1px solid var(--bdr); color:var(--mid); background:var(--white); }
 .fintable td:not(:first-child) { text-align:center; }
-.fintable tr.tot td { background:var(--goldbg); color:var(--ink); font-weight:500; font-family:'Cormorant Garamond',serif; font-size:1rem; }
-.fintable td.str { color:rgba(255,255,255,.72); }
+.fintable tr.tot td { background:var(--goldbg); color:var(--ink); font-weight:500; font-family:'EB Garamond',serif; font-size:1rem; }
+.fintable td.str { color:var(--ink); font-weight:400; }
 .fin-notes { display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; margin-top:1.5rem; }
-.fn { padding:1.3rem 1.5rem; border:1px solid rgba(255,255,255,.06); background:#06070A; }
+.fn { padding:1.3rem 1.5rem; border:1px solid var(--bdr); background:var(--white); }
+.dark .fn { border-color:rgba(255,255,255,.06); background:rgba(255,255,255,.03); }
+.d2 .fn { border-color:var(--bdr); background:var(--white); }
 .fn-t { font-size:.66rem; font-weight:500; letter-spacing:.12em; text-transform:uppercase; color:var(--gold); margin-bottom:.45rem; }
-.fn-b { font-size:.83rem; color:rgba(255,255,255,.38); line-height:1.62; }
+.fn-b { font-size:.83rem; color:var(--mid); line-height:1.62; }
+.dark .fn-b { color:rgba(255,255,255,.38); }
+.d2 .fn-b { color:var(--mid); }
 
 /* ASK */
-.ask-rows { display:flex; flex-direction:column; gap:1px; margin-top:2rem; background:var(--border); }
+.ask-rows { display:flex; flex-direction:column; gap:1px; margin-top:2rem; background:var(--bdr); }
 .ask-row { display:grid; grid-template-columns:1.6fr 1fr 1fr 1fr; gap:2rem; align-items:center; padding:2rem 2.2rem; background:var(--white); border-left:3px solid var(--gold); }
 .ask-row.b { border-left-color:var(--red); }
-.ask-row.c { border-left-color:#BBB; }
-.ask-stage { font-family:'Cormorant Garamond',serif; font-size:1.3rem; color:var(--ink); }
-.ask-stage small { font-family:'DM Sans',sans-serif; font-size:.8rem; color:#AAA; }
+.ask-row.c { border-left-color:var(--bdr); }
+.ask-stage { font-family:'EB Garamond',serif; font-size:1.3rem; color:var(--ink); }
+.ask-stage small { font-family:'Inter',sans-serif; font-size:.8rem; color:var(--muted); }
 .albl { font-size:.6rem; font-weight:500; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); margin-bottom:.28rem; }
 .aval { font-size:.88rem; color:var(--ink); }
-.aamt { font-family:'Cormorant Garamond',serif; font-size:1.55rem; color:var(--gold); }
+.aamt { font-family:'EB Garamond',serif; font-size:1.55rem; color:var(--gold); }
 .ask-row.b .aamt { color:var(--red); }
-.ask-row.c .aamt { color:#888; }
-.ask-cta { margin-top:1.8rem; padding:1.35rem 2rem; background:var(--ink); display:flex; justify-content:space-between; align-items:center; }
-.ask-cta p { font-size:.86rem; color:rgba(255,255,255,.38); }
-.ask-cta a { font-size:.86rem; color:var(--gold); text-decoration:none; letter-spacing:.05em; border-bottom:1px solid rgba(196,147,58,.28); padding-bottom:.1rem; }
+.ask-row.c .aamt { color:var(--muted); }
+.ask-cta { margin-top:1.8rem; padding:1.35rem 2rem; background:var(--off); border:1px solid var(--bdr); display:flex; justify-content:space-between; align-items:center; }
+.ask-cta p { font-size:.86rem; color:var(--mid); }
+.ask-cta a { font-size:.86rem; color:var(--gold); text-decoration:none; letter-spacing:.05em; border-bottom:1px solid rgba(192,144,48,.28); padding-bottom:.1rem; }
 
-/* CLOSING */
+/* CLOSING — keep dark for impact */
 .closing { min-height:70vh; background:var(--ink); display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:6rem 4rem; position:relative; overflow:hidden; }
-.closing::before { content:''; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:700px; height:700px; border-radius:50%; background:radial-gradient(circle, rgba(196,147,58,.05) 0%, transparent 65%); pointer-events:none; }
-.cl-t { font-family:'Cormorant Garamond',serif; font-size:clamp(2.4rem,4.8vw,4.2rem); font-weight:300; color:var(--white); line-height:1.08; margin-bottom:.8rem; max-width:680px; position:relative; z-index:1; }
+.closing::before { content:''; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:700px; height:700px; border-radius:50%; background:radial-gradient(circle, rgba(192,144,48,.05) 0%, transparent 65%); pointer-events:none; }
+.cl-t { font-family:'EB Garamond',serif; font-size:clamp(2.4rem,4.8vw,4.2rem); font-weight:400; color:var(--white); line-height:1.08; margin-bottom:.8rem; max-width:680px; position:relative; z-index:1; }
 .cl-t em { color:var(--gold); font-style:italic; }
 .cl-rule { width:2.5rem; height:1px; background:var(--gold); margin:1.5rem auto; position:relative; z-index:1; }
 .cl-sub { font-size:.97rem; color:rgba(255,255,255,.38); margin-bottom:2.2rem; position:relative; z-index:1; }
-.cl-email { font-family:'Cormorant Garamond',serif; font-size:1.45rem; color:var(--gold); text-decoration:none; position:relative; z-index:1; border-bottom:1px solid rgba(196,147,58,.28); padding-bottom:.15rem; }
+.cl-email { font-family:'EB Garamond',serif; font-size:1.45rem; color:var(--gold); text-decoration:none; position:relative; z-index:1; border-bottom:1px solid rgba(192,144,48,.28); padding-bottom:.15rem; }
 .cl-conf { font-size:.58rem; color:rgba(255,255,255,.18); letter-spacing:.18em; text-transform:uppercase; margin-top:3rem; position:relative; z-index:1; }
 
-@media(max-width:900px){
+/* TAB BAR */
+.tab-bar { position:fixed; top:0; left:0; right:0; z-index:200; background:var(--white); border-bottom:1px solid var(--bdr); display:flex; align-items:stretch; padding:0 3.5rem; height:52px; gap:0; box-shadow:0 1px 4px rgba(0,0,0,.06); }
+.tab-bar-logo { font-family:'EB Garamond',serif; font-size:.95rem; color:var(--muted); letter-spacing:.06em; display:flex; align-items:center; margin-right:2.5rem; white-space:nowrap; }
+.tab-btn { font-size:.6rem; font-weight:500; letter-spacing:.16em; text-transform:uppercase; color:var(--muted); background:none; border:none; border-bottom:2px solid transparent; padding:0 1.4rem; cursor:pointer; transition:color .2s, border-color .2s; height:100%; white-space:nowrap; }
+.tab-btn:hover { color:var(--ink); }
+.tab-btn.active { color:var(--gold); border-bottom-color:var(--gold); }
+.tab-badge { font-size:.52rem; letter-spacing:.1em; text-transform:uppercase; color:var(--gold); border:1px solid rgba(192,144,48,.25); padding:.18rem .65rem; margin-left:auto; align-self:center; white-space:nowrap; }
+
+/* TAB PANELS */
+.tab-panel { display:none; }
+.tab-panel.active { display:block; }
+
+/* TRACKS TAB */
+.trk-hero { min-height:85vh; background:var(--ink); display:flex; flex-direction:column; justify-content:center; position:relative; overflow:hidden; padding:7rem 0 5rem; }
+.trk-hero::before { content:''; position:absolute; top:0; right:0; width:55%; height:100%; background:radial-gradient(ellipse 70% 65% at 75% 45%, #0D1828 0%, transparent 70%); pointer-events:none; }
+.trk-grid { display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:center; }
+.trk-eyebrow { font-size:.57rem; font-weight:500; letter-spacing:.22em; text-transform:uppercase; color:var(--gold); margin-bottom:1.6rem; }
+.trk-title { font-family:'EB Garamond',serif; font-size:clamp(2.8rem,5vw,4.5rem); font-weight:400; line-height:1.04; color:var(--white); margin-bottom:1rem; }
+.trk-title em { color:var(--gold); font-style:italic; }
+.trk-rule { width:2.5rem; height:1px; background:var(--gold); margin:1.5rem 0 2rem; }
+.trk-lead { font-size:1rem; color:rgba(255,255,255,.42); line-height:1.8; max-width:440px; }
+.trk-stats { display:flex; flex-direction:column; gap:.8rem; }
+.trk-stat { display:grid; grid-template-columns:5.5rem 1fr; gap:1rem; align-items:baseline; padding:.6rem 0; border-bottom:1px solid var(--bdr); }
+.trk-stat:last-child { border-bottom:none; }
+.trk-sn { font-family:'EB Garamond',serif; font-size:2rem; font-weight:400; color:var(--white); line-height:1; }
+.trk-sl { font-size:.78rem; color:var(--mid); line-height:1.4; }
+
+.trk-structure { display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--bdr); margin:3rem 0; }
+.trk-tier { background:var(--white); padding:2.5rem; border:1px solid var(--bdr); }
+.trk-tier-n { font-family:'EB Garamond',serif; font-size:3.5rem; font-weight:400; color:rgba(192,144,48,.15); line-height:1; margin-bottom:.8rem; }
+.trk-tier-tag { font-size:.57rem; letter-spacing:.15em; text-transform:uppercase; font-weight:500; color:var(--gold); background:rgba(192,144,48,.08); padding:.18rem .6rem; display:inline-block; margin-bottom:.8rem; }
+.trk-tier-title { font-family:'EB Garamond',serif; font-size:1.45rem; font-weight:400; color:var(--ink); margin-bottom:.8rem; line-height:1.2; }
+.trk-tier-body { font-size:.87rem; color:var(--mid); line-height:1.75; }
+.trk-tier-list { list-style:none; display:flex; flex-direction:column; gap:.55rem; margin-top:1rem; }
+.trk-tier-list li { font-size:.85rem; color:var(--mid); padding-left:1rem; position:relative; line-height:1.55; }
+.trk-tier-list li::before { content:''; position:absolute; left:0; top:.58rem; width:4px; height:4px; border-radius:50%; background:var(--gold); opacity:.55; }
+
+.trk-insight { background:var(--goldbg); border:1px solid rgba(192,144,48,.2); padding:3rem 3.5rem; margin:3rem 0; }
+.trk-insight-label { font-size:.6rem; letter-spacing:.18em; text-transform:uppercase; color:var(--gold); margin-bottom:1rem; }
+.trk-insight-text { font-family:'EB Garamond',serif; font-size:clamp(1.2rem,2vw,1.6rem); font-style:italic; color:var(--ink); line-height:1.65; }
+
+.trk-days { display:grid; grid-template-columns:repeat(5,1fr); gap:1px; background:var(--bdr); margin:3rem 0; }
+.trk-day { background:var(--white); padding:1.5rem 1.2rem; border:1px solid var(--bdr); }
+.trk-day-n { font-family:'EB Garamond',serif; font-size:2rem; font-weight:400; color:rgba(192,144,48,.2); line-height:1; margin-bottom:.5rem; }
+.trk-day-tag { font-size:.56rem; letter-spacing:.13em; text-transform:uppercase; color:var(--gold); margin-bottom:.6rem; }
+.trk-day-body { font-size:.82rem; color:var(--mid); line-height:1.6; }
+
+.trk-pricing { display:grid; grid-template-columns:1fr 1fr 1fr; gap:1px; background:var(--bdr); margin:3rem 0; }
+.trk-price-card { background:var(--white); padding:2rem; border:1px solid var(--bdr); }
+.trk-price-card.feat { background:var(--goldbg); border:1px solid rgba(192,144,48,.25); }
+.trk-price-n { font-family:'EB Garamond',serif; font-size:2.6rem; font-weight:400; color:var(--gold); line-height:1; }
+.trk-price-l { font-size:.68rem; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); margin:.35rem 0 .7rem; }
+.trk-price-desc { font-size:.84rem; color:var(--mid); line-height:1.65; }
+
+/* PLATFORM TAB */
+.plt-hero { min-height:75vh; background:var(--ink); display:flex; flex-direction:column; justify-content:center; padding:7rem 0 5rem; position:relative; overflow:hidden; }
+.plt-hero::before { content:''; position:absolute; top:-100px; right:-100px; width:500px; height:500px; border-radius:50%; background:radial-gradient(circle, rgba(192,144,48,.05) 0%, transparent 65%); pointer-events:none; }
+.plt-three { display:grid; grid-template-columns:1fr 1fr 1fr; gap:1px; background:var(--bdr); margin:3rem 0; }
+.plt-face { background:var(--white); padding:2.5rem; position:relative; overflow:hidden; border:1px solid var(--bdr); }
+.plt-face-n { font-family:'EB Garamond',serif; font-size:4rem; font-weight:400; color:rgba(0,0,0,.04); position:absolute; top:.5rem; right:1rem; line-height:1; }
+.plt-face-tag { font-size:.56rem; letter-spacing:.15em; text-transform:uppercase; font-weight:500; color:var(--gold); background:rgba(192,144,48,.08); padding:.18rem .6rem; display:inline-block; margin-bottom:.8rem; }
+.plt-face-name { font-family:'EB Garamond',serif; font-size:1.5rem; font-weight:400; color:var(--ink); margin-bottom:.65rem; line-height:1.2; }
+.plt-face-desc { font-size:.87rem; color:var(--mid); line-height:1.75; margin-bottom:1rem; }
+.plt-face-rev { font-size:.72rem; color:var(--gold); border-top:1px solid var(--bdr); padding-top:.75rem; }
+
+.plt-tech { display:grid; grid-template-columns:1fr 1fr; gap:3.5rem; align-items:start; margin:3rem 0; }
+.plt-tech-stack { display:flex; flex-direction:column; gap:.8rem; }
+.plt-layer { display:grid; grid-template-columns:110px 1fr; gap:1.2rem; align-items:start; padding:1rem 1.2rem; background:var(--off); border-left:2px solid rgba(192,144,48,.3); }
+.plt-layer-l { font-size:.62rem; font-weight:500; letter-spacing:.1em; text-transform:uppercase; color:var(--gold); padding-top:.1rem; }
+.plt-layer-r { font-size:.85rem; color:var(--mid); line-height:1.6; }
+.plt-layer-r strong { color:var(--ink); }
+.plt-curriculum { margin:3rem 0; }
+.plt-summit-row { display:grid; grid-template-columns:80px 1fr; gap:1.5rem; align-items:start; padding:1.4rem 0; border-bottom:1px solid var(--bdr); }
+.plt-summit-row:last-child { border-bottom:none; }
+.plt-summit-n { font-family:'EB Garamond',serif; font-size:2.2rem; font-weight:400; color:rgba(192,144,48,.3); line-height:1; }
+.plt-summit-name { font-family:'EB Garamond',serif; font-size:1.2rem; font-weight:400; color:var(--ink); margin-bottom:.4rem; }
+.plt-summit-desc { font-size:.87rem; color:var(--mid); line-height:1.7; }
+
+/* NETWORK TAB */
+.net-hero { min-height:75vh; background:var(--ink); display:flex; flex-direction:column; justify-content:center; padding:7rem 0 5rem; position:relative; overflow:hidden; }
+.net-flywheel { display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--bdr); margin:3rem 0; }
+.net-step { background:var(--white); padding:2.5rem; position:relative; border:1px solid var(--bdr); }
+.net-step-n { font-family:'EB Garamond',serif; font-size:4rem; font-weight:400; color:rgba(192,144,48,.12); position:absolute; top:1rem; right:1.5rem; line-height:1; }
+.net-step-tag { font-size:.57rem; letter-spacing:.14em; text-transform:uppercase; color:var(--gold); margin-bottom:.7rem; }
+.net-step-title { font-family:'EB Garamond',serif; font-size:1.4rem; font-weight:400; color:var(--ink); margin-bottom:.65rem; line-height:1.2; }
+.net-step-body { font-size:.87rem; color:var(--mid); line-height:1.75; }
+.net-geo { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; margin:3rem 0; }
+.net-geo-card { padding:1.8rem; border:1px solid var(--bdr); background:var(--white); }
+.net-geo-name { font-family:'EB Garamond',serif; font-size:1.3rem; font-weight:400; color:var(--ink); margin-bottom:.5rem; }
+.net-geo-body { font-size:.84rem; color:var(--mid); line-height:1.65; }
+.net-geo-pill { font-size:.58rem; letter-spacing:.1em; text-transform:uppercase; color:var(--gold); border:1px solid rgba(192,144,48,.25); padding:.15rem .5rem; display:inline-block; margin-bottom:.65rem; }
+.net-numbers { display:grid; grid-template-columns:1fr 1fr 1fr 1fr; gap:1px; background:var(--bdr); margin:3rem 0; }
+.net-num { background:var(--white); padding:2rem 1.5rem; text-align:center; border:1px solid var(--bdr); }
+.net-num-n { font-family:'EB Garamond',serif; font-size:2.8rem; font-weight:400; color:var(--gold); line-height:1; }
+.net-num-l { font-size:.7rem; color:var(--muted); margin-top:.45rem; line-height:1.4; }
+
+/* ADDENDUM */
+.add-cover { background:var(--off); padding:7rem 0 5rem; border-top:2px solid var(--bdr); }
+.add-cover-inner { max-width:1080px; margin:0 auto; padding:0 4.5rem; }
+.add-eyebrow { font-size:.57rem; font-weight:500; letter-spacing:.22em; text-transform:uppercase; color:var(--gold); margin-bottom:1.8rem; }
+.add-title { font-family:'EB Garamond',serif; font-size:clamp(2.6rem,5vw,4.2rem); font-weight:400; line-height:1.05; color:var(--ink); margin-bottom:1rem; }
+.add-title em { color:var(--gold); font-style:italic; }
+.add-rule { width:2.5rem; height:1px; background:var(--gold); margin:1.5rem 0 2rem; }
+.add-intro { font-size:.98rem; color:var(--mid); line-height:1.82; max-width:680px; }
+.add-intro strong { color:var(--ink); }
+.add-thesis { margin-top:2.5rem; padding:1.8rem 2.2rem; border:1px solid rgba(192,144,48,.2); background:var(--goldbg); }
+.add-thesis p { font-family:'EB Garamond',serif; font-size:1.22rem; font-style:italic; color:var(--ink); line-height:1.65; }
+.add-grid { max-width:1080px; margin:0 auto; padding:0 4.5rem 6rem; }
+.add-idea { border-bottom:1px solid var(--bdr); padding:3.5rem 0; display:grid; grid-template-columns:5rem 1fr 280px; gap:2.5rem; align-items:start; }
+.add-idea:last-child { border-bottom:none; }
+.add-n { font-family:'EB Garamond',serif; font-size:3.8rem; font-weight:400; color:rgba(192,144,48,.2); line-height:1; padding-top:.3rem; }
+.add-tag { display:inline-block; font-size:.56rem; letter-spacing:.15em; text-transform:uppercase; font-weight:500; padding:.18rem .6rem; background:rgba(192,144,48,.08); color:var(--gold); margin-bottom:.8rem; }
+.add-name { font-family:'EB Garamond',serif; font-size:clamp(1.5rem,2.3vw,2rem); font-weight:400; color:var(--ink); line-height:1.15; margin-bottom:.6rem; }
+.add-name em { font-style:italic; color:var(--gold); }
+.add-tagline { font-size:.9rem; color:var(--mid); line-height:1.75; max-width:520px; margin-bottom:1.1rem; }
+.add-why { font-size:.84rem; color:var(--mid); line-height:1.72; border-left:2px solid rgba(192,144,48,.25); padding-left:1rem; margin-top:.8rem; }
+.add-why strong { color:var(--ink); }
+.add-metrics { display:flex; flex-direction:column; gap:.7rem; }
+.add-m { padding:.9rem 1.1rem; background:var(--white); border:1px solid var(--bdr); }
+.add-ml { font-size:.58rem; letter-spacing:.13em; text-transform:uppercase; color:var(--muted); margin-bottom:.25rem; }
+.add-mv { font-size:.88rem; color:var(--gold); font-weight:400; }
+.add-mn { font-size:.77rem; color:var(--mid); margin-top:.2rem; line-height:1.5; }
+.add-geo { display:flex; gap:.4rem; flex-wrap:wrap; margin-top:.9rem; }
+.add-geo-pill { font-size:.58rem; letter-spacing:.1em; text-transform:uppercase; padding:.18rem .55rem; border:1px solid var(--bdr); color:var(--muted); }
+.add-close { background:var(--off); padding:2.5rem 0; border-top:1px solid var(--bdr); }
+.add-close-inner { max-width:1080px; margin:0 auto; padding:0 4.5rem; display:flex; justify-content:space-between; align-items:center; }
+.add-close-l { font-size:.82rem; color:var(--mid); }
+.add-close-l strong { color:var(--ink); display:block; margin-bottom:.25rem; }
+.add-close-r { font-size:.72rem; color:var(--muted); letter-spacing:.1em; text-transform:uppercase; }
+
+@media(max-width:900px) {
   .cover-grid,.prob-cols,.engines,.thesis-grid,.toolkit,.ba-grid,.equity-bar,.fin-notes,.trac-cols,.ask-row { grid-template-columns:1fr; }
   .cover-l,.cover-r { padding:6rem 2rem 3rem; }
   .inner { padding:0 1.8rem; }
   .cover-bar { padding:.8rem 1.8rem; flex-wrap:wrap; gap:.4rem; }
   .accel-banner { padding:2.5rem 2rem; }
   .ba-grid { grid-template-columns:1fr; }
-  .ba-col.before,.ba-col.after { border:1px solid rgba(255,255,255,.07); }
+  .ba-col.before,.ba-col.after { border:1px solid var(--bdr); }
   .ba-mid { padding:.8rem; }
-  nav { padding:.85rem 1.5rem; }
+  nav { padding:.8rem 1.5rem; }
   .nav-links { display:none; }
+  .tab-bar { padding:0 1.2rem; }
+  .tab-bar-logo { display:none; }
+  .tab-btn { padding:0 .8rem; font-size:.55rem; }
+  .trk-grid,.trk-structure,.plt-three,.plt-tech,.net-flywheel,.net-geo,.trk-pricing { grid-template-columns:1fr; }
+  .trk-days { grid-template-columns:1fr 1fr; }
+  .net-numbers { grid-template-columns:1fr 1fr; }
+  .add-idea { grid-template-columns:1fr; gap:1.5rem; }
+  .add-grid { padding:0 2rem 4rem; }
+  .add-cover-inner { padding:0 2rem; }
 }
 
-/* ── TAB BAR ── */
-.tab-bar {
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  z-index: 200;
-  background: rgba(5,6,8,.98);
-  border-bottom: 1px solid rgba(196,147,58,.1);
-  display: flex;
-  align-items: stretch;
-  padding: 0 3.5rem;
-  height: 52px;
-  gap: 0;
-}
-.tab-bar-logo {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: .9rem;
-  color: rgba(255,255,255,.3);
-  letter-spacing: .06em;
-  display: flex;
-  align-items: center;
-  margin-right: 2.5rem;
-  white-space: nowrap;
-}
-.tab-btn {
-  font-size: .6rem;
-  font-weight: 500;
-  letter-spacing: .16em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,.3);
-  background: none;
-  border: none;
-  border-bottom: 2px solid transparent;
-  padding: 0 1.4rem;
-  cursor: pointer;
-  transition: color .2s, border-color .2s;
-  height: 100%;
-  white-space: nowrap;
-}
-.tab-btn:hover { color: rgba(255,255,255,.65); }
-.tab-btn.active {
-  color: var(--gold);
-  border-bottom-color: var(--gold);
-}
-.tab-badge {
-  font-size: .52rem;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-  color: var(--gold);
-  border: 1px solid rgba(196,147,58,.25);
-  padding: .18rem .65rem;
-  margin-left: auto;
-  align-self: center;
-  white-space: nowrap;
-}
+/* d3 = off/light background — explicit text colours */
+.d3 .secey { color:var(--gold); }
+.d3 .sectitle { color:var(--ink); }
+.d3 .secrule { background:var(--gold); }
+.d3 .lead { color:var(--mid); }
+.d3 .pcol p { color:var(--mid); }
+.d3 .pcol p strong { color:var(--ink); }
+.d3 .pquote { background:var(--goldbg); }
+.d3 .pquote p { color:var(--ink); }
+.d3 .pin { border-color:var(--bdr); background:var(--white); }
+.d3 .pin-body { color:var(--mid); }
+.d3 .tb { background:var(--white); border-color:var(--bdr); }
+.d3 .tb-body { color:var(--mid); }
+.d3 .tb-body strong { color:var(--ink); }
+.d3 .tk { border-color:var(--bdr); background:var(--white); }
+.d3 .tk-b { color:var(--mid); }
+.d3 .toolkit-intro { color:var(--mid); }
+.d3 .toolkit-intro strong { color:var(--ink); }
+.d3 .fn { border-color:var(--bdr); background:var(--white); }
+.d3 .fn-b { color:var(--mid); }
+.d3 .trk-insight { background:var(--goldbg); border-color:rgba(192,144,48,.2); }
+.d3 .trk-insight-text { color:var(--ink); }
+.d3 .plt-layer { background:var(--stone); }
+.d3 .plt-layer-r { color:var(--mid); }
+.d3 .plt-layer-r strong { color:var(--ink); }
+.d3 .net-num { background:var(--white); border-color:var(--bdr); }
+.d3 .net-num-n { color:var(--gold); }
+.d3 .net-num-l { color:var(--muted); }
 
-/* ── TAB PANELS ── */
-.tab-panel { display: none; }
-.tab-panel.active { display: block; }
+/* FOUNDING TEAM */
+.team-grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:1px; background:var(--bdr); margin:2.5rem 0; }
+.team-card { background:var(--white); padding:2.5rem; border:1px solid var(--bdr); display:flex; flex-direction:column; gap:0; }
+.team-card-accent { background:var(--goldbg); border-color:rgba(192,144,48,.3); }
+.team-role { font-size:.6rem; font-weight:500; letter-spacing:.16em; text-transform:uppercase; color:var(--gold); margin-bottom:.55rem; }
+.team-name { font-family:'EB Garamond',serif; font-size:1.9rem; font-weight:400; color:var(--ink); line-height:1.1; }
+.team-rule { width:2rem; height:1px; background:var(--gold); margin:1rem 0 1.2rem; opacity:.6; }
+.team-creds { display:flex; flex-direction:column; gap:.6rem; margin-bottom:1.4rem; flex:1; }
+.team-cred { display:flex; align-items:flex-start; gap:.7rem; font-size:.84rem; color:var(--mid); line-height:1.55; }
+.team-dot { flex-shrink:0; width:4px; height:4px; border-radius:50%; background:var(--gold); margin-top:.55rem; opacity:.6; }
+.team-focus { font-size:.8rem; color:var(--mid); border-top:1px solid var(--bdr); padding-top:1rem; line-height:1.6; margin-top:auto; }
+.team-card-accent .team-focus { border-color:rgba(192,144,48,.2); }
+.team-focus-label { font-size:.58rem; font-weight:500; letter-spacing:.12em; text-transform:uppercase; color:var(--gold); margin-right:.4rem; }
+.team-quote { margin-top:2rem; border-left:3px solid var(--gold); padding:1.5rem 2rem; background:var(--goldbg); }
+.team-quote p { font-family:'EB Garamond',serif; font-size:1.35rem; font-style:italic; color:var(--ink); line-height:1.6; }
 
-/* push body content below tab bar */
-body { padding-top: 52px; }
-.cover { padding-top: 0; }
+/* CORPORATE CASE */
+.corp-why-grid { display:grid; grid-template-columns:1fr 1fr; gap:2.5rem; margin:2.5rem 0; }
+.corp-why-card { padding:2rem; background:var(--white); border:1px solid var(--bdr); border-top:3px solid var(--gold); }
+.corp-why-title { font-family:'EB Garamond',serif; font-size:1.3rem; font-weight:400; color:var(--ink); margin-bottom:.6rem; }
+.corp-why-body { font-size:.87rem; color:var(--mid); line-height:1.75; }
+.corp-why-body strong { color:var(--ink); }
+.corp-buyer-row { display:grid; grid-template-columns:1fr 1fr 1fr; gap:1px; background:var(--bdr); margin:2.5rem 0; }
+.corp-buyer { background:var(--off); padding:1.8rem; border:1px solid var(--bdr); }
+.corp-buyer-dept { font-size:.58rem; font-weight:500; letter-spacing:.14em; text-transform:uppercase; color:var(--gold); margin-bottom:.5rem; }
+.corp-buyer-title { font-family:'EB Garamond',serif; font-size:1.2rem; font-weight:400; color:var(--ink); margin-bottom:.5rem; }
+.corp-buyer-body { font-size:.84rem; color:var(--mid); line-height:1.65; }
+.corp-objection { display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--bdr); margin:2.5rem 0; }
+.corp-obj { padding:1.6rem 1.8rem; }
+.corp-obj.q { background:var(--off); }
+.corp-obj.a { background:var(--goldbg); }
+.corp-obj-label { font-size:.57rem; letter-spacing:.14em; text-transform:uppercase; font-weight:500; margin-bottom:.55rem; }
+.corp-obj.q .corp-obj-label { color:var(--muted); }
+.corp-obj.a .corp-obj-label { color:var(--gold); }
+.corp-obj-text { font-size:.88rem; color:var(--mid); line-height:1.7; }
+.corp-obj.a .corp-obj-text { color:var(--ink); }
 
-/* ── TRACKS TAB ── */
-.trk-hero {
-  min-height: 85vh;
-  background: var(--ink);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  position: relative;
-  overflow: hidden;
-  padding: 7rem 0 5rem;
-}
-.trk-hero::before {
-  content: '';
-  position: absolute; top: 0; right: 0;
-  width: 55%; height: 100%;
-  background: radial-gradient(ellipse 70% 65% at 75% 45%, #0D1828 0%, transparent 70%);
-  pointer-events: none;
-}
-.trk-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
-.trk-eyebrow { font-size: .58rem; font-weight: 500; letter-spacing: .22em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.6rem; }
-.trk-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.8rem, 5vw, 4.5rem); font-weight: 300; line-height: 1.04; color: var(--white); margin-bottom: 1rem; }
-.trk-title em { color: var(--gold); font-style: italic; }
-.trk-rule { width: 2.5rem; height: 1px; background: var(--gold); margin: 1.5rem 0 2rem; }
-.trk-lead { font-size: 1rem; color: rgba(255,255,255,.42); line-height: 1.8; max-width: 440px; }
-.trk-stats { display: flex; flex-direction: column; gap: .8rem; }
-.trk-stat { display: grid; grid-template-columns: 5.5rem 1fr; gap: 1rem; align-items: baseline; padding: .6rem 0; border-bottom: 1px solid rgba(255,255,255,.04); }
-.trk-stat:last-child { border-bottom: none; }
-.trk-sn { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 300; color: var(--white); line-height: 1; }
-.trk-sl { font-size: .78rem; color: rgba(255,255,255,.3); line-height: 1.4; }
-
-.trk-structure { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: rgba(255,255,255,.04); margin: 3rem 0; }
-.trk-tier { background: var(--ink2); padding: 2.5rem; }
-.trk-tier-n { font-family: 'Cormorant Garamond', serif; font-size: 3.5rem; font-weight: 300; color: rgba(196,147,58,.12); line-height: 1; margin-bottom: .8rem; }
-.trk-tier-tag { font-size: .57rem; letter-spacing: .15em; text-transform: uppercase; font-weight: 500; color: var(--goldl); background: rgba(196,147,58,.08); padding: .18rem .6rem; display: inline-block; margin-bottom: .8rem; }
-.trk-tier-title { font-family: 'Cormorant Garamond', serif; font-size: 1.45rem; font-weight: 300; color: var(--white); margin-bottom: .8rem; line-height: 1.2; }
-.trk-tier-body { font-size: .87rem; color: rgba(255,255,255,.4); line-height: 1.75; }
-.trk-tier-list { list-style: none; display: flex; flex-direction: column; gap: .55rem; margin-top: 1rem; }
-.trk-tier-list li { font-size: .85rem; color: rgba(255,255,255,.38); padding-left: 1rem; position: relative; line-height: 1.55; }
-.trk-tier-list li::before { content: ''; position: absolute; left: 0; top: .58rem; width: 4px; height: 4px; border-radius: 50%; background: var(--gold); opacity: .45; }
-
-.trk-insight { background: linear-gradient(135deg, #06080E 0%, #0B1320 100%); border: 1px solid rgba(196,147,58,.14); padding: 3rem 3.5rem; margin: 3rem 0; }
-.trk-insight-label { font-size: .6rem; letter-spacing: .18em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; }
-.trk-insight-text { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.2rem, 2vw, 1.6rem); font-style: italic; color: var(--goldl); line-height: 1.65; }
-
-.trk-days { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1px; background: rgba(255,255,255,.04); margin: 3rem 0; }
-.trk-day { background: var(--ink); padding: 1.5rem 1.2rem; }
-.trk-day-n { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 300; color: rgba(255,255,255,.08); line-height: 1; margin-bottom: .5rem; }
-.trk-day-tag { font-size: .56rem; letter-spacing: .13em; text-transform: uppercase; color: var(--gold); margin-bottom: .6rem; }
-.trk-day-body { font-size: .82rem; color: rgba(255,255,255,.36); line-height: 1.6; }
-
-.trk-pricing { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1px; background: rgba(255,255,255,.04); margin: 3rem 0; }
-.trk-price-card { background: var(--ink2); padding: 2rem; }
-.trk-price-card.feat { background: rgba(196,147,58,.06); border: 1px solid rgba(196,147,58,.18); }
-.trk-price-n { font-family: 'Cormorant Garamond', serif; font-size: 2.6rem; font-weight: 300; color: var(--gold); line-height: 1; }
-.trk-price-l { font-size: .68rem; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.3); margin: .35rem 0 .7rem; }
-.trk-price-desc { font-size: .84rem; color: rgba(255,255,255,.38); line-height: 1.65; }
-
-/* ── PLATFORM TAB ── */
-.plt-hero { min-height: 75vh; background: var(--ink); display: flex; flex-direction: column; justify-content: center; padding: 7rem 0 5rem; position: relative; overflow: hidden; }
-.plt-hero::before { content: ''; position: absolute; top: -100px; right: -100px; width: 500px; height: 500px; border-radius: 50%; background: radial-gradient(circle, rgba(196,147,58,.05) 0%, transparent 65%); pointer-events: none; }
-.plt-three { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1px; background: rgba(255,255,255,.04); margin: 3rem 0; }
-.plt-face { background: var(--ink2); padding: 2.5rem; position: relative; overflow: hidden; }
-.plt-face-n { font-family: 'Cormorant Garamond', serif; font-size: 4rem; font-weight: 300; color: rgba(255,255,255,.03); position: absolute; top: .5rem; right: 1rem; line-height: 1; }
-.plt-face-tag { font-size: .56rem; letter-spacing: .15em; text-transform: uppercase; font-weight: 500; color: var(--goldl); background: rgba(196,147,58,.08); padding: .18rem .6rem; display: inline-block; margin-bottom: .8rem; }
-.plt-face-name { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 300; color: var(--white); margin-bottom: .65rem; line-height: 1.2; }
-.plt-face-desc { font-size: .87rem; color: rgba(255,255,255,.4); line-height: 1.75; margin-bottom: 1rem; }
-.plt-face-rev { font-size: .72rem; color: var(--gold); border-top: 1px solid rgba(255,255,255,.06); padding-top: .75rem; }
-
-.plt-tech { display: grid; grid-template-columns: 1fr 1fr; gap: 3.5rem; align-items: start; margin: 3rem 0; }
-.plt-tech-stack { display: flex; flex-direction: column; gap: .8rem; }
-.plt-layer { display: grid; grid-template-columns: 110px 1fr; gap: 1.2rem; align-items: start; padding: 1rem 1.2rem; background: rgba(255,255,255,.025); border-left: 2px solid rgba(196,147,58,.2); }
-.plt-layer-l { font-size: .62rem; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; color: var(--goldl); padding-top: .1rem; }
-.plt-layer-r { font-size: .85rem; color: rgba(255,255,255,.4); line-height: 1.6; }
-.plt-layer-r strong { color: rgba(255,255,255,.72); }
-
-.plt-curriculum { margin: 3rem 0; }
-.plt-summit-row { display: grid; grid-template-columns: 80px 1fr; gap: 1.5rem; align-items: start; padding: 1.4rem 0; border-bottom: 1px solid rgba(255,255,255,.05); }
-.plt-summit-row:last-child { border-bottom: none; }
-.plt-summit-n { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; font-weight: 300; color: rgba(196,147,58,.2); line-height: 1; }
-.plt-summit-name { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 300; color: var(--white); margin-bottom: .4rem; }
-.plt-summit-desc { font-size: .87rem; color: rgba(255,255,255,.4); line-height: 1.7; }
-
-/* ── NETWORK TAB ── */
-.net-hero { min-height: 75vh; background: var(--ink); display: flex; flex-direction: column; justify-content: center; padding: 7rem 0 5rem; position: relative; overflow: hidden; }
-.net-flywheel { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: rgba(255,255,255,.04); margin: 3rem 0; }
-.net-step { background: var(--ink2); padding: 2.5rem; position: relative; }
-.net-step-n { font-family: 'Cormorant Garamond', serif; font-size: 4rem; font-weight: 300; color: rgba(196,147,58,.1); position: absolute; top: 1rem; right: 1.5rem; line-height: 1; }
-.net-step-tag { font-size: .57rem; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); margin-bottom: .7rem; }
-.net-step-title { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 300; color: var(--white); margin-bottom: .65rem; line-height: 1.2; }
-.net-step-body { font-size: .87rem; color: rgba(255,255,255,.4); line-height: 1.75; }
-
-.net-geo { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin: 3rem 0; }
-.net-geo-card { padding: 1.8rem; border: 1px solid rgba(255,255,255,.07); background: rgba(255,255,255,.02); }
-.net-geo-name { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 300; color: var(--white); margin-bottom: .5rem; }
-.net-geo-body { font-size: .84rem; color: rgba(255,255,255,.38); line-height: 1.65; }
-.net-geo-pill { font-size: .58rem; letter-spacing: .1em; text-transform: uppercase; color: var(--gold); border: 1px solid rgba(196,147,58,.2); padding: .15rem .5rem; display: inline-block; margin-bottom: .65rem; }
-
-.net-numbers { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 1px; background: rgba(255,255,255,.04); margin: 3rem 0; }
-.net-num { background: #07080C; padding: 2rem 1.5rem; text-align: center; }
-.net-num-n { font-family: 'Cormorant Garamond', serif; font-size: 2.8rem; font-weight: 300; color: var(--gold); line-height: 1; }
-.net-num-l { font-size: .7rem; color: rgba(255,255,255,.28); margin-top: .45rem; line-height: 1.4; }
+/* BUSINESS SCHOOL PARTNERSHIPS */
+.bschool-grid { display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--bdr); margin:2.5rem 0; }
+.bschool-card { background:var(--white); padding:2.2rem; border:1px solid var(--bdr); }
+.bschool-card.feat { background:var(--goldbg); border-color:rgba(192,144,48,.3); }
+.bschool-name { font-family:'EB Garamond',serif; font-size:1.4rem; font-weight:400; color:var(--ink); margin-bottom:.3rem; }
+.bschool-loc { font-size:.63rem; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); margin-bottom:.8rem; }
+.bschool-body { font-size:.85rem; color:var(--mid); line-height:1.7; margin-bottom:.9rem; }
+.bschool-models { display:flex; flex-wrap:wrap; gap:.4rem; }
+.bschool-pill { font-size:.58rem; letter-spacing:.08em; text-transform:uppercase; padding:.18rem .6rem; border:1px solid var(--bdr); color:var(--mid); background:var(--stone); }
+.bschool-pill.gold { border-color:rgba(192,144,48,.35); color:var(--gold); background:rgba(192,144,48,.06); }
+.bschool-reframe { margin:2.5rem 0; padding:2rem 2.5rem; background:var(--ink); }
+.bschool-reframe-label { font-size:.6rem; letter-spacing:.18em; text-transform:uppercase; color:var(--gold); margin-bottom:.8rem; }
+.bschool-reframe-text { font-family:'EB Garamond',serif; font-size:1.3rem; font-style:italic; color:rgba(255,255,255,.85); line-height:1.65; }
+.bschool-reframe-sub { font-size:.84rem; color:rgba(255,255,255,.42); margin-top:.8rem; line-height:1.6; }
 
 @media(max-width:900px) {
-  .tab-bar { padding: 0 1.2rem; gap: 0; }
-  .tab-bar-logo { display: none; }
-  .tab-btn { padding: 0 .8rem; font-size: .55rem; }
-  .trk-grid, .trk-structure, .plt-three, .plt-tech, .net-flywheel, .net-geo, .trk-pricing { grid-template-columns: 1fr; }
-  .trk-days { grid-template-columns: 1fr 1fr; }
-  .net-numbers { grid-template-columns: 1fr 1fr; }
-  .add-idea { grid-template-columns: 1fr; gap: 1.5rem; }
-  .add-grid { padding: 0 2rem 4rem; }
-  .add-cover-inner { padding: 0 2rem; }
+  .team-grid, .corp-buyer-row { grid-template-columns:1fr; }
+  .corp-why-grid, .corp-objection, .bschool-grid { grid-template-columns:1fr; }
+}
+
+/* UNLIMITED SCALE SECTION */
+.unlim-banner {
+  background: var(--ink);
+  padding: 4rem 4.5rem;
+  margin: 2.5rem 0;
+  position: relative;
+  overflow: hidden;
+}
+.unlim-banner::before {
+  content: '';
+  position: absolute; top: -120px; right: -120px;
+  width: 500px; height: 500px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(192,144,48,.07) 0%, transparent 65%);
+  pointer-events: none;
+}
+.unlim-headline {
+  font-family: 'EB Garamond', serif;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 400;
+  color: var(--white);
+  line-height: 1.1;
+  margin-bottom: 1rem;
+  position: relative; z-index: 1;
+}
+.unlim-headline em { color: var(--gold); font-style: italic; }
+.unlim-sub {
+  font-size: .97rem;
+  color: rgba(255,255,255,.42);
+  max-width: 640px;
+  line-height: 1.8;
+  position: relative; z-index: 1;
+  margin-bottom: 2.5rem;
+}
+.unlim-sub strong { color: rgba(255,255,255,.85); }
+.unlim-number {
+  font-family: 'EB Garamond', serif;
+  font-size: clamp(5rem, 12vw, 9rem);
+  font-weight: 400;
+  color: var(--gold);
+  line-height: .9;
+  position: absolute;
+  bottom: 1.5rem; right: 3rem;
+  opacity: .12;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.unlim-contrast {
+  display: grid;
+  grid-template-columns: 1fr 60px 1fr;
+  gap: 0;
+  margin: 2.5rem 0;
+}
+.unlim-col {
+  padding: 2.2rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: .7rem;
+}
+.unlim-col.before { background: var(--off); border: 1px solid var(--bdr); border-right: none; }
+.unlim-col.after  { background: var(--goldbg); border: 1px solid rgba(192,144,48,.25); border-left: none; }
+.unlim-col-label {
+  font-size: .58rem; font-weight: 500; letter-spacing: .18em; text-transform: uppercase;
+  margin-bottom: .3rem;
+}
+.unlim-col.before .unlim-col-label { color: var(--muted); }
+.unlim-col.after  .unlim-col-label { color: var(--gold); }
+.unlim-col-head {
+  font-family: 'EB Garamond', serif;
+  font-size: 1.15rem; font-weight: 400;
+  margin-bottom: .3rem;
+}
+.unlim-col.before .unlim-col-head { color: var(--mid); }
+.unlim-col.after  .unlim-col-head { color: var(--ink); }
+.unlim-item {
+  display: flex; align-items: flex-start; gap: .65rem;
+  font-size: .86rem; color: var(--mid); line-height: 1.55;
+}
+.unlim-item::before {
+  content: ''; flex-shrink: 0;
+  width: 4px; height: 4px; border-radius: 50%;
+  margin-top: .55rem;
+}
+.unlim-col.before .unlim-item::before { background: var(--muted); }
+.unlim-col.after  .unlim-item::before { background: var(--gold); }
+.unlim-col.after  .unlim-item { color: var(--ink); }
+.unlim-divider {
+  display: flex; align-items: center; justify-content: center;
+  background: var(--bdr);
+  border-top: 1px solid var(--bdr);
+  border-bottom: 1px solid var(--bdr);
+  font-size: 1.1rem; color: var(--gold);
+}
+
+.unlim-pillars {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--bdr);
+  margin: 2.5rem 0;
+}
+.unlim-pillar {
+  background: var(--white);
+  padding: 1.8rem 1.5rem;
+  border: 1px solid var(--bdr);
+  position: relative;
+  overflow: hidden;
+}
+.unlim-pillar::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--gold);
+  opacity: .5;
+}
+.unlim-pillar-n {
+  font-family: 'EB Garamond', serif;
+  font-size: 3rem; font-weight: 400;
+  color: rgba(192,144,48,.12);
+  line-height: 1;
+  margin-bottom: .5rem;
+}
+.unlim-pillar-title {
+  font-size: .68rem; font-weight: 500; letter-spacing: .13em;
+  text-transform: uppercase; color: var(--gold);
+  margin-bottom: .55rem;
+}
+.unlim-pillar-body {
+  font-size: .84rem; color: var(--mid); line-height: 1.68;
+}
+.unlim-pillar-body strong { color: var(--ink); }
+
+.unlim-closing-quote {
+  margin-top: 2.5rem;
+  padding: 2rem 2.5rem;
+  border-left: 3px solid var(--gold);
+  background: var(--goldbg);
+}
+.unlim-closing-quote p {
+  font-family: 'EB Garamond', serif;
+  font-size: 1.35rem; font-style: italic;
+  color: var(--ink); line-height: 1.65;
+}
+.unlim-closing-quote cite {
+  display: block;
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-size: .72rem;
+  color: var(--muted);
+  letter-spacing: .08em;
+  margin-top: .7rem;
+}
+
+@media(max-width:900px) {
+  .unlim-contrast { grid-template-columns: 1fr; }
+  .unlim-col.before { border-right: 1px solid var(--bdr); border-bottom: none; }
+  .unlim-col.after  { border-left: 1px solid rgba(192,144,48,.25); }
+  .unlim-divider { padding: .8rem; }
+  .unlim-pillars { grid-template-columns: 1fr 1fr; }
+  .unlim-banner { padding: 2.5rem 2rem; }
 }
 </style>
 </head>
@@ -424,7 +665,7 @@ body { padding-top: 52px; }
   style="width:100%;padding:.75rem 2.5rem .75rem 1rem;background:rgba(255,255,255,.06);border:1px solid rgba(196,147,58,.25);color:#fff;font-family:'DM Sans',sans-serif;font-size:.9rem;outline:none;text-align:center;letter-spacing:.08em;">
 <button id="pw-toggle" type="button" style="position:absolute;right:.6rem;top:50%;transform:translateY(-50%);background:none;border:none;color:rgba(255,255,255,.35);cursor:pointer;font-size:.75rem;letter-spacing:.06em;" aria-label="Show password">SHOW</button>
 </div>
-<button id="pw-submit" type="button" style="width:100%;padding:.7rem 1rem;background:rgba(196,147,58,.15);border:1px solid rgba(196,147,58,.35);color:var(--gold,#C4933A);font-family:'DM Sans',sans-serif;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;cursor:pointer;margin-bottom:.8rem;transition:background .2s;">ENTER</button>
+<button id="pw-submit" type="button" style="width:100%;padding:.7rem 1rem;background:rgba(196,147,58,.15);border:1px solid rgba(196,147,58,.35);color:#C4933A;font-family:'DM Sans',sans-serif;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;cursor:pointer;margin-bottom:.8rem;transition:background .2s;">ENTER</button>
 <div id="pw-err" style="color:#8B2020;font-size:.75rem;min-height:1.2rem;"></div>
 </div>
 </div>
@@ -443,7 +684,7 @@ tog.addEventListener('click',function(){if(inp.type==='password'){inp.type='text
 <!-- TAB BAR -->
 <div class="tab-bar" id="tabBar">
   <div class="tab-bar-logo">Women on a Mission</div>
-  <button class="tab-btn active" onclick="switchTab('investor')">Investor Brief</button>
+  <button class="tab-btn active" onclick="switchTab('investor')">Founder Brief</button>
   <button class="tab-btn" onclick="switchTab('tracks')">The Tracks</button>
   <button class="tab-btn" onclick="switchTab('platform')">The Platform</button>
   <button class="tab-btn" onclick="switchTab('network')">The Network</button>
@@ -470,16 +711,16 @@ tog.addEventListener('click',function(){if(inp.type==='password'){inp.type='text
   <div class="cover-glow2"></div>
   <div class="cover-grid">
     <div class="cover-l">
-      <div class="eye">Investor Brief · March 2026</div>
+      <div class="eye">Founder Brief · March 2026</div>
       <h1 class="cover-title">Women on<br>a Mission<br><em>The Next Summit.</em></h1>
       <div class="cover-rule"></div>
-      <p class="cover-sub">A for-profit company built on fourteen years of expedition proof. Pre-seed round open to aligned investors.</p>
+      <p class="cover-sub">A for-profit company built on fourteen years of expedition proof. A private document for co-founders and close allies.</p>
     </div>
     <div class="cover-r">
       <div class="cover-tagline">"AI is the greatest equaliser in human history. We are going to make sure women get there first."</div>
       <div class="cover-stats">
         <div class="cst"><div class="cstn">14 yrs</div><div class="cstl">Proven expedition model operating since 2012</div></div>
-        <div class="cst"><div class="cstn">$1.5M</div><div class="cstl">Raised across 16 expeditions on 4 continents</div></div>
+        <div class="cst"><div class="cstn">$1.5M</div><div class="cstl">Raised across 16 expeditions on 5 continents</div></div>
         <div class="cst"><div class="cstn">~100</div><div class="cstl">Alumni — senior execs and founders, 12+ countries</div></div>
         <div class="cst"><div class="cstn">2 + 1</div><div class="cstl">Everest summiteers + an AI pioneer with 30 years in machine learning in the founding team</div></div>
       </div>
@@ -492,7 +733,7 @@ tog.addEventListener('click',function(){if(inp.type==='password'){inp.type='text
 </div>
 
 <!-- PROBLEM -->
-<section class="sec dark" id="problem">
+<section class="sec d3" id="problem">
   <div class="inner">
     <div class="secey rv">The Problem</div>
     <h2 class="sectitle rv">The AI Gender Gap Is<br>the Defining Economic Issue<br>of <em>the Next Decade.</em></h2>
@@ -564,7 +805,7 @@ tog.addEventListener('click',function(){if(inp.type==='password'){inp.type='text
 </section>
 
 <!-- ACCELERATOR DEEP DIVE -->
-<section class="sec dark" id="accelerator">
+<section class="sec off" id="accelerator">
   <div class="inner">
     <div class="secey rv">The Real Equity Story</div>
     <h2 class="sectitle rv">The Accelerator:<br><em>A New Kind of Venture Asset.</em></h2>
@@ -684,35 +925,44 @@ tog.addEventListener('click',function(){if(inp.type==='password'){inp.type='text
 <section class="sec d3" id="traction">
   <div class="inner">
     <div class="secey rv">Proof of Concept</div>
-    <h2 class="sectitle rv">Fourteen Years of <em>Evidence.</em></h2>
+    <h2 class="sectitle rv">Sixteen Expeditions.<br><em>One Founder. One Vision.</em></h2>
     <div class="secrule rv"></div>
-    <p class="lead rv">The charity model proves the community, the brand, and the expedition experience at scale. The commercial model monetises what is already working.</p>
+    <p class="lead rv">Valerie Boffy founded Women on a Mission in 2012 and has led every expedition since. Sixteen expeditions across five continents. Over USD $1.5 million raised. The community, the brand, and the expedition model are proven. The commercial company is what comes next.</p>
     <div class="trac-cols rv">
       <ul class="explist">
-        <li><span class="expy">2012</span><span>Everest Base Camp, Nepal — founding expedition, SGD $155k raised</span></li>
-        <li><span class="expy">2014</span><span>Jordan Desert — first international expansion</span></li>
-        <li><span class="expy">2015</span><span>Yamal Peninsula, Siberia — first all-female team with Nenets herders</span></li>
-        <li><span class="expy">2016</span><span>Mongolia — across the steppe by horse and on foot</span></li>
-        <li><span class="expy">2017</span><span>Danakil Depression, Ethiopia — world's hottest inhabited place</span></li>
-        <li><span class="expy">2018</span><span>Bhutan — first all-female SUP river descent</span></li>
-        <li><span class="expy">2019</span><span>Siberut Island, Indonesia — Last Shamans of Indonesia</span></li>
-        <li><span class="expy">2020</span><span>Cambodia — river and jungle expedition</span></li>
-        <li><span class="expy">2021</span><span>Lut Desert, Iran — first all-female team to cross on foot</span></li>
-        <li><span class="expy">2022</span><span>Tian Shan, Kyrgyzstan — 156km through snow-peaked mountains</span></li>
-        <li><span class="expy">2023</span><span>Namib Desert — first all-female team to cross on foot</span></li>
-        <li><span class="expy">2024</span><span>Arctic, Svalbard — polar expedition</span></li>
+        <li><span class="expy">Nov 2012</span><span>Everest Base Camp, Nepal — founding expedition</span></li>
+        <li><span class="expy">Nov 2013</span><span>Jordan — climbing expedition</span></li>
+        <li><span class="expy">Oct 2014</span><span>Tsum Sacred Valley trek, Nepal</span></li>
+        <li><span class="expy">Nov 2015</span><span>Yamal Peninsula, Siberia — migration with the Nenets</span></li>
+        <li><span class="expy">Mar 2016</span><span>Cambodia — river and jungle expedition</span></li>
+        <li><span class="expy">Nov 2016</span><span>Lut Desert, Iran — crossing on foot</span></li>
+        <li><span class="expy">May 2017</span><span>Bhutan — stand-up paddle expedition</span></li>
+        <li><span class="expy">Nov 2017</span><span>Danakil Depression, Ethiopia — mountain biking</span></li>
+        <li><span class="expy">Jun 2018</span><span>Western Mongolia — trekking and horse riding with the eagle hunters</span></li>
+        <li><span class="expy">Nov 2018</span><span>Siberut Island, Indonesia — jungle trekking</span></li>
+        <li><span class="expy">2019</span><span>Siberut Island — Mentawai Sukhudei tribe</span></li>
+        <li><span class="expy">2022</span><span>Kurdistan — trekking at 4,000m in the valleys</span></li>
+        <li><span class="expy">Sep 2023</span><span>Namibia — Namib Desert crossing</span></li>
+        <li><span class="expy">Aug 2024</span><span>Arctic — kayaking expedition</span></li>
+        <li><span class="expy">Sep 2025</span><span>Bosnia — five peaks in the Dinaric Alps</span></li>
+        <li><span class="expy">Feb 2026</span><span>Mongolia — frozen lake crossing</span></li>
       </ul>
       <div class="founds">
-        <div class="fc"><div class="fc-name">Valerie Boffy</div><div class="fc-role">CEO & Co-Founder</div><div class="fc-bio">6th French woman to summit Everest · 14 years building WOAM · Former worldwide Executive Director, Estée Lauder, Bally & Cartier · Founder, Leparfum.ai</div></div>
-        <div class="fc"><div class="fc-name">Annabelle Bond OBE</div><div class="fc-role">Co-Founder</div><div class="fc-bio">Fastest woman to climb all Seven Summits (360 days) · 4th British woman on Everest · Former: Goldman Sachs, Merrill Lynch, Barclays, Microsoft · Advisor, Arbor Ventures (all-women VC)</div></div>
-        <div class="fc"><div class="fc-name">Kent Ertugrul</div><div class="fc-role">Co-Founder &amp; Chief AI Officer</div><div class="fc-bio">Serial entrepreneur · Multiple exits incl. London AIM listing · China Telecom's sole big data partner · Working with AI and machine learning since 1994 — before the term existed · Built AI-first commercial systems across financial markets, telecoms, and consumer technology · Architect of the WOAM AI platform and curriculum</div></div>
+        <div class="fc" style="border-top:3px solid var(--gold);">
+          <div class="fc-name">Valerie Boffy</div>
+          <div class="fc-role">Founder, Women on a Mission (2012)</div>
+          <div class="fc-bio" style="margin-top:.6rem;">Valerie founded WOAM in Singapore in 2012 with a single expedition to Everest Base Camp and a commitment to prove that extraordinary women, given the right challenge, will do extraordinary things.</div>
+          <div class="fc-bio" style="margin-top:.6rem;">Over the next thirteen years she led sixteen expeditions across five continents — Siberia, the Lut Desert, the Danakil Depression, the Arctic, the Himalayas — raising over USD $1.5 million for women's causes and building one of the most distinctive adventure communities in the world.</div>
+          <div class="fc-bio" style="margin-top:.6rem;">She did this while simultaneously building a career at the pinnacle of global luxury — worldwide Executive Director at Estée Lauder, Bally, and Cartier — and becoming the 6th French woman in history to summit Mount Everest.</div>
+          <div class="fc-bio" style="margin-top:.6rem; color:var(--gold); font-style:italic;">The for-profit company is what she is building next. Everything above is the proof that she can.</div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- FINANCIALS -->
-<section class="sec dark">
+<section class="sec d2">
   <div class="inner">
     <div class="secey rv">Financials</div>
     <h2 class="sectitle rv">Revenue Model &amp; <em>Path to Profitability.</em></h2>
@@ -730,6 +980,65 @@ tog.addEventListener('click',function(){if(inp.type==='password'){inp.type='text
     <div class="fin-notes rv">
       <div class="fn"><div class="fn-t">Cost Structure</div><div class="fn-b">Expedition operations · Local educator training · Platform hosting · Team salaries. Track revenues cover operational costs and founder salaries from Year 1. No dependency on external capital to reach first revenue.</div></div>
       <div class="fn"><div class="fn-t">Path to Profitability</div><div class="fn-b">Bootstrap from Track revenues · Pre-seed $100k closes Days 1–30 · Angel round follows first confirmed track · Series A from Year 2 traction. Minimum viable raise to first track is under $500k.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOUNDING TEAM -->
+<section class="sec d2" id="team">
+  <div class="inner">
+    <div class="secey rv">The Founding Team</div>
+    <h2 class="sectitle rv">Three People.<br><em>One Unrepeatable Combination.</em></h2>
+    <div class="secrule rv"></div>
+    <p class="lead rv">There are thousands of people who can articulate a vision for AI and women's empowerment. There are very few who have the combination of lived adventure credibility, corporate network, and personal brand to make corporations pay premium prices to send their executives on a journey they have designed. These three are among that very small group.</p>
+    <div class="team-grid rv">
+
+      <div class="team-card">
+        <div class="team-role">CEO &amp; Architect of the Vision</div>
+        <div class="team-name">Valerie Boffy</div>
+        <div class="team-rule"></div>
+        <div class="team-creds">
+          <div class="team-cred"><span class="team-dot"></span>Co-founder of Women on a Mission — 13 years, USD $1.5M raised, 16 expeditions across 5 continents</div>
+          <div class="team-cred"><span class="team-dot"></span>6th French woman in history to summit Mount Everest</div>
+          <div class="team-cred"><span class="team-dot"></span>Former worldwide Executive Director, Estée Lauder, Bally, and Cartier</div>
+          <div class="team-cred"><span class="team-dot"></span>Founder and CEO of Leparfum.ai — an AI-native fragrance company, proof she builds as well as leads</div>
+          <div class="team-cred"><span class="team-dot"></span>The architect of the WOAM model and keeper of its mission integrity</div>
+        </div>
+        <div class="team-focus"><span class="team-focus-label">Role</span> Vision, operations, brand, charity relationships, track design</div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-role">Chief Growth Officer</div>
+        <div class="team-name">Annabelle Bond OBE</div>
+        <div class="team-rule"></div>
+        <div class="team-creds">
+          <div class="team-cred"><span class="team-dot"></span>Fastest woman in history to climb all Seven Summits — 360 days, a record that stood for 8 years</div>
+          <div class="team-cred"><span class="team-dot"></span>4th British woman to summit Everest; North Pole expedition with HSH Prince Albert II of Monaco</div>
+          <div class="team-cred"><span class="team-dot"></span>Former real estate executive with Goldman Sachs, Merrill Lynch, Barclays, and Microsoft as clients</div>
+          <div class="team-cred"><span class="team-dot"></span>Advisor to Arbor Ventures — an all-women venture capital firm, with direct access to the investment community</div>
+          <div class="team-cred"><span class="team-dot"></span>Raised over $1.8M for the Eve Appeal; speaks internationally on goals, achievement, and women's leadership</div>
+        </div>
+        <div class="team-focus"><span class="team-focus-label">Role</span> Corporate and investor relationships — the door-opener to both the corporate tracks market and the funding community</div>
+      </div>
+
+      <div class="team-card team-card-accent">
+        <div class="team-role">Co-Founder &amp; Chief AI Officer</div>
+        <div class="team-name">Kent Ertugrul</div>
+        <div class="team-rule"></div>
+        <div class="team-creds">
+          <div class="team-cred"><span class="team-dot"></span>Serial entrepreneur — multiple exits including a London AIM listing</div>
+          <div class="team-cred"><span class="team-dot"></span>China Telecom's sole big data partner — operating at national infrastructure scale</div>
+          <div class="team-cred"><span class="team-dot"></span>Working with AI and machine learning since 1994, before the term existed — across financial markets, global telecoms, and consumer technology</div>
+          <div class="team-cred"><span class="team-dot"></span>Architect of the WOAM AI platform architecture and Five Summits curriculum framework</div>
+          <div class="team-cred"><span class="team-dot"></span>Strategic Advisor on AI — compensation structured as salary plus advisory equity</div>
+        </div>
+        <div class="team-focus"><span class="team-focus-label">Role</span> AI platform architecture, curriculum design, technology partnerships, and AI ecosystem strategy</div>
+      </div>
+
+    </div>
+
+    <div class="team-quote rv">
+      <p>"You have already stood on top of the world. Now let's build something bigger than the summit."</p>
     </div>
   </div>
 </section>
@@ -773,7 +1082,7 @@ tog.addEventListener('click',function(){if(inp.type==='password'){inp.type='text
   <h2 class="cl-t">AI is the greatest equaliser<br>in human history.<br><em>We are going to make sure<br>women get there first.</em></h2>
   <div class="cl-rule"></div>
   <p class="cl-sub">Two Everest summiteers. One AI pioneer. One company. One very large idea.</p>
-  <a class="cl-email" href="mailto:hello@womenonamission.com">hello@womenonamission.com</a>
+  <a class="cl-email" href="/cdn-cgi/l/email-protection#2e464b4242416e5941434b4041404f43475d5d474140004d4143"><span class="__cf_email__" data-cfemail="4a222f2626250a3d25272f2425242b2723393923252464292527">[email&#160;protected]</span></a>
   <div class="cl-conf">Strictly Confidential &middot; Women on a Mission &middot; March 2026 &middot; Not for Distribution</div>
 </div>
 
@@ -782,44 +1091,39 @@ tog.addEventListener('click',function(){if(inp.type==='password'){inp.type='text
 <!-- ═══════════════════════════════════════════════════════ -->
 
 <style>
-/* ADDENDUM STYLES */
-.add-cover { background:var(--ink2); padding:7rem 0 5rem; border-top:1px solid rgba(196,147,58,.15); }
+/* ADDENDUM STYLES — LIGHT */
+.add-cover { background:var(--off); padding:7rem 0 5rem; border-top:2px solid var(--bdr); }
 .add-cover-inner { max-width:1080px; margin:0 auto; padding:0 4.5rem; }
-.add-eyebrow { font-size:.58rem; font-weight:500; letter-spacing:.22em; text-transform:uppercase; color:var(--gold); margin-bottom:1.8rem; }
-.add-title { font-family:'Cormorant Garamond',serif; font-size:clamp(2.6rem,5vw,4.2rem); font-weight:300; line-height:1.05; color:var(--white); margin-bottom:1rem; }
+.add-eyebrow { font-size:.57rem; font-weight:500; letter-spacing:.22em; text-transform:uppercase; color:var(--gold); margin-bottom:1.8rem; }
+.add-title { font-family:'EB Garamond',serif; font-size:clamp(2.6rem,5vw,4.2rem); font-weight:400; line-height:1.05; color:var(--ink); margin-bottom:1rem; }
 .add-title em { color:var(--gold); font-style:italic; }
 .add-rule { width:2.5rem; height:1px; background:var(--gold); margin:1.5rem 0 2rem; }
-.add-intro { font-size:.98rem; color:rgba(255,255,255,.42); line-height:1.82; max-width:680px; }
-.add-intro strong { color:rgba(255,255,255,.8); }
-.add-thesis { margin-top:2.5rem; padding:1.8rem 2.2rem; border:1px solid rgba(196,147,58,.15); background:rgba(196,147,58,.04); }
-.add-thesis p { font-family:'Cormorant Garamond',serif; font-size:1.22rem; font-style:italic; color:var(--goldl); line-height:1.65; }
-
-/* IDEA CARDS */
-.add-grid { max-width:1080px; margin:0 auto; padding:0 4.5rem 6rem; }
-.add-idea { border-bottom:1px solid rgba(255,255,255,.05); padding:3.5rem 0; display:grid; grid-template-columns:5rem 1fr 280px; gap:2.5rem; align-items:start; }
+.add-intro { font-size:.98rem; color:var(--mid); line-height:1.82; max-width:680px; }
+.add-intro strong { color:var(--ink); }
+.add-thesis { margin-top:2.5rem; padding:1.8rem 2.2rem; border:1px solid rgba(192,144,48,.2); background:var(--goldbg); }
+.add-thesis p { font-family:'EB Garamond',serif; font-size:1.22rem; font-style:italic; color:var(--ink); line-height:1.65; }
+.add-grid { background:var(--white); max-width:1080px; margin:0 auto; padding:0 4.5rem 6rem; }
+.add-idea { border-bottom:1px solid var(--bdr); padding:3.5rem 0; display:grid; grid-template-columns:5rem 1fr 280px; gap:2.5rem; align-items:start; }
 .add-idea:last-child { border-bottom:none; }
-.add-n { font-family:'Cormorant Garamond',serif; font-size:3.8rem; font-weight:300; color:rgba(196,147,58,.18); line-height:1; padding-top:.3rem; }
-.add-body {}
-.add-tag { display:inline-block; font-size:.56rem; letter-spacing:.15em; text-transform:uppercase; font-weight:500; padding:.18rem .6rem; background:rgba(196,147,58,.08); color:var(--goldl); margin-bottom:.8rem; }
-.add-name { font-family:'Cormorant Garamond',serif; font-size:clamp(1.5rem,2.3vw,2rem); font-weight:300; color:var(--white); line-height:1.15; margin-bottom:.6rem; }
-.add-name em { font-style:italic; color:var(--goldl); }
-.add-tagline { font-size:.9rem; color:rgba(255,255,255,.42); line-height:1.75; max-width:520px; margin-bottom:1.1rem; }
-.add-why { font-size:.84rem; color:rgba(255,255,255,.32); line-height:1.72; border-left:2px solid rgba(196,147,58,.2); padding-left:1rem; margin-top:.8rem; }
-.add-why strong { color:rgba(255,255,255,.65); }
+.add-n { font-family:'EB Garamond',serif; font-size:3.8rem; font-weight:400; color:rgba(192,144,48,.2); line-height:1; padding-top:.3rem; }
+.add-tag { display:inline-block; font-size:.56rem; letter-spacing:.15em; text-transform:uppercase; font-weight:500; padding:.18rem .6rem; background:rgba(192,144,48,.08); color:var(--gold); margin-bottom:.8rem; }
+.add-name { font-family:'EB Garamond',serif; font-size:clamp(1.5rem,2.3vw,2rem); font-weight:400; color:var(--ink); line-height:1.15; margin-bottom:.6rem; }
+.add-name em { font-style:italic; color:var(--gold); }
+.add-tagline { font-size:.9rem; color:var(--mid); line-height:1.75; max-width:520px; margin-bottom:1.1rem; }
+.add-why { font-size:.84rem; color:var(--mid); line-height:1.72; border-left:2px solid rgba(192,144,48,.3); padding-left:1rem; margin-top:.8rem; }
+.add-why strong { color:var(--ink); font-weight:500; }
 .add-metrics { display:flex; flex-direction:column; gap:.7rem; }
-.add-m { padding:.9rem 1.1rem; background:rgba(255,255,255,.025); border:1px solid rgba(255,255,255,.05); }
-.add-ml { font-size:.58rem; letter-spacing:.13em; text-transform:uppercase; color:rgba(255,255,255,.28); margin-bottom:.25rem; }
-.add-mv { font-size:.88rem; color:var(--goldl); font-weight:400; }
-.add-mn { font-size:.77rem; color:rgba(255,255,255,.32); margin-top:.2rem; line-height:1.5; }
+.add-m { padding:.9rem 1.1rem; background:var(--stone); border:1px solid var(--bdr); }
+.add-ml { font-size:.58rem; letter-spacing:.13em; text-transform:uppercase; color:var(--muted); margin-bottom:.25rem; }
+.add-mv { font-size:.88rem; color:var(--gold); font-weight:400; }
+.add-mn { font-size:.77rem; color:var(--mid); margin-top:.2rem; line-height:1.5; }
 .add-geo { display:flex; gap:.4rem; flex-wrap:wrap; margin-top:.9rem; }
-.add-geo-pill { font-size:.58rem; letter-spacing:.1em; text-transform:uppercase; padding:.18rem .55rem; border:1px solid rgba(255,255,255,.1); color:rgba(255,255,255,.3); }
-
-/* ADDENDUM CLOSING STRIP */
-.add-close { background:var(--ink); padding:2.5rem 0; border-top:1px solid rgba(196,147,58,.1); }
+.add-geo-pill { font-size:.58rem; letter-spacing:.1em; text-transform:uppercase; padding:.18rem .55rem; border:1px solid var(--bdr); color:var(--muted); }
+.add-close { background:var(--off); padding:2.5rem 0; border-top:1px solid var(--bdr); }
 .add-close-inner { max-width:1080px; margin:0 auto; padding:0 4.5rem; display:flex; justify-content:space-between; align-items:center; }
-.add-close-l { font-size:.82rem; color:rgba(255,255,255,.3); }
-.add-close-l strong { color:rgba(255,255,255,.6); display:block; margin-bottom:.25rem; }
-.add-close-r { font-size:.72rem; color:rgba(255,255,255,.2); letter-spacing:.1em; text-transform:uppercase; }
+.add-close-l { font-size:.82rem; color:var(--mid); }
+.add-close-l strong { color:var(--ink); display:block; margin-bottom:.25rem; }
+.add-close-r { font-size:.72rem; color:var(--muted); letter-spacing:.1em; text-transform:uppercase; }
 
 @media(max-width:860px) {
   .add-idea { grid-template-columns:1fr; gap:1.5rem; }
@@ -1044,14 +1348,14 @@ tog.addEventListener('click',function(){if(inp.type==='password'){inp.type='text
 <div class="add-close">
   <div class="add-close-inner">
     <div class="add-close-l">
-      <strong>The WOAM Accelerator · Addendum to Investor Brief</strong>
+      <strong>The WOAM Accelerator · Addendum to Founder Brief</strong>
       These ten ideas represent a selection from a portfolio of twenty AI-native business models developed for the WOAM Accelerator. The full portfolio document is available on request.
     </div>
     <div class="add-close-r">Strictly Confidential · March 2026</div>
   </div>
 </div>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 const observer = new IntersectionObserver(entries => {
   entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('in'); });
 }, { threshold: 0.08 });
@@ -1112,7 +1416,7 @@ document.querySelectorAll('.rv').forEach(el => observer.observe(el));
 </section>
 
 <!-- TWO-TIER STRUCTURE -->
-<section class="sec dark">
+<section class="sec d3">
   <div class="inner">
     <div class="secey rv">Programme Architecture</div>
     <h2 class="sectitle rv">Two Tiers.<br><em>One Transformation.</em></h2>
@@ -1149,44 +1453,9 @@ document.querySelectorAll('.rv').forEach(el => observer.observe(el));
   </div>
 </section>
 
-<!-- A DAY ON THE TRACK -->
-<section class="sec d2">
-  <div class="inner">
-    <div class="secey rv">A Day on the Track</div>
-    <h2 class="sectitle rv">Morning. Afternoon.<br><em>Evening. Repeat.</em></h2>
-    <div class="secrule rv"></div>
-    <div class="trk-days rv">
-      <div class="trk-day">
-        <div class="trk-day-n">AM</div>
-        <div class="trk-day-tag">Physical Challenge</div>
-        <div class="trk-day-body">The terrain is the teacher. Navigation, endurance, collective problem-solving under conditions that cannot be faked. Defences lower. Presence sharpens.</div>
-      </div>
-      <div class="trk-day">
-        <div class="trk-day-n">PM</div>
-        <div class="trk-day-tag">AI Curriculum</div>
-        <div class="trk-day-body">The afternoon turns inward. Real AI tools. Real application. The lessons of the morning — navigating uncertainty, reading the terrain, leading without a map — translate directly into the workshop.</div>
-      </div>
-      <div class="trk-day">
-        <div class="trk-day-n">EVE</div>
-        <div class="trk-day-tag">Community Exchange</div>
-        <div class="trk-day-body">From Day 3 onwards: teaching sessions with local women. Participants explain what they have just learned. The act of teaching consolidates their own understanding.</div>
-      </div>
-      <div class="trk-day">
-        <div class="trk-day-n">D6+</div>
-        <div class="trk-day-tag">Co-Exploration</div>
-        <div class="trk-day-body">Corporate and local women work side by side on real business applications. The hierarchy of expertise dissolves. Local knowledge becomes a competitive asset.</div>
-      </div>
-      <div class="trk-day">
-        <div class="trk-day-n">D10</div>
-        <div class="trk-day-tag">Certification & Departure</div>
-        <div class="trk-day-body">First WOAM AI Educators certified. Alumni platform activated. The network that outlasts the track is already in place before the last tent is packed.</div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- WHAT THE COMPANY GETS -->
-<section class="sec dark">
+<section class="sec d3">
   <div class="inner">
     <div class="secey rv">Corporate Returns</div>
     <h2 class="sectitle rv">What the Company<br><em>Gets Back.</em></h2>
@@ -1226,6 +1495,157 @@ document.querySelectorAll('.rv').forEach(el => observer.observe(el));
   </div>
 </section>
 
+
+<!-- WHY SEND YOUR TEAM -->
+<section class="sec d2">
+  <div class="inner">
+    <div class="secey rv">The Corporate Case</div>
+    <h2 class="sectitle rv">Why Send<br><em>Your Team?</em></h2>
+    <div class="secrule rv"></div>
+    <p class="lead rv">Three departments in every large organisation are under pressure to demonstrate real impact. The WOAM track answers all three simultaneously — and the answer to each is different enough to justify three separate internal conversations.</p>
+
+    <div class="corp-buyer-row rv">
+      <div class="corp-buyer">
+        <div class="corp-buyer-dept">HR &amp; Talent</div>
+        <div class="corp-buyer-title">The Best Investment You Can Make in a Senior Woman</div>
+        <div class="corp-buyer-body">The women your organisation most needs to retain are the ones most likely to leave. A WOAM track is a signal — not a survey, not a committee, not a promise. It is a week of genuine investment in the whole person: her capability, her leadership, her story. Retention programmes that cost more and deliver less are everywhere. This is not one of them.</div>
+      </div>
+      <div class="corp-buyer">
+        <div class="corp-buyer-dept">L&amp;D / Learning &amp; Development</div>
+        <div class="corp-buyer-title">AI Training That Actually Sticks</div>
+        <div class="corp-buyer-body">The half-life of an AI workshop attended in a meeting room is measured in days. The half-life of AI skills acquired by teaching them — under physical pressure, to real people with real stakes — is measured in careers. The WOAM track is not a training event. It is a learning architecture built around the science of retention: challenge, application, and teaching as the three compounding mechanisms.</div>
+      </div>
+      <div class="corp-buyer">
+        <div class="corp-buyer-dept">ESG / Sustainability</div>
+        <div class="corp-buyer-title">Impact That Survives the Audit</div>
+        <div class="corp-buyer-body">Certified WOAM AI Educators are documented outcomes. AI skills transferred are tracked data points. Businesses started by community women are real companies. Every element of the track generates reporting-grade evidence of genuine community economic impact — not an aspirational statement in an annual report, but a set of numbers with names behind them.</div>
+      </div>
+    </div>
+
+    <div class="corp-why-grid rv">
+      <div class="corp-why-card">
+        <div class="corp-why-title">The Cohort Effect</div>
+        <div class="corp-why-body">Up to four companies send participants to each track. The peer relationships formed under genuine physical pressure — between senior women from McKinsey, LVMH, Microsoft, and HSBC, for example — are not conference networking. <strong>They are the kind of relationships that endure.</strong> Your executive returns with a peer group she will call for the rest of her career.</div>
+      </div>
+      <div class="corp-why-card">
+        <div class="corp-why-title">The Leadership Story</div>
+        <div class="corp-why-body">Ask your senior women what leadership story they tell in a board presentation, an investor meeting, a client pitch. Most have nothing. A WOAM track participant has a story that opens rooms: she crossed a desert, taught AI to women who had never used a smartphone, and came back a different leader. <strong>That story is worth more than the week.</strong></div>
+      </div>
+      <div class="corp-why-card">
+        <div class="corp-why-title">The AI Fluency Dividend</div>
+        <div class="corp-why-body">A participant who returns AI-fluent — who has used real tools under real pressure and taught them to others — is not a different grade of employee. She is a different category. <strong>She becomes the person her organisation calls</strong> when it needs to think clearly about what AI can actually do, rather than what a vendor claims it can do.</div>
+      </div>
+      <div class="corp-why-card">
+        <div class="corp-why-title">The Brand Authenticity Premium</div>
+        <div class="corp-why-body">ESG commitments that do not survive scrutiny are becoming a liability. The WOAM track generates evidence: specific women, specific skills transferred, specific businesses started. <strong>When your communications team writes the story, every sentence is true.</strong> That is rarer than it should be.</div>
+      </div>
+    </div>
+
+    <div class="corp-objection rv">
+      <div class="corp-obj q">
+        <div class="corp-obj-label">The Objection</div>
+        <div class="corp-obj-text">"We already have a leadership development programme. And an AI training budget. And an ESG strategy. Why do we need this?"</div>
+      </div>
+      <div class="corp-obj a">
+        <div class="corp-obj-label">The Answer</div>
+        <div class="corp-obj-text">Because none of those programmes produce a leader who has done all three at once — under conditions that cannot be simulated. The WOAM track is not a replacement for any of them. It is the one experience that makes all of them land differently when she returns.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BUSINESS SCHOOL PARTNERSHIPS -->
+<section class="sec d3">
+  <div class="inner">
+    <div class="secey rv">Academic Partnerships</div>
+    <h2 class="sectitle rv">Accredited by the<br><em>World's Best Schools.</em></h2>
+    <div class="secrule rv"></div>
+    <p class="lead rv">The single most powerful commercial unlock available to WOAM is CPD accreditation from a top business school. A WOAM track earning INSEAD or London Business School credits does not compete with corporate retreats. It becomes accredited executive education — bought from a different budget, by a different buyer, at a different price.</p>
+
+    <div class="bschool-reframe rv">
+      <div class="bschool-reframe-label">The Strategic Reframe</div>
+      <div class="bschool-reframe-text">"Without accreditation, we are a premium adventure programme with an AI curriculum. With it, we are accredited executive education with an extraordinary delivery method. The conversation with the corporate buyer changes entirely."</div>
+      <div class="bschool-reframe-sub">CPD accreditation shifts the procurement conversation from HR discretionary spend to L&amp;D budget — a larger pool, with longer approval cycles but higher deal values and multi-year commitments.</div>
+    </div>
+
+    <div class="bschool-grid rv">
+      <div class="bschool-card feat">
+        <div class="bschool-name">INSEAD</div>
+        <div class="bschool-loc">Fontainebleau · Singapore · Abu Dhabi — First Approach Priority</div>
+        <div class="bschool-body">Geographic alignment with Valerie's Singapore base. Existing Women Leaders Programme serving an identical audience. The INSEAD brand carries particular weight across Asia-Pacific corporate markets — WOAM's primary early geography.</div>
+        <div class="bschool-models">
+          <span class="bschool-pill gold">CPD Accreditation</span>
+          <span class="bschool-pill gold">Curriculum Co-development</span>
+          <span class="bschool-pill">Research Partnership</span>
+          <span class="bschool-pill">Distribution</span>
+        </div>
+      </div>
+      <div class="bschool-card feat">
+        <div class="bschool-name">London Business School</div>
+        <div class="bschool-loc">London — Annabelle Bond Network Priority</div>
+        <div class="bschool-body">LBS CPD credentials carry strong weight with FTSE 100 and European corporate buyers. Annabelle Bond's UK corporate network creates a direct introduction pathway. LBS's existing focus on women's leadership and emerging market research makes the partnership thesis straightforward.</div>
+        <div class="bschool-models">
+          <span class="bschool-pill gold">CPD Accreditation</span>
+          <span class="bschool-pill gold">Research Partnership</span>
+          <span class="bschool-pill">Curriculum Co-development</span>
+          <span class="bschool-pill">Distribution</span>
+        </div>
+      </div>
+      <div class="bschool-card">
+        <div class="bschool-name">Oxford Saïd</div>
+        <div class="bschool-loc">Oxford, United Kingdom</div>
+        <div class="bschool-body">Strong women's leadership and AI ethics research agenda. Oxford's global brand recognition makes accreditation particularly valuable for corporate buyers in Asia and the Middle East. The Saïd Business School's focus on responsible leadership is a natural narrative fit.</div>
+        <div class="bschool-models">
+          <span class="bschool-pill">CPD Accreditation</span>
+          <span class="bschool-pill">Research Partnership</span>
+          <span class="bschool-pill">Curriculum Co-development</span>
+        </div>
+      </div>
+      <div class="bschool-card">
+        <div class="bschool-name">IMD</div>
+        <div class="bschool-loc">Lausanne, Switzerland</div>
+        <div class="bschool-body">IMD's Orchestrating Winning Performance programme and its focus on real-world leadership under pressure is the closest existing analogue to the WOAM track model. The Swiss corporate market and IMD's strong luxury sector relationships align directly with Valerie's network.</div>
+        <div class="bschool-models">
+          <span class="bschool-pill">CPD Accreditation</span>
+          <span class="bschool-pill">Curriculum Co-development</span>
+          <span class="bschool-pill">Distribution</span>
+        </div>
+      </div>
+      <div class="bschool-card">
+        <div class="bschool-name">HEC Paris</div>
+        <div class="bschool-loc">Paris, France</div>
+        <div class="bschool-body">French institutional alignment with Valerie's network and WOAM's French co-founder base. HEC Paris's strong corporate relationships across CAC 40 companies — particularly in luxury, consulting, and financial services — map directly to WOAM's primary sponsor targets.</div>
+        <div class="bschool-models">
+          <span class="bschool-pill">CPD Accreditation</span>
+          <span class="bschool-pill">Research Partnership</span>
+          <span class="bschool-pill">Distribution</span>
+        </div>
+      </div>
+      <div class="bschool-card">
+        <div class="bschool-name">Wharton / Kellogg</div>
+        <div class="bschool-loc">Philadelphia &amp; Chicago, United States</div>
+        <div class="bschool-body">US corporate market access for Year 2 expansion. Wharton and Kellogg's deep relationships with technology companies — Microsoft, Google, Salesforce — align with the technology sector corporate sponsor pipeline. Kellogg's women's leadership programmes are among the most established in the US market.</div>
+        <div class="bschool-models">
+          <span class="bschool-pill">CPD Accreditation</span>
+          <span class="bschool-pill">Research Partnership</span>
+          <span class="bschool-pill">Distribution</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="fin-notes rv">
+      <div class="fn">
+        <div class="fn-t">What accreditation changes</div>
+        <div class="fn-b">Without accreditation: discretionary HR or L&amp;D spend, single-sponsor commitment, price sensitivity. With accreditation: executive education budget, multi-year corporate contracts, procurement through established business school channels, eligibility for government-funded leadership development schemes in Singapore, the UK, and France.</div>
+      </div>
+      <div class="fn">
+        <div class="fn-t">The research partnership opportunity</div>
+        <div class="fn-b">Every WOAM track generates longitudinal data on AI skill acquisition, community economic impact, and women's leadership development that no business school can generate independently. That data is the partnership currency — WOAM brings the field, the school brings the credential. Both benefit from the output.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 </div><!-- /panel-tracks -->
 
 
@@ -1257,7 +1677,7 @@ document.querySelectorAll('.rv').forEach(el => observer.observe(el));
         <p class="plt-face-desc">A private community and continuing AI education platform for corporate track alumni. Advanced curriculum, peer cohort, expert guest sessions, and a global network of senior women executives who have been through the same experience.</p>
         <div class="plt-face-rev">$600/year subscription · Revenue from Year 1</div>
       </div>
-      <div class="plt-face" style="background:rgba(196,147,58,.04);border:1px solid rgba(196,147,58,.12);">
+      <div class="plt-face" style="background:var(--goldbg);border:1px solid rgba(192,144,48,.2);">
         <div class="plt-face-n">02</div>
         <div class="plt-face-tag">Local Communities</div>
         <div class="plt-face-name">The Local Women's Agent</div>
@@ -1276,7 +1696,7 @@ document.querySelectorAll('.rv').forEach(el => observer.observe(el));
 </section>
 
 <!-- TECHNICAL ARCHITECTURE -->
-<section class="sec dark">
+<section class="sec d3">
   <div class="inner">
     <div class="secey rv">Technical Architecture</div>
     <h2 class="sectitle rv">Built for the<br><em>Last Mile.</em></h2>
@@ -1367,7 +1787,7 @@ document.querySelectorAll('.rv').forEach(el => observer.observe(el));
 </section>
 
 <!-- PLATFORM ECONOMICS -->
-<section class="sec dark">
+<section class="sec d3">
   <div class="inner">
     <div class="secey rv">Platform Economics</div>
     <h2 class="sectitle rv">The Asset That<br><em>Compounds Over Time.</em></h2>
@@ -1438,7 +1858,7 @@ document.querySelectorAll('.rv').forEach(el => observer.observe(el));
 </section>
 
 <!-- NETWORK NUMBERS -->
-<section class="sec dark">
+<section class="sec d3">
   <div class="inner">
     <div class="secey rv">Scale Projections</div>
     <h2 class="sectitle rv">What the Network<br><em>Looks Like at Scale.</em></h2>
@@ -1452,6 +1872,74 @@ document.querySelectorAll('.rv').forEach(el => observer.observe(el));
     <div class="trk-insight rv" style="margin-top:2.5rem;">
       <div class="trk-insight-label">The compounding logic</div>
       <div class="trk-insight-text" style="font-size:1.15rem;">"WOAM is the ignition. The network is the fire. Every track lights a fire that burns without us — and every fire creates the conditions for the next."</div>
+    </div>
+  </div>
+</section>
+
+<!-- UNLIMITED SCALE -->
+<section class="sec d2">
+  <div class="inner">
+    <div class="secey rv">The Structural Advantage</div>
+    <h2 class="sectitle rv">No Management Ceiling.<br><em>Unlimited Scale.</em></h2>
+    <div class="secrule rv"></div>
+    <p class="lead rv">Every traditional franchise or accelerator model hits a wall. The wall has a name: management bandwidth. Vetting, onboarding, supervising, supporting, auditing — each portfolio company requires human attention, and human attention has a hard limit. AI removes that wall entirely.</p>
+
+    <div class="unlim-banner rv">
+      <div class="unlim-headline">In a traditional model,<br>100 companies means <em>100 managers.</em><br>In the WOAM model, it means <em>one platform.</em></div>
+      <p class="unlim-sub">The WOAM AI layer handles the functions that historically constrained portfolio size. <strong>Vetting, onboarding, performance monitoring, coaching, compliance, curriculum delivery, business mentorship, financial tracking</strong> — every function that previously required a human being per company now requires a prompt per company. The economics of scale have been permanently inverted.</p>
+      <div class="unlim-number">∞</div>
+    </div>
+
+    <div class="unlim-contrast rv">
+      <div class="unlim-col before">
+        <div class="unlim-col-label">Traditional Model — The Constraint</div>
+        <div class="unlim-col-head">Every new company adds cost and complexity</div>
+        <div class="unlim-item">Vetting each applicant requires human judgement, time, and institutional knowledge — typically weeks per candidate</div>
+        <div class="unlim-item">Onboarding requires personal coaching from a programme manager — one manager per 8–12 companies maximum</div>
+        <div class="unlim-item">Ongoing supervision requires check-ins, reporting, interpretation, and escalation — proportional headcount forever</div>
+        <div class="unlim-item">Quality control means sampling — most companies are unsupervised most of the time, and problems are discovered late</div>
+        <div class="unlim-item">Curriculum updates require retraining human coaches before they can reach companies — months of lag</div>
+        <div class="unlim-item">Portfolio size is therefore a function of funding: more companies requires more staff, which requires more capital</div>
+      </div>
+      <div class="unlim-divider">→</div>
+      <div class="unlim-col after">
+        <div class="unlim-col-label">The WOAM Model — The Inversion</div>
+        <div class="unlim-col-head">Every new company adds revenue, not cost</div>
+        <div class="unlim-item">AI vets every applicant against consistent criteria — instantly, at any volume, with no degradation in quality at scale</div>
+        <div class="unlim-item">Onboarding is delivered by the platform — same quality for company number 1 as for company number 10,000</div>
+        <div class="unlim-item">AI monitors every company continuously — flagging issues, prompting interventions, tracking KPIs in real time across the entire portfolio simultaneously</div>
+        <div class="unlim-item">Quality control is total — every interaction logged, every milestone tracked, every deviation surfaced automatically</div>
+        <div class="unlim-item">Curriculum updates deploy instantly to every company and every educator on the platform — zero lag, zero retraining cost</div>
+        <div class="unlim-item">Portfolio size is therefore a function of expeditions: more tracks means more companies, with near-zero marginal management cost</div>
+      </div>
+    </div>
+
+    <div class="unlim-pillars rv">
+      <div class="unlim-pillar">
+        <div class="unlim-pillar-n">01</div>
+        <div class="unlim-pillar-title">AI Vetting</div>
+        <div class="unlim-pillar-body">Every woman who completes the Five Summits curriculum generates a structured profile — skills demonstrated, business ideas assessed, learning velocity measured. <strong>The AI identifies Accelerator candidates before a human ever reviews a file.</strong> Consistent. Unbiased. Instant.</div>
+      </div>
+      <div class="unlim-pillar">
+        <div class="unlim-pillar-n">02</div>
+        <div class="unlim-pillar-title">AI Onboarding</div>
+        <div class="unlim-pillar-body">Each new Accelerator company receives a bespoke onboarding pathway generated from its specific business type, geography, and founder profile. <strong>A bookkeeper in Rwanda and a carbon broker in Nepal receive different onboarding journeys</strong> — both delivered at zero marginal cost.</div>
+      </div>
+      <div class="unlim-pillar">
+        <div class="unlim-pillar-n">03</div>
+        <div class="unlim-pillar-title">AI Supervision</div>
+        <div class="unlim-pillar-body">The platform monitors revenue milestones, curriculum completion, client acquisition, and business health indicators across every portfolio company simultaneously. <strong>A human manager reviews exceptions. The AI handles everything else.</strong> The ratio shifts from 1:10 to 1:1,000.</div>
+      </div>
+      <div class="unlim-pillar">
+        <div class="unlim-pillar-n">04</div>
+        <div class="unlim-pillar-title">AI Mentorship</div>
+        <div class="unlim-pillar-body">Every founder has access to an AI business coach available 24 hours a day, in her language, trained on the full WOAM curriculum and the specific requirements of her business model. <strong>The quality of mentorship available to a founder in Kyrgyzstan exceeds what most accelerators offer in London.</strong></div>
+      </div>
+    </div>
+
+    <div class="unlim-closing-quote">
+      <p>"The question every traditional accelerator asks is: how many companies can we manage? WOAM asks a different question: how many companies can we reach? With AI handling management, supervision, and mentorship — the answer is: as many as the expeditions can seed."</p>
+      <cite>— The WOAM Scale Thesis</cite>
     </div>
   </div>
 </section>
@@ -1472,7 +1960,7 @@ document.querySelectorAll('.rv').forEach(el => observer.observe(el));
       <div class="net-geo-card">
         <div class="net-geo-pill">South Asia</div>
         <div class="net-geo-name">Nepal</div>
-        <div class="net-geo-body">14 years of WOAM expedition history. Deep community trust already built. Himalayan backdrop for premium corporate track narrative. Nepali-language curriculum in development.</div>
+        <div class="net-geo-body">Over thirteen years of WOAM expedition history. Deep community trust already built. Himalayan backdrop for premium corporate track narrative. Nepali-language curriculum in development.</div>
       </div>
       <div class="net-geo-card">
         <div class="net-geo-pill">Central Asia</div>
@@ -1489,9 +1977,9 @@ document.querySelectorAll('.rv').forEach(el => observer.observe(el));
         <div class="net-geo-name">Ethiopia</div>
         <div class="net-geo-body">Third-largest population in Africa. Diaspora of 3M+ in the US and Europe — direct Accelerator portfolio market. Strong agricultural base for agri-intelligence and export readiness businesses.</div>
       </div>
-      <div class="net-geo-card" style="border-color:rgba(196,147,58,.18);background:rgba(196,147,58,.03);">
-        <div class="net-geo-pill" style="color:rgba(255,255,255,.4);border-color:rgba(255,255,255,.12);">Year 2–3 · Pipeline</div>
-        <div class="net-geo-name" style="color:rgba(255,255,255,.5);">Indonesia · Bhutan · + more</div>
+      <div class="net-geo-card" style="border-color:rgba(192,144,48,.25);background:var(--goldbg);">
+        <div class="net-geo-pill" style="color:var(--muted);border-color:var(--bdr);">Year 2–3 · Pipeline</div>
+        <div class="net-geo-name" style="color:var(--mid);">Indonesia · Bhutan · + more</div>
         <div class="net-geo-body">Southeast Asia and South Asia expansion planned for Stage 2. Indonesia: 4th largest population globally. Bhutan: premium expedition brand alignment and unique Accelerator IP (traditional medicine, cultural heritage).</div>
       </div>
     </div>
@@ -1499,7 +1987,7 @@ document.querySelectorAll('.rv').forEach(el => observer.observe(el));
 </section>
 
 <!-- WHAT THE EDUCATOR RECEIVES -->
-<section class="sec dark">
+<section class="sec d3">
   <div class="inner">
     <div class="secey rv">The Educator Proposition</div>
     <h2 class="sectitle rv">What a Certified<br><em>Educator Receives.</em></h2>
@@ -1529,13 +2017,23 @@ function switchTab(tab) {
   document.getElementById('panel-' + tab).classList.add('active');
   // Scroll to top
   window.scrollTo({ top: 0, behavior: 'smooth' });
-  // Re-trigger reveal animations in the new panel
+  // Reset and re-observe all rv elements in the new panel
+  // Immediately show elements in the viewport; observer handles the rest
   setTimeout(() => {
     document.querySelectorAll('#panel-' + tab + ' .rv').forEach(el => {
       el.classList.remove('in');
+      observer2.unobserve(el);
       observer2.observe(el);
     });
-  }, 50);
+    // After a short delay, force-show anything still hidden (catches elements
+    // the observer may have missed on tab switch)
+    setTimeout(() => {
+      document.querySelectorAll('#panel-' + tab + ' .rv:not(.in)').forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight) el.classList.add('in');
+      });
+    }, 400);
+  }, 80);
 }
 
 // Nav scroll effect for investor panel
@@ -1546,11 +2044,14 @@ if (nav) {
   });
 }
 
-// Reveal observer
+// Reveal observer — watches all .rv elements
 const observer2 = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
 }, { threshold: 0.07 });
+
+// Observe all .rv elements on load
 document.querySelectorAll('.rv').forEach(el => observer2.observe(el));
+
 </script>
 </body>
 </html>
